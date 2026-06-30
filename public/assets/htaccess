@@ -1,0 +1,4 @@
+<FilesMatch "^speed14-1cade-firebase-adminsdk-z1hh3-f6dd70409e\.json$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

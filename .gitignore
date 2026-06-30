@@ -1,0 +1,12 @@
+# CodeIgniter 4 Git Ignore
+/vendor/
+/writable/*
+!/writable/index.html
+!/writable/keep
+/writable/cache/*
+/writable/debugbar/*
+/writable/session/*
+/writable/uploads/*
+.env
+.phpunit.result.cache
+.DS_Store

@@ -1,0 +1,92 @@
+.policyclass h1 {
+    font-size: 1.875rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    color: #1f2937 !important;
+}
+
+.policyclass h2 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #1f2937 !important;
+}
+
+.policyclass h3 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    color: #1f2937 !important;
+}
+
+.policyclass h4 {
+    font-size: 1.125rem !important;
+    font-weight: 500 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    color: #374151 !important;
+}
+
+.policyclass h5 {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.25rem !important;
+    color: #374151 !important;
+}
+
+.policyclass h6 {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
+    text-transform: uppercase !important;
+    color: #4b5563 !important;
+}
+
+.policyclass p {
+    font-size: 1rem !important;
+    color: #374151 !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.625 !important;
+}
+
+.policyclass a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+}
+
+.policyclass ul {
+    padding-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    color: #374151 !important;
+    list-style-type: disc !important;
+}
+
+.policyclass li {
+    margin-bottom: 0.5rem !important;
+}
+
+.policyclass table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 1.5rem 0 !important;
+    font-size: 0.875rem !important;
+    color: #374151 !important;
+}
+
+.policyclass th {
+    background-color: #f3f4f6 !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 1rem !important;
+    border: 1px solid #d1d5db !important;
+    text-align: left !important;
+}
+
+.policyclass td {
+    padding: 0.5rem 1rem !important;
+    border: 1px solid #d1d5db !important;
+}

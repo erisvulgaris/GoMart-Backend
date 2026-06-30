@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - CI_ENVIRONMENT=production
+      - database.default.hostname=db
+      - database.default.database=gomart
+      - database.default.username=gomart
+      - database.default.password=gomart_secure_pass
+      - database.default.DBDriver=MySQLi
+      - MYSQL_USER=gomart
+      - MYSQL_PASSWORD=gomart_secure_pass
+      - MYSQL_DATABASE=gomart
+    depends_on:
+      - db
+    volumes:
+      - writable_data:/var/www/html/writable
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=gomart
+      - MYSQL_USER=gomart
+      - MYSQL_PASSWORD=gomart_secure_pass
+      - MYSQL_ROOT_PASSWORD=gomart_root_secure_pass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  writable_data:
+  db_data:
