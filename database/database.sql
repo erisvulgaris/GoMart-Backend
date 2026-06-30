@@ -793,7 +793,7 @@ CREATE TABLE `orders` (
   `payment_method_id` int(11) NOT NULL,
   `coupon_id` int(11) NOT NULL,
   `status` int(11) DEFAULT 1,
-  `order_delivery_otp` text NOT NULL DEFAULT '1234',
+  `order_delivery_otp` varchar(255) NOT NULL DEFAULT '1234',
   `delivery_date` datetime DEFAULT NULL,
   `timeslot` text DEFAULT NULL,
   `order_date` datetime NOT NULL,
