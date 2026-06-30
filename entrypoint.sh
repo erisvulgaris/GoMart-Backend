@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+# Disable exit on error to allow graceful error logging and Apache start
+set +e
 
 echo "=== GoMart Startup Script ==="
 
@@ -13,12 +14,15 @@ echo "MySQL is up and online!"
 
 # Check if the database has been seeded
 # We do this by checking if the 'settings' table exists
-DB_EXISTS=$(mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "SHOW TABLES LIKE 'settings';" | grep settings || true)
+DB_EXISTS=$(mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "SHOW TABLES LIKE 'settings';" 2>/dev/null | grep settings || true)
 
 if [ -z "$DB_EXISTS" ]; then
     echo "Database is empty! Seeding 'database.sql' now..."
-    mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 "$MYSQL_DATABASE" < /var/www/html/database/database.sql
-    echo "Database seeding completed successfully!"
+    if mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 "$MYSQL_DATABASE" < /var/www/html/database/database.sql; then
+        echo "Database seeding completed successfully!"
+    else
+        echo "ERROR: Database seeding failed! SQL import returned non-zero exit code."
+    fi
 else
     echo "Database already seeded. Skipping SQL import."
 fi
