@@ -5,7 +5,7 @@ echo "=== GoMart Startup Script ==="
 
 # Wait for MySQL database container to start
 echo "Waiting for MySQL database at host 'db' to become ready..."
-until mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" -e "SELECT 1" >/dev/null 2>&1; do
+until mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" -e "SELECT 1"; do
     echo "MySQL is unavailable - sleeping..."
     sleep 2
 done
