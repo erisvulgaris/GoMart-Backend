@@ -27,6 +27,14 @@ else
     echo "Database already seeded. Skipping SQL import."
 fi
 
+# Ensure CodeIgniter writable subdirectories exist and have correct permissions
+mkdir -p /var/www/html/writable/logs
+mkdir -p /var/www/html/writable/cache
+mkdir -p /var/www/html/writable/session
+mkdir -p /var/www/html/writable/uploads
+chown -R www-data:www-data /var/www/html/writable
+chmod -R 775 /var/www/html/writable
+
 # Run the parent image entrypoint command (Apache foreground)
 echo "Starting Apache web server..."
 exec apache2-foreground
