@@ -17,7 +17,11 @@ echo "MySQL is up and online!"
 DB_EXISTS=$(mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "SHOW TABLES LIKE 'settings';" 2>/dev/null | grep settings || true)
 
 if [ -z "$DB_EXISTS" ]; then
-    echo "Database is empty! Seeding 'database.sql' now..."
+    echo "Database settings table not found. Cleaning existing tables to ensure a fresh import..."
+    mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -N -D"$MYSQL_DATABASE" -e "SHOW TABLES;" | while read table; do
+        mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS \`$table\`;"
+    done
+    echo "Database cleaned. Seeding 'database.sql' now..."
     if mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 "$MYSQL_DATABASE" < /var/www/html/database/database.sql; then
         echo "Database seeding completed successfully!"
     else
