@@ -131,7 +131,7 @@ CREATE TABLE `banners` (
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `sort_order` int(11) NOT NULL DEFAULT 0,
   `placement` int(11) NOT NULL DEFAULT 0 COMMENT '0 for header, 1 for deal of the day, 2 for home, 3 for footer'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -734,7 +734,7 @@ CREATE TABLE `home_screens` (
   `tab_icon` varchar(255) DEFAULT NULL COMMENT 'Relative path to tab icon',
   `tab_active_color` varchar(20) DEFAULT NULL COMMENT 'Tab label color when active',
   `tab_inactive_color` varchar(20) DEFAULT NULL COMMENT 'Tab label color when inactive'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -892,7 +892,7 @@ CREATE TABLE `order_product_taxes` (
   `tax_name` varchar(255) NOT NULL,
   `tax_percentage` decimal(10,2) NOT NULL DEFAULT 0.00,
   `tax_amount` decimal(10,2) NOT NULL DEFAULT 0.00
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1268,7 +1268,7 @@ CREATE TABLE `product_taxes` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `tax_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1630,7 +1630,7 @@ CREATE TABLE `sections` (
   `bg_image` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1643,7 +1643,7 @@ CREATE TABLE `section_brands` (
   `section_id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1656,7 +1656,7 @@ CREATE TABLE `section_categories` (
   `section_id` int(10) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1669,7 +1669,7 @@ CREATE TABLE `section_highlights` (
   `section_id` int(11) NOT NULL,
   `highlight_id` int(11) NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1682,7 +1682,7 @@ CREATE TABLE `section_products` (
   `section_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1695,7 +1695,7 @@ CREATE TABLE `section_sellers` (
   `section_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -2097,7 +2097,7 @@ CREATE TABLE `sys_config` (
   `cfg_origin` varchar(255) NOT NULL,
   `cfg_sync` bigint(20) NOT NULL DEFAULT 0,
   `cfg_state` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sys_config`
