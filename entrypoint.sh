@@ -2,7 +2,7 @@
 # Disable exit on error to allow graceful error logging and Apache start
 set +e
 
-echo "=== GoMart Startup Script ==="
+echo "=== CityLoop Startup Script ==="
 
 # Wait for MySQL database container to start
 echo "Waiting for MySQL database at host 'db' to become ready..."

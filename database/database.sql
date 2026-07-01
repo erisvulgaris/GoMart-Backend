@@ -3532,5 +3532,5 @@ COMMIT;
 --
 
 INSERT INTO `seller` (`id`, `name`, `store_name`, `slug`, `email`, `password`, `mobile`, `status`, `commission`, `balance`) VALUES
-(1, 'Default Seller', 'GoMart Store', 'gomart-store', 'seller@gmail.com', '$2y$10$kqpq3JQXmSsmgXjti9y5a.0sYmcvAKQAXxUICzK4oHna8p7lDKZqy', '1234567890', 1, 0.00, 0.00)
+(1, 'Default Seller', 'CityLoop Store', 'cityloop-store', 'seller@gmail.com', '$2y$10$kqpq3JQXmSsmgXjti9y5a.0sYmcvAKQAXxUICzK4oHna8p7lDKZqy', '1234567890', 1, 0.00, 0.00)
 ON DUPLICATE KEY UPDATE `email` = VALUES(`email`);
