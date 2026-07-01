@@ -10,11 +10,11 @@ services:
       - CI_ENVIRONMENT=production
       - database.default.hostname=db
       - database.default.database=cityloop
-      - database.default.username=cityloop
-      - database.default.password=cityloop_secure_pass
+      - database.default.username=gomart
+      - database.default.password=gomart_secure_pass
       - database.default.DBDriver=MySQLi
-      - MYSQL_USER=cityloop
-      - MYSQL_PASSWORD=cityloop_secure_pass
+      - MYSQL_USER=gomart
+      - MYSQL_PASSWORD=gomart_secure_pass
       - MYSQL_DATABASE=cityloop
     depends_on:
       - db
@@ -27,9 +27,9 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=cityloop
-      - MYSQL_USER=cityloop
-      - MYSQL_PASSWORD=cityloop_secure_pass
-      - MYSQL_ROOT_PASSWORD=cityloop_root_secure_pass
+      - MYSQL_USER=gomart
+      - MYSQL_PASSWORD=gomart_secure_pass
+      - MYSQL_ROOT_PASSWORD=gomart_root_secure_pass
     volumes:
       - db_data:/var/lib/mysql
 
