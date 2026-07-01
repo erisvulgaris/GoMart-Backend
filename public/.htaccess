@@ -1,3 +1,6 @@
+# Prioritize Next.js static build over CodeIgniter entrypoint
+DirectoryIndex index.html index.php
+
 # Disable directory browsing
 Options -Indexes
 
