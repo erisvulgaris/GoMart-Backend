@@ -164,7 +164,7 @@
 
     <?= $this->include('template/script') ?>
     <script src="<?= base_url('/assets/page-script/deliverableArea.js') ?>"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?= $settings['map_api_key'] ?>&libraries=drawing&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= $settings['map_api_key'] ?>&libraries=drawing&v=3.64" defer></script>
 
 </body>
 

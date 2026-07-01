@@ -232,7 +232,7 @@
 
     <?= $this->include('template/script') ?>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $settings['map_api_key'] ?>&libraries=drawing&v=weekly&callback=initMapBoundry" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $settings['map_api_key'] ?>&libraries=drawing&v=3.64&callback=initMapBoundry" defer></script>
     <script src="<?= base_url('/assets/page-script/editDeliverableArea.js') ?>"></script>
     <script>
         var map;
