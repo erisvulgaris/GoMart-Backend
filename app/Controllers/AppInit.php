@@ -42,6 +42,30 @@ class AppInit extends Controller
             ]);
         }
 
+        // Auto-seed Ping4SMS gateway (ID = 6)
+        if ($db->tableExists('sms_gateway')) {
+            $existingGateway = $db->table('sms_gateway')->where('id', 6)->get()->getRowArray();
+            $ping4sms_val = json_encode([
+                'key' => '668eb55de10d3af12d482c4bc80000eb',
+                'route' => '2',
+                'sender' => 'PNGOTP',
+                'templateid' => '1507165967974501361',
+                'message' => 'Dear Customer,#OTP# is your verification code -PNGOTP'
+            ]);
+            
+            if (!$existingGateway) {
+                $db->table('sms_gateway')->insert([
+                    'id' => 6,
+                    'name' => 'Ping4SMS',
+                    'value' => $ping4sms_val,
+                    'img' => 'assets/dist/img/fast2sms.png',
+                    'is_active' => 1
+                ]);
+                // Deactivate all other gateways
+                $db->table('sms_gateway')->where('id !=', 6)->update(['is_active' => 0]);
+            }
+        }
+
         return redirect()->to('/admin/dashboard');
     }
 

@@ -503,6 +503,8 @@ class CustomerAppAPI_1_6 extends BaseController
                 return  $this->msg91($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
             } elseif ($smsGateway['id'] == 5) {
                 return  $this->fast2Sms($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
+            } elseif ($smsGateway['id'] == 6) {
+                return $this->ping4sms($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
             } else {
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Failed to load SMS Setting']);
             }
@@ -567,6 +569,8 @@ class CustomerAppAPI_1_6 extends BaseController
                 return  $this->msg91($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
             } elseif ($smsGateway['id'] == 5) {
                 return  $this->fast2Sms($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
+            } elseif ($smsGateway['id'] == 6) {
+                return $this->ping4sms($smsGateway['value'], $otp, $dataInput['mobile'], $is_first_time);
             } else {
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Failed to load SMS Setting']);
             }
@@ -11936,4 +11940,120 @@ class CustomerAppAPI_1_6 extends BaseController
             ])->setStatusCode(500);
         }
     }
+
+    private function ping4sms($smsSetting, $otp, $mobile, $is_first_time = false)
+    {
+        // 1. Phone Normalization
+        $phone = preg_replace('/[^0-9]/', '', $mobile);
+        if (strpos($phone, '91') === 0 && strlen($phone) > 10) {
+            $phone = substr($phone, 2);
+        }
+        
+        // Validation rules
+        if (strlen($phone) !== 10 || !preg_match('/^[6-9]/', $phone)) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'INVALID_PHONE'
+            ]);
+        }
+
+        // 2. Parse settings
+        $settings = json_decode($smsSetting, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Invalid SMS gateway configuration'
+            ]);
+        }
+
+        $apiKey = $settings['key'] ?? '668eb55de10d3af12d482c4bc80000eb';
+        $route = $settings['route'] ?? '2';
+        $sender = $settings['sender'] ?? 'PNGOTP';
+        $templateid = $settings['templateid'] ?? '1507165967974501361';
+        $messageTemplate = $settings['message'] ?? 'Dear Customer,#OTP# is your verification code -PNGOTP';
+        
+        $message = str_replace('#OTP#', $otp, $messageTemplate);
+        
+        // Log attempt (Never log API keys or OTP values)
+        log_message('info', "SMS_REQUEST: Sending to phone " . substr($phone, 0, 4) . "XXXXXX at timestamp " . time());
+
+        // Construct API URL
+        $url = "https://site.ping4sms.com/api/smsapi?key=" . urlencode($apiKey)
+            . "&route=" . urlencode($route)
+            . "&sender=" . urlencode($sender)
+            . "&number=" . urlencode($phone)
+            . "&sms=" . urlencode($message)
+            . "&templateid=" . urlencode($templateid);
+
+        $success = false;
+        $resultText = "";
+        
+        // Retry logic: retry attempts: 3, delay: 500ms
+        for ($attempt = 1; $attempt <= 3; $attempt++) {
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_SSL_VERIFYPEER => false,
+            ]);
+            
+            $response = curl_exec($curl);
+            $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+            $error = curl_error($curl);
+            curl_close($curl);
+            
+            if (!$error && $httpCode === 200) {
+                $resultText = trim($response);
+                $success = true;
+                break;
+            }
+            
+            if ($attempt < 3) {
+                usleep(500000); // 500ms
+            }
+        }
+
+        if (!$success) {
+            log_message('error', "SMS_ERROR: Network/server failure. Error: " . $error);
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'SMS_FAILED'
+            ]);
+        }
+
+        // Handle Ping4SMS response errors
+        $errorCode = null;
+        if (is_numeric($resultText)) {
+            $errorCode = (int)$resultText;
+        }
+        
+        if ($errorCode !== null && $errorCode >= 101 && $errorCode <= 110) {
+            $errorMap = [
+                101 => 'Invalid API key',
+                102 => 'Invalid sender id',
+                103 => 'Invalid route',
+                104 => 'Invalid phone number',
+                105 => 'Message rejected',
+                106 => 'Template id missing',
+                107 => 'Template id invalid',
+                108 => 'Insufficient balance',
+                109 => 'Server error',
+                110 => 'Unknown error'
+            ];
+            $errorMsg = $errorMap[$errorCode] ?? 'Unknown error';
+            log_message('error', "SMS_ERROR: Code {$errorCode} - {$errorMsg}");
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'SMS_FAILED'
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'OTP sent to registered Mobile Number.',
+            'is_first_time' => $is_first_time
+        ]);
+    }
+
 }
