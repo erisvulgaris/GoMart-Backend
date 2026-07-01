@@ -5592,7 +5592,7 @@ class CustomerAppAPI_1_6 extends BaseController
         $productModel = new ProductModel();
         $variantModel = new ProductVariantsModel();
         if ($user['id'] != 0) {
-            if ($this->settings['seller_only_one_seller_cart'] == 1) {
+            if ($this->settings['seller_only_one_seller_cart'] == 1 && !empty($dataInput['seller_id'])) {
                 $cartItems = $cartsModel
                     ->groupStart()
                     ->where('user_id', $user['id'])
@@ -5607,7 +5607,7 @@ class CustomerAppAPI_1_6 extends BaseController
                     ->findAll();
             }
         } else {
-            if ($this->settings['seller_only_one_seller_cart'] == 1) {
+            if ($this->settings['seller_only_one_seller_cart'] == 1 && !empty($dataInput['seller_id'])) {
                 $cartItems = $cartsModel
                     ->groupStart()
                     ->where('guest_id', $dataInput['guest_id'])
