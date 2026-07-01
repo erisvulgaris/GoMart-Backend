@@ -41,6 +41,9 @@ mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e 
 mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "UPDATE settings SET value='    <div><h1>About Us</h1>    <p>Welcome to <strong>CityLoop</strong>, your premium hyperlocal quick-commerce platform. We deliver fresh groceries and daily essentials to your doorstep in minutes.</p>    <h2>Our Mission</h2>    <p>We aim to simplify shopping with a user-friendly experience, secure payments, and reliable deliveries.</p>    <p><strong>Email:</strong> info@cityloopapp.com</p><p>Thank you for choosing <b>CityLoop</b> 🚀</p></div>' WHERE \`key\`='customer_app_about';"
 mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e "UPDATE settings SET value='<h3><strong>About CityLoop Delivery App</strong></h3><p>...</p>' WHERE \`key\`='delivery_app_about';"
 
+# Clear CodeIgniter cache to ensure settings overrides are loaded
+php spark cache:clear
+
 
 # Ensure CodeIgniter writable subdirectories exist and have correct permissions
 mkdir -p /var/www/html/writable/logs
