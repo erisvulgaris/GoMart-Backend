@@ -16,6 +16,7 @@ $routes->get('/testSession', 'Test::testSession');
 
 ///////////////////// seller Panel routes //////////////////////
 
+$routes->get('/seller', 'Seller\Auth::login');
 $routes->get('/seller/auth/login', 'Seller\Auth::login');
 $routes->get('/seller/login', 'Seller\Auth::login');
 $routes->get('/seller/auth/logout', 'Seller\Auth::logout');
