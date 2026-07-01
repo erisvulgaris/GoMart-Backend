@@ -10,15 +10,39 @@ class AppInit extends Controller
     {
         $db = \Config\Database::connect();
 
-        // Already activated — redirect away
-        if ($db->tableExists('sys_config')) {
-            $row = $db->table('sys_config')->where('cfg_id', 1)->get()->getRowArray();
-            if ($row && $row['cfg_state'] == 1) {
-                return redirect()->to('/admin/dashboard');
-            }
+        // Auto-create table if missing
+        if (!$db->tableExists('sys_config')) {
+            $db->query("CREATE TABLE `sys_config` (
+                `cfg_id`     INT(11) NOT NULL AUTO_INCREMENT,
+                `cfg_token`  VARCHAR(255) NOT NULL,
+                `cfg_origin` VARCHAR(255) NOT NULL,
+                `cfg_sync`   BIGINT NOT NULL DEFAULT 0,
+                `cfg_state`  TINYINT(1) NOT NULL DEFAULT 0,
+                PRIMARY KEY (`cfg_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
         }
 
-        return view('appinit');
+        // Auto-activate
+        $row = $db->table('sys_config')->where('cfg_id', 1)->get()->getRowArray();
+        $currentDomain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+
+        if ($row) {
+            $db->table('sys_config')->where('cfg_id', 1)->update([
+                'cfg_state'  => 1,
+                'cfg_sync'   => time(),
+                'cfg_origin' => $currentDomain,
+            ]);
+        } else {
+            $db->table('sys_config')->insert([
+                'cfg_id'     => 1,
+                'cfg_token'  => hash('sha256', 'self-hosted'),
+                'cfg_origin' => $currentDomain,
+                'cfg_sync'   => time(),
+                'cfg_state'  => 1,
+            ]);
+        }
+
+        return redirect()->to('/admin/dashboard');
     }
 
     public function process()

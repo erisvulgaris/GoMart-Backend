@@ -10,34 +10,51 @@ class CoreSyncFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        // Auto-initialize: create table and activate if not present
         $db = \Config\Database::connect();
 
-        // Check table exists
         if (!$db->tableExists('sys_config')) {
-            return redirect()->to('/init');
+            $db->query("CREATE TABLE `sys_config` (
+                `cfg_id`     INT(11) NOT NULL AUTO_INCREMENT,
+                `cfg_token`  VARCHAR(255) NOT NULL,
+                `cfg_origin` VARCHAR(255) NOT NULL,
+                `cfg_sync`   BIGINT NOT NULL DEFAULT 0,
+                `cfg_state`  TINYINT(1) NOT NULL DEFAULT 0,
+                PRIMARY KEY (`cfg_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
+
+            $currentDomain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+            $db->table('sys_config')->insert([
+                'cfg_id'     => 1,
+                'cfg_token'  => hash('sha256', 'self-hosted'),
+                'cfg_origin' => $currentDomain,
+                'cfg_sync'   => time(),
+                'cfg_state'  => 1,
+            ]);
         }
 
         $row = $db->table('sys_config')->where('cfg_id', 1)->get()->getRowArray();
-
         if (!$row || $row['cfg_state'] != 1) {
-            return redirect()->to('/init');
-        }
-
-        $currentDomain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
-        $lastSync      = (int)$row['cfg_sync'];
-        $domainMismatch = ($row['cfg_origin'] !== $currentDomain);
-
-        // Force immediate recheck if domain doesn't match stored origin (SQL copy/import attack)
-        // Also recheck every 7 days normally
-        if ($domainMismatch || (time() - $lastSync) > (7 * 24 * 3600)) {
-            $this->_reSyncState($db, $row, $currentDomain);
-
-            // Re-read updated state — if revoked, block immediately
-            $row = $db->table('sys_config')->where('cfg_id', 1)->get()->getRowArray();
-            if (!$row || $row['cfg_state'] != 1) {
-                return redirect()->to('/init');
+            $currentDomain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+            if ($row) {
+                $db->table('sys_config')->where('cfg_id', 1)->update([
+                    'cfg_state'  => 1,
+                    'cfg_sync'   => time(),
+                    'cfg_origin' => $currentDomain,
+                ]);
+            } else {
+                $db->table('sys_config')->insert([
+                    'cfg_id'     => 1,
+                    'cfg_token'  => hash('sha256', 'self-hosted'),
+                    'cfg_origin' => $currentDomain,
+                    'cfg_sync'   => time(),
+                    'cfg_state'  => 1,
+                ]);
             }
         }
+
+        // Always pass through — no external license check
+        return null;
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null) {}
