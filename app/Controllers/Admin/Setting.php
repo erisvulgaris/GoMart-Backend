@@ -153,10 +153,30 @@ class Setting extends BaseController
 
         // Loop through each key-value pair to update settings
         foreach ($postData as $key => $value) {
-            if ($key !== 'logo' || $key !== 'main_header_banner_img') {
-                $settingModel->where('key', $key)
-                    ->set(['value' => $value])
-                    ->update();
+            if ($key !== 'logo' && $key !== 'main_header_banner_img') {
+                $exists = $settingModel->where('key', $key)->first();
+                if ($exists) {
+                    $settingModel->where('key', $key)
+                        ->set(['value' => $value])
+                        ->update();
+                } else {
+                    $settingModel->insert([
+                        'key' => $key,
+                        'value' => $value
+                    ]);
+                }
+            }
+        }
+
+        // Handle website_frontend_type file trigger
+        if (isset($postData['website_frontend_type'])) {
+            $frontendType = $postData['website_frontend_type'];
+            if ($frontendType === 'php') {
+                file_put_contents(FCPATH . 'use_php.txt', '1');
+            } else {
+                if (file_exists(FCPATH . 'use_php.txt')) {
+                    @unlink(FCPATH . 'use_php.txt');
+                }
             }
         }
         // Handle file upload 

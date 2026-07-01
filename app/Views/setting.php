@@ -665,6 +665,15 @@
 
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="website_frontend_type">Website Frontend Version <span class="text-danger text-xs">*</span></label>
+                                                                <select id="website_frontend_type" name="website_frontend_type" required class="form-control">
+                                                                    <option value="nextjs" <?= (isset($settings['website_frontend_type']) && $settings['website_frontend_type'] == 'nextjs') ? 'selected' : '' ?>>Next.js (New Premium Zepto UI)</option>
+                                                                    <option value="php" <?= (isset($settings['website_frontend_type']) && $settings['website_frontend_type'] == 'php') ? 'selected' : '' ?>>PHP Website (Original Version)</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <h5 class="mt-4">Refer & Earn Control</h5>
                                                     <div class="row">
