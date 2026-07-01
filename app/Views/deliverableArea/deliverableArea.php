@@ -127,9 +127,10 @@
                                                     <textarea class="form-control d-none" placeholder="here will be your selected outlines latitude and longitude" name="vertices" id="vertices" cols="30" rows="10"></textarea>
                                                 </div>
                                                 <div class="">
+                                                    <button id="draw-polygon" type="button" class="btn btn-success mb-3 btn-xs"><i class="fas fa-draw-polygon"></i> Draw Boundary (Polygon)</button>
+                                                    <button id="pan-map" type="button" class="btn btn-secondary mb-3 btn-xs"><i class="fas fa-hand-paper"></i> Pan Map (Stop Drawing)</button>
                                                     <input id="remove-line" type="button" class="btn btn-primary mb-3 btn-xs" value="Remove Newly Added Line" />
                                                     <input id="clear-line" type="button" class="btn btn-danger mb-3 btn-xs" value="Clear Map" />
-                                                    <!-- <input id="add-line" type="button" class="btn btn-success mb-3 btn-xs" value="Restore Old Map" /> -->
                                                 </div>
                                                 <!-- <div class="form-group mt-5"> -->
                                                 <!-- </div> -->

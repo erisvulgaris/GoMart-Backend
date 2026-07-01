@@ -327,13 +327,20 @@ function overlayRemoveListener(
   not_remove = false
 ) {
   if (is_restore == true) {
-    document.getElementById("add-line").addEventListener("click", addLine);
+    var addLineBtn = document.getElementById("add-line");
+    if (addLineBtn) {
+      addLineBtn.addEventListener("click", addLine);
+    }
   }
-  document.getElementById("clear-line").addEventListener("click", clearLine);
+  var clearLineBtn = document.getElementById("clear-line");
+  if (clearLineBtn) {
+    clearLineBtn.addEventListener("click", clearLine);
+  }
   if (not_remove == false) {
-    document
-      .getElementById("remove-line")
-      .addEventListener("click", removeLine);
+    var removeLineBtn = document.getElementById("remove-line");
+    if (removeLineBtn) {
+      removeLineBtn.addEventListener("click", removeLine);
+    }
   }
 
   function clearLine() {
@@ -368,6 +375,21 @@ var lat_longs = new Array();
 var markers = new Array();
 var drawingManager;
 $(document).ready(function () {
+  // Bind Draw Boundary and Pan Map buttons
+  $("#draw-polygon").on("click", function() {
+    if (drawingManager) {
+      drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+      toastr.info("Drawing mode active. Click on the map to place boundary points. Connect back to the first point to complete.", "Admin says");
+    }
+  });
+
+  $("#pan-map").on("click", function() {
+    if (drawingManager) {
+      drawingManager.setDrawingMode(null);
+      toastr.info("Drawing mode deactivated. You can now pan/zoom the map.", "Admin says");
+    }
+  });
+
   $(".target").on("change", function () {
     var coordinate = $("select option:selected").data("coordinate").split(",");
     map.setCenter(new google.maps.LatLng(coordinate[0], coordinate[1]));
@@ -375,15 +397,13 @@ $(document).ready(function () {
       lat: coordinate[0],
       lng: coordinate[1],
     };
-    marker = new google.maps.marker.AdvancedMarkerElement({
-      position: {
-        lat: parseFloat(coordinate[0]),
-        lng: parseFloat(coordinate[1]),
-      },
+    if (marker) {
+      marker.setMap(null);
+    }
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(parseFloat(coordinate[0]), parseFloat(coordinate[1])),
       map: map,
     });
-
-    marker.setVisible(true);
     var geolocation_type = $("select option:selected").data("geolocation_type");
     var radius = $("select option:selected").data("radius");
     var boundary_points = $("select option:selected").data("boundary_points");

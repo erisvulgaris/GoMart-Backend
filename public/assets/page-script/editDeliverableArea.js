@@ -263,3 +263,19 @@ $("#edit_deliverable_area").on("click", function(event) {
     });
 
 });
+
+$(document).ready(function() {
+  $("#draw-polygon").on("click", function() {
+    if (drawingManager) {
+      drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+      toastr.info("Drawing mode active. Click on the map to place boundary points. Connect back to the first point to complete.", "Admin says");
+    }
+  });
+
+  $("#pan-map").on("click", function() {
+    if (drawingManager) {
+      drawingManager.setDrawingMode(null);
+      toastr.info("Drawing mode deactivated. You can now pan/zoom the map.", "Admin says");
+    }
+  });
+});

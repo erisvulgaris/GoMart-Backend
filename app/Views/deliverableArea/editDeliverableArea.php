@@ -194,6 +194,8 @@
                                                 <textarea class="form-control d-none" placeholder="here will be your selected outlines latitude and longitude" name="vertices" id="vertices" cols="30" rows="10"></textarea>
                                             </div>
                                             <div class="">
+                                                 <button id="draw-polygon" type="button" class="btn btn-success mb-3 btn-xs"><i class="fas fa-draw-polygon"></i> Draw Boundary (Polygon)</button>
+                                                 <button id="pan-map" type="button" class="btn btn-secondary mb-3 btn-xs"><i class="fas fa-hand-paper"></i> Pan Map (Stop Drawing)</button>
                                                 <button onclick="removeNewPolygons()" class="btn btn-primary mb-3 btn-xs">Remove Newly Added Line</button>
                                                 <button onclick="clearMap()" class="btn btn-danger mb-3 btn-xs">Clear Map</button>
                                                 <button onclick="restoreOriginalMap()" class="btn btn-success mb-3 btn-xs">Restore Old Map</button>
