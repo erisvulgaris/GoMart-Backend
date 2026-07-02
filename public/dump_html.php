@@ -1,5 +1,5 @@
 <?php
-$query = urlencode('Fresh Tomato site:blinkit.com');
+$query = urlencode('Blinkit Fresh Tomato');
 $url = "https://www.google.com/search?q=" . $query;
 
 $ch = curl_init();
