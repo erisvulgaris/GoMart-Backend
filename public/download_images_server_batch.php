@@ -1,6 +1,4 @@
 <?php
-// Set execution time limit to 10 minutes
-set_time_limit(600);
 header('Content-Type: application/json');
 
 $db = new mysqli("db", "gomart", "gomart_secure_pass", "gomart");
@@ -9,7 +7,11 @@ if ($db->connect_error) {
     exit;
 }
 
-$res = $db->query("SELECT id, product_name FROM product WHERE is_delete = 0");
+// Get offset and limit from GET
+$offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
+$limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+
+$res = $db->query("SELECT id, product_name FROM product WHERE is_delete = 0 LIMIT $limit OFFSET $offset");
 $products = [];
 while ($row = $res->fetch_assoc()) {
     $products[] = $row;
@@ -110,12 +112,14 @@ foreach ($products as $p) {
         $log[] = "Failed: " . $p_name;
     }
     
-    // Sleep 3 seconds to avoid rate limiting
-    sleep(3);
+    // Sleep 2 seconds to avoid rate limiting
+    sleep(2);
 }
 
 echo json_encode([
     "status" => "success",
+    "offset" => $offset,
+    "limit" => $limit,
     "updated_count" => $success_count,
     "log" => $log
 ]);
