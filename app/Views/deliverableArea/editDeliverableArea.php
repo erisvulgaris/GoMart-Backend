@@ -101,6 +101,32 @@
                                                         placeholder="Enter Delivarable Maximum Distance in km" min="0" max="999999999" required="required"
                                                         class="form-control" fdprocessedid="yw6589" value="<?php echo $deliverable_area['min_amount_for_free_delivery'] ?>">
                                                 </div>
+                                                <div class="form-group col-md-12 bg-light p-3 rounded border">
+                                                    <label class="d-flex justify-content-between align-items-center">
+                                                        <strong>Cashback Tiers Setup</strong>
+                                                        <button type="button" class="btn btn-xs btn-success add-cb-tier"><i class="fas fa-plus"></i> Add Tier</button>
+                                                    </label>
+                                                    <div id="cb-tiers-container" class="mt-2">
+                                                        <?php 
+                                                        $tiers = json_decode($deliverable_area['cashback_tiers'] ?? '[]', true);
+                                                        if (!empty($tiers)) {
+                                                            foreach ($tiers as $tier) { ?>
+                                                                <div class="row align-items-center mb-2 cb-tier-row">
+                                                                    <div class="col-sm-5">
+                                                                        <input type="number" name="cb_min_cart[]" placeholder="Min Cart Value (Rs.)" min="0" class="form-control form-control-sm" value="<?php echo esc($tier['min_cart']); ?>">
+                                                                    </div>
+                                                                    <div class="col-sm-5">
+                                                                        <input type="number" name="cb_cashback[]" placeholder="Cashback Amount (Rs.)" min="0" class="form-control form-control-sm" value="<?php echo esc($tier['cashback']); ?>">
+                                                                    </div>
+                                                                    <div class="col-sm-2 text-center">
+                                                                        <button type="button" class="btn btn-xs btn-danger remove-cb-tier"><i class="fas fa-trash-alt"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            <?php }
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group col-md-12">
                                                     <label for="delivery_charge_method" class=" col-12 col-form-label">Delivery Charge Methods
                                                         <span class="text-danger text-sm">*</span>

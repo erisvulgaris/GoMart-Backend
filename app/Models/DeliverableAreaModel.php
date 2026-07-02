@@ -10,7 +10,7 @@ class DeliverableAreaModel extends Model
 {
     protected $table = 'deliverable_area';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['city_id', 'deliverable_area_title', 'boundry_points', 'radius', 'geolocation_type', 'is_delete', 'boundary_points_web', 'min_amount_for_free_delivery', 'delivery_charge_method', 'fixed_charge', 'per_km_charge', 'range_wise_charges', 'time_to_travel', 'max_deliverable_distance', 'base_delivery_time'];
+    protected $allowedFields = ['city_id', 'deliverable_area_title', 'boundry_points', 'radius', 'geolocation_type', 'is_delete', 'boundary_points_web', 'min_amount_for_free_delivery', 'delivery_charge_method', 'fixed_charge', 'per_km_charge', 'range_wise_charges', 'time_to_travel', 'max_deliverable_distance', 'base_delivery_time', 'cashback_tiers'];
 
     public function index()
     {
@@ -25,7 +25,7 @@ class DeliverableAreaModel extends Model
             ->findAll();
     }
 
-    public function add($boundary_points, $boundary_points_web, $edit_city, $radius, $geolocation_type, $deliverable_area,$time_to_travel,$min_amount_for_free_delivery, $delivery_charge_method, $delivery_charge, $base_delivery_time
+    public function add($boundary_points, $boundary_points_web, $edit_city, $radius, $geolocation_type, $deliverable_area,$time_to_travel,$min_amount_for_free_delivery, $delivery_charge_method, $delivery_charge, $base_delivery_time, $cashback_tiers = null
 )
     {
         $data = [
@@ -39,7 +39,8 @@ class DeliverableAreaModel extends Model
             'min_amount_for_free_delivery' => $min_amount_for_free_delivery,
             'delivery_charge_method' => $delivery_charge_method,
             $delivery_charge_method => $delivery_charge,
-            'base_delivery_time' => $base_delivery_time
+            'base_delivery_time' => $base_delivery_time,
+            'cashback_tiers' => $cashback_tiers
 
         ];
         return $this->insert($data);

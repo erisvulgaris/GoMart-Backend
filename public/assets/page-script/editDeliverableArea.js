@@ -98,6 +98,27 @@ function isJSON(str) {
     }
 }
 
+
+$(document).on('click', '.add-cb-tier', function() {
+    var html = `
+        <div class="row align-items-center mb-2 cb-tier-row">
+            <div class="col-sm-5">
+                <input type="number" name="cb_min_cart[]" placeholder="Min Cart Value (Rs.)" min="0" class="form-control form-control-sm">
+            </div>
+            <div class="col-sm-5">
+                <input type="number" name="cb_cashback[]" placeholder="Cashback Amount (Rs.)" min="0" class="form-control form-control-sm">
+            </div>
+            <div class="col-sm-2 text-center">
+                <button type="button" class="btn btn-xs btn-danger remove-cb-tier"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>`;
+    $('#cb-tiers-container').append(html);
+});
+
+$(document).on('click', '.remove-cb-tier', function() {
+    $(this).closest('.cb-tier-row').remove();
+});
+
 $("#edit_deliverable_area").on("click", function(event) {
     event.preventDefault();
     var city_id = $("#city_id").val();
@@ -237,7 +258,9 @@ $("#edit_deliverable_area").on("click", function(event) {
                             delivery_charge_method: delivery_charge_method,
                             delivery_charge: delivery_charge,
                             edit_id: edit_id,
-                            base_delivery_time:base_delivery_time
+                            base_delivery_time:base_delivery_time,
+                            cb_min_cart: $("input[name='cb_min_cart[]']").map(function(){return $(this).val();}).get(),
+                            cb_cashback: $("input[name='cb_cashback[]']").map(function(){return $(this).val();}).get()
                         },
                         dataType: "json",
                     })

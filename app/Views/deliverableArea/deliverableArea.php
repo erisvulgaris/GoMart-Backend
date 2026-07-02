@@ -102,6 +102,14 @@
                                                             placeholder="Enter Delivarable Maximum Distance in km" min="0" max="999999999" required="required"
                                                             class="form-control" fdprocessedid="yw6589">
                                                     </div>
+                                                    <div class="form-group col-md-12 bg-light p-3 rounded border">
+                                                        <label class="d-flex justify-content-between align-items-center">
+                                                            <strong>Cashback Tiers Setup</strong>
+                                                            <button type="button" class="btn btn-xs btn-success add-cb-tier"><i class="fas fa-plus"></i> Add Tier</button>
+                                                        </label>
+                                                        <div id="cb-tiers-container" class="mt-2">
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group col-md-12">
                                                         <label for="delivery_charge_method" class=" col-12 col-form-label">Delivery Charge Methods
                                                             <span class="text-danger text-sm">*</span>

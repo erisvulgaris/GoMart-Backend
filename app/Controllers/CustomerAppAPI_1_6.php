@@ -1420,7 +1420,9 @@ class CustomerAppAPI_1_6 extends BaseController
                 'status' => 'success',
                 'message' => 'Location is within a deliverable area.',
                 'city_id' => $cityId,
-                'deliverable_area_id' => $deliverableAreaId
+                'deliverable_area_id' => $deliverableAreaId,
+                'min_amount_for_free_delivery' => $foundArea ? (int)$foundArea['min_amount_for_free_delivery'] : 0,
+                'cashback_tiers' => $foundArea ? json_decode($foundArea['cashback_tiers'] ?? '[]', true) : []
             ]);
         } else {
             return $this->response->setJSON([
@@ -1527,7 +1529,9 @@ class CustomerAppAPI_1_6 extends BaseController
                 'status' => 'success',
                 'message' => 'Location is within a deliverable area.',
                 'city_id' => $cityId,
-                'deliverable_area_id' => $deliverableAreaId
+                'deliverable_area_id' => $deliverableAreaId,
+                'min_amount_for_free_delivery' => $foundArea ? (int)$foundArea['min_amount_for_free_delivery'] : 0,
+                'cashback_tiers' => $foundArea ? json_decode($foundArea['cashback_tiers'] ?? '[]', true) : []
             ]);
         } else {
             return $this->response->setJSON([
@@ -3575,6 +3579,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 "phone" => $addressList['user_mobile'],
                 "address_type" => $addressList['address_type'],
                 "min_amount_for_free_delivery" => $deliverableArea['min_amount_for_free_delivery'],
+                "cashback_tiers" => json_decode($deliverableArea['cashback_tiers'] ?? '[]', true),
                 "addressLines" => [
                     $addressList['flat'] . ", " . $addressList['address'],
                     $addressList['area'] . ", " . $addressList['city'],

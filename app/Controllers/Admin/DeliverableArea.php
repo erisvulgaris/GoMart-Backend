@@ -141,6 +141,19 @@ class DeliverableArea extends BaseController
         $delivery_charge = $this->request->getPost('delivery_charge');
         $base_delivery_time = $this->request->getPost('base_delivery_time');
 
+        $min_carts = $this->request->getPost('cb_min_cart') ?? [];
+        $cashbacks = $this->request->getPost('cb_cashback') ?? [];
+        $cashback_tiers_data = [];
+        for ($i = 0; $i < count($min_carts); $i++) {
+            if (isset($min_carts[$i]) && isset($cashbacks[$i]) && $min_carts[$i] !== '' && $cashbacks[$i] !== '') {
+                $cashback_tiers_data[] = [
+                    'min_cart' => (float)$min_carts[$i],
+                    'cashback' => (float)$cashbacks[$i]
+                ];
+            }
+        }
+        $cashback_tiers = !empty($cashback_tiers_data) ? json_encode($cashback_tiers_data) : null;
+
         $DeliverableAreaModel = new DeliverableAreaModel();
 
         $success = $DeliverableAreaModel->add(
@@ -154,8 +167,8 @@ class DeliverableArea extends BaseController
             $min_amount_for_free_delivery,
             $delivery_charge_method,
             $delivery_charge,
-            $base_delivery_time
-
+            $base_delivery_time,
+            $cashback_tiers
         );
 
         // Prepare the response
@@ -204,6 +217,19 @@ class DeliverableArea extends BaseController
         $base_delivery_time = $this->request->getPost('base_delivery_time');
 
 
+        $min_carts = $this->request->getPost('cb_min_cart') ?? [];
+        $cashbacks = $this->request->getPost('cb_cashback') ?? [];
+        $cashback_tiers_data = [];
+        for ($i = 0; $i < count($min_carts); $i++) {
+            if (isset($min_carts[$i]) && isset($cashbacks[$i]) && $min_carts[$i] !== '' && $cashbacks[$i] !== '') {
+                $cashback_tiers_data[] = [
+                    'min_cart' => (float)$min_carts[$i],
+                    'cashback' => (float)$cashbacks[$i]
+                ];
+            }
+        }
+        $cashback_tiers = !empty($cashback_tiers_data) ? json_encode($cashback_tiers_data) : null;
+
         $DeliverableAreaModel = new DeliverableAreaModel();
         $data = [
             'boundry_points' => $boundary_points,
@@ -216,7 +242,8 @@ class DeliverableArea extends BaseController
             'min_amount_for_free_delivery' => $min_amount_for_free_delivery,
             'delivery_charge_method' => $delivery_charge_method,
             $delivery_charge_method => $delivery_charge,
-            'base_delivery_time' => $base_delivery_time
+            'base_delivery_time' => $base_delivery_time,
+            'cashback_tiers' => $cashback_tiers
 
         ];
         $success = $DeliverableAreaModel->set($data)->where('id', $edit_id)->update();
