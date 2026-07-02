@@ -5776,8 +5776,8 @@ class CustomerAppAPI_1_6 extends BaseController
 
         $cartTotal = 0.00;
         if ($identifier) {
-            $cartDetails = $cartsModel->select('carts.quantity, product_variant.price, product_variant.discounted_price')
-                ->join('product_variant', 'product_variant.id = carts.product_variant_id')
+            $cartDetails = $cartsModel->select('carts.quantity, product_variants.price, product_variants.discounted_price')
+                ->join('product_variants', 'product_variants.id = carts.product_variant_id')
                 ->where($userId ? 'carts.user_id' : 'carts.guest_id', $identifier)
                 ->findAll();
             foreach ($cartDetails as $item) {
