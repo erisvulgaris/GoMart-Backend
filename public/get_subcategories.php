@@ -7,22 +7,28 @@ if ($db->connect_error) {
     exit;
 }
 
-// Describe subcategory
-$res = $db->query("DESCRIBE subcategory");
-$sub_cols = [];
+// Fetch subcategories
+$res = $db->query("SELECT id, name, category_id FROM subcategory");
+$subcategories = [];
 while ($row = $res->fetch_assoc()) {
-    $sub_cols[] = $row;
+    $subcategories[] = $row;
 }
 
-// Describe product_subcategories
-$res2 = $db->query("DESCRIBE product_subcategories");
-$prod_sub_cols = [];
+// Fetch product subcategories mapping
+$res2 = $db->query("
+    SELECT ps.id, ps.product_id, p.product_name, ps.subcategory_id, s.name as subcategory_name, s.category_id
+    FROM product_subcategories ps
+    JOIN product p ON ps.product_id = p.id
+    JOIN subcategory s ON ps.subcategory_id = s.id
+    WHERE p.is_delete = 0
+");
+$mappings = [];
 while ($row = $res2->fetch_assoc()) {
-    $prod_sub_cols[] = $row;
+    $mappings[] = $row;
 }
 
 echo json_encode([
-    "subcategory" => $sub_cols,
-    "product_subcategories" => $prod_sub_cols
+    "subcategories" => $subcategories,
+    "mappings" => $mappings
 ]);
 $db->close();
