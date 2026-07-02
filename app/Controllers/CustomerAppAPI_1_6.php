@@ -5774,10 +5774,23 @@ class CustomerAppAPI_1_6 extends BaseController
             ->where($userId ? 'user_id' : 'guest_id', $identifier)
             ->first();
 
+        $cartTotal = 0.00;
+        if ($identifier) {
+            $cartDetails = $cartsModel->select('carts.quantity, product_variant.price, product_variant.discounted_price')
+                ->join('product_variant', 'product_variant.id = carts.product_variant_id')
+                ->where($userId ? 'carts.user_id' : 'carts.guest_id', $identifier)
+                ->findAll();
+            foreach ($cartDetails as $item) {
+                $price = $item['discounted_price'] > 0 ? (float)$item['discounted_price'] : (float)$item['price'];
+                $cartTotal += $price * (int)$item['quantity'];
+            }
+        }
+
         return $this->response->setJSON([
             'status' => 'success',
             'data'   => $data, // Returns an array of images
-            'cartCount' => $cartCount['item_count']
+            'cartCount' => $cartCount['item_count'],
+            'cartTotal' => $cartTotal
         ]);
     }
     public function sellersCart()
