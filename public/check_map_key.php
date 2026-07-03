@@ -6,7 +6,7 @@ if ($db->connect_error) {
     exit;
 }
 
-$res = $db->query("DESCRIBE `settings`");
+$res = $db->query("SELECT * FROM `settings` WHERE `key` LIKE '%map%' OR `key` LIKE '%google%'");
 $rows = [];
 if ($res) {
     while ($row = $res->fetch_assoc()) {
