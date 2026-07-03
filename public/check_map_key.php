@@ -6,7 +6,7 @@ if ($db->connect_error) {
     exit;
 }
 
-$res = $db->query("SELECT * FROM `settings` WHERE `variable` LIKE '%map%' OR `value` LIKE '%AIza%'");
+$res = $db->query("DESCRIBE `settings`");
 $rows = [];
 if ($res) {
     while ($row = $res->fetch_assoc()) {
