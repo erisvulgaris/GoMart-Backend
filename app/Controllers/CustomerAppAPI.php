@@ -2792,7 +2792,7 @@ class CustomerAppAPI extends BaseController
         }
 
         return $this->respond([
-            'status' => 200,
+            'status' => 'success',
             'result' => 'true',
             'message' => 'Address list found',
             'data' => $output
