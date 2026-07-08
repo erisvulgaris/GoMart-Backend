@@ -6445,6 +6445,57 @@ class CustomerAppAPI_1_6 extends BaseController
         $cartSummery = new CartSummery();
         $dataInput = $this->request->getJSON(true);
 
+        // Map mobile app payload format to placeCODOrder expected structure
+        if (isset($dataInput['products']) && !isset($dataInput['cartitem'])) {
+            $dataInput['cartitem'] = $dataInput['products'];
+        }
+        if (!isset($dataInput['selectedDeliveryMethod'])) {
+            $dataInput['selectedDeliveryMethod'] = 'scheduledDelivery';
+        }
+        if (!isset($dataInput['selectedPaymentMethod'])) {
+            $dataInput['selectedPaymentMethod'] = isset($dataInput['payment_method']) ? $dataInput['payment_method'] : 'COD';
+        }
+        if (isset($dataInput['delivery_date']) && !isset($dataInput['selectedDeliveryDate'])) {
+            $dataInput['selectedDeliveryDate'] = $dataInput['delivery_date'];
+        }
+        if (isset($dataInput['delivery_timeslot_id']) && !isset($dataInput['selectedDeliveryTime'])) {
+            $tsModel = new \App\Models\TimeslotModel();
+            $tsRow = $tsModel->find($dataInput['delivery_timeslot_id']);
+            if ($tsRow) {
+                $minTime = str_replace('.', ':', $tsRow['mintime']);
+                $maxTime = str_replace('.', ':', $tsRow['maxtime']);
+                $minFormatted = date('g:i A', strtotime($minTime));
+                $maxFormatted = date('g:i A', strtotime($maxTime));
+                $dataInput['selectedDeliveryTime'] = "$minFormatted - $maxFormatted";
+            }
+        }
+        if (!isset($dataInput['seller_id']) && isset($dataInput['cartitem']) && !empty($dataInput['cartitem'])) {
+            $firstItem = $dataInput['cartitem'][0];
+            $prodModel = new \App\Models\ProductModel();
+            $prod = $prodModel->select('seller_id')->where('id', $firstItem['product_id'])->first();
+            if ($prod) {
+                $dataInput['seller_id'] = $prod['seller_id'];
+            }
+        }
+        // Defaults for other fields
+        $defaults = [
+            'seller_id' => 0,
+            'selectedDeliveryMethod' => 'scheduledDelivery',
+            'selectedPaymentMethod' => 'COD',
+            'cartitem' => [],
+            'coupon' => null,
+            'usedWalletAmount' => 0,
+            'remainingWalletAmount' => 0,
+            'deliveryTipAmount' => 0,
+            'deliveryInstructions' => '',
+            'billingGst' => ''
+        ];
+        foreach ($defaults as $key => $val) {
+            if (!isset($dataInput[$key])) {
+                $dataInput[$key] = $val;
+            }
+        }
+
         // Initialize models
         $userModel = new UserModel();
         $variantModel = new ProductVariantsModel();
@@ -6505,10 +6556,16 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         // Get address
-        $address = $addressModel->where('user_id', $user['id'])
-            ->where('is_delete', 0)
-            ->where('status', 1)
-            ->first();
+        if (isset($dataInput['address_id']) && (int)$dataInput['address_id'] > 0) {
+            $address = $addressModel->where('id', $dataInput['address_id'])
+                ->where('user_id', $user['id'])
+                ->first();
+        } else {
+            $address = $addressModel->where('user_id', $user['id'])
+                ->where('is_delete', 0)
+                ->where('status', 1)
+                ->first();
+        }
 
         if (!$address) {
             return $this->response->setJSON([
