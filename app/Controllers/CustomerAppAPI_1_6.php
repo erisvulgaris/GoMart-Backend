@@ -5929,8 +5929,10 @@ class CustomerAppAPI_1_6 extends BaseController
         });
 
         $formattedSlots = array_map(function ($slot) {
-            $minFormatted = date('g:i A', strtotime($slot['mintime']));
-            $maxFormatted = date('g:i A', strtotime($slot['maxtime']));
+            $minTime = str_replace('.', ':', $slot['mintime']);
+            $maxTime = str_replace('.', ':', $slot['maxtime']);
+            $minFormatted = date('g:i A', strtotime($minTime));
+            $maxFormatted = date('g:i A', strtotime($maxTime));
             return [
                 'id' => $slot['id'],
                 'mintime' => $minFormatted,
