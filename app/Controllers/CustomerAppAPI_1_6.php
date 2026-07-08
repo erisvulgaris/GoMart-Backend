@@ -3247,7 +3247,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 ->where('is_delete', 0)
                 ->first();
 
-            if ($productSeller && $perKmTime) {
+            if (isset($dataInput['latitude']) && isset($dataInput['longitude']) && $productSeller && $perKmTime) {
                 $findTime = $geoUtils->travelDistanceTime(
                     $dataInput['latitude'],
                     $dataInput['longitude'],
@@ -3600,7 +3600,7 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         return $this->respond([
-            'status' => 200,
+            'status' => 'success',
             'result' => 'true',
             'message' => 'Address found',
             'data' => $output
@@ -3668,7 +3668,7 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         return $this->respond([
-            'status' => 200,
+            'status' => 'success',
             'result' => 'true',
             'message' => 'Address list found',
             'data' => $output
@@ -3756,7 +3756,7 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         return $this->respond([
-            'status' => 200,
+            'status' => 'success',
             'result' => 'true',
             'message' => 'Valid coupon list found',
             'data' => $output
@@ -3825,7 +3825,7 @@ class CustomerAppAPI_1_6 extends BaseController
             ->first();
 
         return $this->respond([
-            'status' => 200,
+            'status' => 'success',
             'result' => 'true',
             'message' => 'Wallet transaction found',
             'data' => $output,
