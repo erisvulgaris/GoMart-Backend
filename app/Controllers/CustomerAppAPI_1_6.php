@@ -5880,8 +5880,8 @@ class CustomerAppAPI_1_6 extends BaseController
 
             $days[] = [
                 'day' => $i === 0 ? 'Today' : $date->format('D'), // "Today" for the current day, else day name
-                'date' => $date->format('M j'), // Month and day format
-                'formattedDate' => $date->format('Y-m-d'), // Month and day format
+                'date' => $date->format('Y-m-d'), // Year-month-day format
+                'formattedDate' => $date->format('Y-m-d'), // Year-month-day format
             ];
         }
 
@@ -5929,10 +5929,13 @@ class CustomerAppAPI_1_6 extends BaseController
         });
 
         $formattedSlots = array_map(function ($slot) {
+            $minFormatted = date('g:i A', strtotime($slot['mintime']));
+            $maxFormatted = date('g:i A', strtotime($slot['maxtime']));
             return [
                 'id' => $slot['id'],
-                'mintime' => date('g:i A', strtotime($slot['mintime'])), // Convert to AM/PM format
-                'maxtime' => date('g:i A', strtotime($slot['maxtime']))  // Convert to AM/PM format
+                'mintime' => $minFormatted,
+                'maxtime' => $maxFormatted,
+                'title' => "$minFormatted - $maxFormatted"
             ];
         }, array_values($filteredSlots));
 
