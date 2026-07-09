@@ -44,6 +44,10 @@ mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e 
 # Clear CodeIgniter cache to ensure settings overrides are loaded
 php spark cache:clear
 
+# Seed database with the latest scraped catalog from import_products.json
+echo "Importing products to database..."
+php spark db:seed ProductImportSeeder
+
 
 # Ensure CodeIgniter writable subdirectories exist and have correct permissions
 mkdir -p /var/www/html/writable/logs

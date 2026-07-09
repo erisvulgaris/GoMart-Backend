@@ -95,6 +95,18 @@ class ProductImportSeeder extends Seeder
                     $db->table('product_categories')->insert($categoryData);
                 }
                 
+                // Link Multiple Images
+                if (isset($item['images']) && is_array($item['images'])) {
+                    foreach ($item['images'] as $imgUrl) {
+                        $imageData = [
+                            'product_id'          => $productId,
+                            'product_variant_id'  => 0,
+                            'image'               => $imgUrl
+                        ];
+                        $db->table('product_images')->insert($imageData);
+                    }
+                }
+                
                 $successCount++;
             }
         }

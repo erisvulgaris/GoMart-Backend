@@ -3,6 +3,7 @@
 /writable/*
 !/writable/index.html
 !/writable/keep
+!/writable/import_products.json
 /writable/cache/*
 /writable/debugbar/*
 /writable/session/*
