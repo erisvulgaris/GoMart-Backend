@@ -83,6 +83,17 @@ class CustomerAppAPI_1_6 extends BaseController
         $this->secretKey = getenv('JWT_SECRET');
     }
 
+    private function resolve_api_image_url($path)
+    {
+        if (empty($path)) {
+            return base_url('uploads/products/placeholder.png');
+        }
+        if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0) {
+            return $path;
+        }
+        return base_url($path);
+    }
+
     private function generateToken($data, $type = "email")
     {
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
@@ -1847,8 +1858,8 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // ── Images ───────────────────────────────────────────────────────────
         $productImages   = $productImagesModel->select('image')->where('product_id', $product['id'])->where('product_variant_id', 0)->findAll();
-        $product['images'] = array_map(fn($img) => base_url($img['image']), $productImages);
-        array_unshift($product['images'], base_url($product['main_img']));
+        $product['images'] = array_map(fn($img) => $this->resolve_api_image_url($img['image']), $productImages);
+        array_unshift($product['images'], $this->resolve_api_image_url($product['main_img']));
 
         // ── Variants ─────────────────────────────────────────────────────────
         $variants = $productVariantsModel
@@ -1919,7 +1930,7 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         foreach ($similarProducts as &$similarProduct) {
-            $similarProduct['main_img'] = base_url($similarProduct['main_img']);
+            $similarProduct['main_img'] = $this->resolve_api_image_url($similarProduct['main_img']);
             $svariants = $productVariantsModel
                 ->where('product_id', $similarProduct['id'])->where('is_delete', 0)->findAll();
             foreach ($svariants as &$v) {
@@ -1949,7 +1960,7 @@ class CustomerAppAPI_1_6 extends BaseController
         }
 
         foreach ($categoryProducts as &$categoryProduct) {
-            $categoryProduct['main_img'] = base_url($categoryProduct['main_img']);
+            $categoryProduct['main_img'] = $this->resolve_api_image_url($categoryProduct['main_img']);
             $cvariants = $productVariantsModel
                 ->where('product_id', $categoryProduct['id'])->where('is_delete', 0)->findAll();
             foreach ($cvariants as &$v) {
