@@ -84,10 +84,10 @@ $invTotal = round(
                 <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#7b8499; margin-bottom:10px;">
                     <i class="fi fi-rr-marker" style="margin-right:4px;"></i> <?php echo lang('website.shipping_address'); ?>
                 </div>
-                <div style="font-weight:700; font-size:12px; color:#1a1a2e; margin-bottom:4px;" id="name"><?= esc($orderDetails['user_name']) ?></div>
+                <div style="font-weight:700; font-size:12px; color:#1a1a2e; margin-bottom:4px;" id="name"><?= esc(!empty($orderDetails['recipient_name']) ? $orderDetails['recipient_name'] : $orderDetails['user_name']) ?></div>
                 <div style="font-size:11px; color:#4b5563; line-height:1.7;">
                     <span id="address"><?= esc($orderDetails['address'] . ', ' . $orderDetails['area'] . ', ' . $orderDetails['city'] . ', ' . $orderDetails['state'] . ' - ' . $orderDetails['pincode']) ?></span><br>
-                    <i class="fi fi-rr-phone-call" style="color:#7b8499;"></i> <span id="phone"><?= esc($orderDetails['user_mobile']) ?></span><br>
+                    <i class="fi fi-rr-phone-call" style="color:#7b8499;"></i> <span id="phone"><?= esc(!empty($orderDetails['recipient_mobile']) ? $orderDetails['recipient_mobile'] : $orderDetails['user_mobile']) ?></span><br>
                     <i class="fi fi-rr-envelope" style="color:#7b8499;"></i> <span id="mail_id"><?= esc($orderDetails['user_email']) ?></span>
                     <?php if (!empty($orderDetails['billing_gst'])): ?>
                     <br><i class="fi fi-rr-document-signed" style="color:#7b8499;"></i> <strong>GST:</strong> <?= esc($orderDetails['billing_gst']) ?>

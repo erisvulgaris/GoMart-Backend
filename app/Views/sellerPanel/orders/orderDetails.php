@@ -97,10 +97,10 @@
                                                 <b>Shipping Address</b>
                                                 
                                                     <address>
-                                                        <strong id="name"><?= $orderDetails['user_name'] ?></strong><br>
-                                                        <span id="address"><?= $orderDetails['address'] . ", " . $orderDetails['area'] . ", " . $orderDetails['city'] . ", " . $orderDetails['state'] . "-" . $orderDetails['pincode'] ?></span><br>
-                                                        Phone: <span id="phone"><?= $orderDetails['user_mobile'] ?></span><br>
-                                                        Email: <span id="mail_id"><?= $orderDetails['user_email'] ?></span>
+                                                         <strong id="name"><?= !empty($orderDetails['recipient_name']) ? esc($orderDetails['recipient_name']) : esc($orderDetails['user_name']) ?></strong><br>
+                                                         <span id="address"><?= esc($orderDetails['address'] . ", " . $orderDetails['area'] . ", " . $orderDetails['city'] . ", " . $orderDetails['state'] . "-" . $orderDetails['pincode']) ?></span><br>
+                                                         Phone: <span id="phone"><?= !empty($orderDetails['recipient_mobile']) ? esc($orderDetails['recipient_mobile']) : esc($orderDetails['user_mobile']) ?></span><br>
+                                                         Email: <span id="mail_id"><?= esc($orderDetails['user_email']) ?></span>
                                                     </address>
                                                 <?php } ?>
 

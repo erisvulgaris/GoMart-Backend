@@ -196,7 +196,7 @@ class Orders extends BaseController
                 'orders.id as order_id, orders.user_id, orders.address_id, orders.subtotal, orders.tax, orders.used_wallet_amount, orders.additional_charge, 
                     orders.delivery_charge, orders.coupon_amount,  orders.order_date, orders.delivery_date, 
                     orders.timeslot, orders.delivery_boy_id, orders.transaction_id, orders.status, user.name as user_name, 
-                    user.mobile as user_mobile, user.email as user_email, address.address, address.area, address.city, address.city_id, address.state, address.pincode, 
+                    user.mobile as user_mobile, user.email as user_email, address.address, address.area, address.city, address.city_id, address.state, address.pincode, address.user_name as recipient_name, address.user_mobile as recipient_mobile,
                     delivery_boy.name as delivery_boy_name, delivery_boy.mobile as delivery_boy_mobile, 
                     order_status_lists.status as order_status, order_status_lists.color as order_status_color, payment_method.img as payment_method_img, payment_method.title as payment_method_title'
             )
