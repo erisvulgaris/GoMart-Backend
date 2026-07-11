@@ -3725,13 +3725,17 @@ class CustomerAppAPI_1_6 extends BaseController
         $usedCoupons = $usedCouponModel->where('user_id', $user['id'])->findAll();
         $usedCouponIds = array_column($usedCoupons, 'coupon_id');
 
-        // Set the timezone
-        date_default_timezone_set($this->timeZone['timezone']);
+        $dataInput = $this->request->getJSON(true);
+        $coupon_code = isset($dataInput['coupon_code']) ? trim($dataInput['coupon_code']) : '';
 
         // Base query: Fetch coupons that are not deleted, are active, and have a valid date
         $couponModel->where('is_delete', 0)
             ->where('status', 1)
             ->where('date >=', date("Y-m-d"));
+
+        if (!empty($coupon_code)) {
+            $couponModel->where('coupon_code', $coupon_code);
+        }
 
         // Include coupons that belong to the current user or all users
         $couponModel->groupStart()
@@ -6106,6 +6110,37 @@ class CustomerAppAPI_1_6 extends BaseController
             'delivery_tip_amounts'     => isset($this->settings['delivery_tip_amounts']) ? json_decode($this->settings['delivery_tip_amounts'], true) : [],
         ];
 
+        // Server-side Coupon Discount calculation
+        $coupon_code = $dataInput['coupon_code'] ?? '';
+        $coupon_amount = 0;
+        $coupon_id = 0;
+        if (!empty($coupon_code)) {
+            $couponModel = new CouponModel();
+            $couponRow = $couponModel->where('coupon_code', $coupon_code)
+                                     ->where('is_delete', 0)
+                                     ->where('status', 1)
+                                     ->first();
+            if ($couponRow) {
+                $couponDataForSummery = [
+                    'coupon_id' => $couponRow['id']
+                ];
+                list($coupon_amount, $coupon_id) = $cartSummery->calculateCouponAmount($couponDataForSummery, $subTotal, $user['id']);
+            }
+        }
+
+        // Server-side Wallet Deduction calculation
+        $use_wallet = isset($dataInput['use_wallet']) && $dataInput['use_wallet'] == 1;
+        $wallet_deduction = 0;
+        $wallet_balance = (float)($wallet['closing_amount'] ?? 0);
+        if ($use_wallet && $wallet_balance > 0) {
+            $order_value = $subTotal + $deliveryDetails['deliveryCharge'] + $additional_charge + $taxTotal - $coupon_amount;
+            if ($order_value > 0) {
+                $wallet_deduction = min($wallet_balance, $order_value);
+            }
+        }
+
+        $grand_total = max(0, $subTotal + $deliveryDetails['deliveryCharge'] + $additional_charge + $taxTotal - $coupon_amount - $wallet_deduction);
+
         return $this->response->setJSON([
             'status' => 'success',
             'data' => $cartItems,
@@ -6119,6 +6154,9 @@ class CustomerAppAPI_1_6 extends BaseController
             'deliveryChargeTaxBreakdown' => $deliveryChargeTaxBreakdown,
             'tax' => $taxTotal,
             'wallet' => $wallet['closing_amount'] ?? 0,
+            'couponDiscount' => $coupon_amount,
+            'walletDeduction' => $wallet_deduction,
+            'grandTotal' => $grand_total,
             'tipSettings' => $tipSettings,
         ]);
     }
