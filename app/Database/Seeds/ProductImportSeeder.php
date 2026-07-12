@@ -273,7 +273,7 @@ class ProductImportSeeder extends Seeder
         ];
 
         // 5. Locate the import JSON data file
-        $importFile = WRITEPATH . 'import_products.json';
+        $importFile = ROOTPATH . 'import_products.json';
         if (!file_exists($importFile)) {
             echo "Error: Import file not found at {$importFile}\n";
             return;

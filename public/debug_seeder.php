@@ -134,7 +134,7 @@ try {
     flush();
     
     // Check files
-    $importFile = WRITEPATH . 'import_products.json';
+    $importFile = ROOTPATH . 'import_products.json';
     echo "Checking import file at: $importFile\n";
     flush();
     if (!file_exists($importFile)) {
