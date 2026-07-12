@@ -14,6 +14,7 @@ require FCPATH . '../app/Config/Paths.php';
 $paths = new Config\Paths();
 
 // Define path constants required by CodeIgniter
+define('ENVIRONMENT', 'production');
 define('APPPATH', realpath($paths->appDirectory) . DIRECTORY_SEPARATOR);
 define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
 define('WRITEPATH', realpath($paths->writableDirectory) . DIRECTORY_SEPARATOR);
