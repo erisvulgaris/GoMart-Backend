@@ -39,78 +39,22 @@ class ProductImportSeeder extends Seeder
         // 3. Seed Categories
         echo "Seeding Categories...\n";
         $categories = [
-            [
-                'id' => 1,
-                'category_group_id' => 1,
-                'row_order' => 1,
-                'category_name' => 'Vegetables & Fruits',
-                'slug' => 'vegetables-fruits',
-                'category_img' => '',
-                'is_bestseller_category' => 1
-            ],
-            [
-                'id' => 2,
-                'category_group_id' => 1,
-                'row_order' => 2,
-                'category_name' => 'Dairy, Bread & Eggs',
-                'slug' => 'dairy-bread-eggs',
-                'category_img' => '',
-                'is_bestseller_category' => 1
-            ],
-            [
-                'id' => 3,
-                'category_group_id' => 1,
-                'row_order' => 3,
-                'category_name' => 'Munchies & Snacks',
-                'slug' => 'munchies-snacks',
-                'category_img' => '',
-                'is_bestseller_category' => 1
-            ],
-            [
-                'id' => 4,
-                'category_group_id' => 1,
-                'row_order' => 4,
-                'category_name' => 'Cold Drinks & Juices',
-                'slug' => 'cold-drinks-juices',
-                'category_img' => '',
-                'is_bestseller_category' => 1
-            ],
-            [
-                'id' => 5,
-                'category_group_id' => 1,
-                'row_order' => 5,
-                'category_name' => 'Instant & Frozen Food',
-                'slug' => 'instant-frozen-food',
-                'category_img' => '',
-                'is_bestseller_category' => 0
-            ],
-            [
-                'id' => 6,
-                'category_group_id' => 1,
-                'row_order' => 6,
-                'category_name' => 'Atta, Rice & Dal',
-                'slug' => 'atta-rice-dal',
-                'category_img' => '',
-                'is_bestseller_category' => 0
-            ],
-            [
-                'id' => 7,
-                'category_group_id' => 1,
-                'row_order' => 7,
-                'category_name' => 'Cleaning & Home Essentials',
-                'slug' => 'cleaning-home-essentials',
-                'category_img' => '',
-                'is_bestseller_category' => 0
-            ],
-            [
-                'id' => 8,
-                'category_group_id' => 1,
-                'row_order' => 8,
-                'category_name' => 'Personal Care & Wellness',
-                'slug' => 'personal-care-wellness',
-                'category_img' => '',
-                'is_bestseller_category' => 0
-            ]
+            ['id' => 1, 'category_group_id' => 1, 'row_order' => 1, 'category_name' => 'Vegetables & Fruits', 'slug' => 'vegetables-fruits', 'category_img' => '', 'is_bestseller_category' => 1],
+            ['id' => 2, 'category_group_id' => 1, 'row_order' => 2, 'category_name' => 'Dairy, Bread & Eggs', 'slug' => 'dairy-bread-eggs', 'category_img' => '', 'is_bestseller_category' => 1],
+            ['id' => 3, 'category_group_id' => 1, 'row_order' => 3, 'category_name' => 'Munchies & Snacks', 'slug' => 'munchies-snacks', 'category_img' => '', 'is_bestseller_category' => 1],
+            ['id' => 4, 'category_group_id' => 1, 'row_order' => 4, 'category_name' => 'Bakery & Biscuits', 'slug' => 'bakery-biscuits', 'category_img' => '', 'is_bestseller_category' => 1],
+            ['id' => 5, 'category_group_id' => 1, 'row_order' => 5, 'category_name' => 'Cold Drinks & Juices', 'slug' => 'cold-drinks-juices', 'category_img' => '', 'is_bestseller_category' => 1],
+            ['id' => 6, 'category_group_id' => 1, 'row_order' => 6, 'category_name' => 'Tea, Coffee & Health Drinks', 'slug' => 'tea-coffee-health-drinks', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 7, 'category_group_id' => 1, 'row_order' => 7, 'category_name' => 'Instant & Frozen Food', 'slug' => 'instant-frozen-food', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 8, 'category_group_id' => 1, 'row_order' => 8, 'category_name' => 'Atta, Rice & Dal', 'slug' => 'atta-rice-dal', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 9, 'category_group_id' => 1, 'row_order' => 9, 'category_name' => 'Chicken, Meat & Fish', 'slug' => 'chicken-meat-fish', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 10, 'category_group_id' => 1, 'row_order' => 10, 'category_name' => 'Cleaning & Household', 'slug' => 'cleaning-household', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 11, 'category_group_id' => 1, 'row_order' => 11, 'category_name' => 'Personal Care', 'slug' => 'personal-care', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 12, 'category_group_id' => 1, 'row_order' => 12, 'category_name' => 'Feminine Hygiene & Care', 'slug' => 'feminine-hygiene-care', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 13, 'category_group_id' => 1, 'row_order' => 13, 'category_name' => 'Baby Care', 'slug' => 'baby-care', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 14, 'category_group_id' => 1, 'row_order' => 14, 'category_name' => 'Pharma & Wellness', 'slug' => 'pharma-wellness', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 15, 'category_group_id' => 1, 'row_order' => 15, 'category_name' => 'Sexual Wellness', 'slug' => 'sexual-wellness', 'category_img' => '', 'is_bestseller_category' => 0],
+            ['id' => 16, 'category_group_id' => 1, 'row_order' => 16, 'category_name' => 'Home & Kitchen', 'slug' => 'home-kitchen', 'category_img' => '', 'is_bestseller_category' => 0]
         ];
         $db->table('category')->insertBatch($categories);
 
@@ -125,130 +69,382 @@ class ProductImportSeeder extends Seeder
 
             // Cat 2: Dairy, Bread & Eggs
             ['id' => 5, 'category_id' => 2, 'row_order' => 1, 'name' => 'Milk', 'slug' => 'milk', 'img' => ''],
-            ['id' => 6, 'category_id' => 2, 'row_order' => 2, 'name' => 'Bread & Pav', 'slug' => 'bread-pav', 'img' => ''],
-            ['id' => 7, 'category_id' => 2, 'row_order' => 3, 'name' => 'Eggs', 'slug' => 'eggs', 'img' => ''],
-            ['id' => 8, 'category_id' => 2, 'row_order' => 4, 'name' => 'Butter & Ghee', 'slug' => 'butter-ghee', 'img' => ''],
-            ['id' => 9, 'category_id' => 2, 'row_order' => 5, 'name' => 'Cheese', 'slug' => 'cheese', 'img' => ''],
-            ['id' => 10, 'category_id' => 2, 'row_order' => 6, 'name' => 'Paneer & Tofu', 'slug' => 'paneer-tofu', 'img' => ''],
-            ['id' => 11, 'category_id' => 2, 'row_order' => 7, 'name' => 'Curd & Yogurt', 'slug' => 'curd-yogurt', 'img' => ''],
-            ['id' => 12, 'category_id' => 2, 'row_order' => 8, 'name' => 'Chicken, Meat & Fish', 'slug' => 'chicken-meat-fish', 'img' => ''],
+            ['id' => 6, 'category_id' => 2, 'row_order' => 2, 'name' => 'Butter & Ghee', 'slug' => 'butter-ghee', 'img' => ''],
+            ['id' => 7, 'category_id' => 2, 'row_order' => 3, 'name' => 'Cheese', 'slug' => 'cheese', 'img' => ''],
+            ['id' => 8, 'category_id' => 2, 'row_order' => 4, 'name' => 'Paneer & Tofu', 'slug' => 'paneer-tofu', 'img' => ''],
+            ['id' => 9, 'category_id' => 2, 'row_order' => 5, 'name' => 'Curd & Yogurt', 'slug' => 'curd-yogurt', 'img' => ''],
+            ['id' => 10, 'category_id' => 2, 'row_order' => 6, 'name' => 'Eggs', 'slug' => 'eggs', 'img' => ''],
 
             // Cat 3: Munchies & Snacks
-            ['id' => 13, 'category_id' => 3, 'row_order' => 1, 'name' => 'Chips & Wafers', 'slug' => 'chips-wafers', 'img' => ''],
-            ['id' => 14, 'category_id' => 3, 'row_order' => 2, 'name' => 'Namkeen & Bhujia', 'slug' => 'namkeen-bhujia', 'img' => ''],
-            ['id' => 15, 'category_id' => 3, 'row_order' => 3, 'name' => 'Sweets & Chocolates', 'slug' => 'sweets-chocolates', 'img' => ''],
-            ['id' => 16, 'category_id' => 3, 'row_order' => 4, 'name' => 'Biscuits & Cookies', 'slug' => 'biscuits-cookies', 'img' => ''],
-            ['id' => 17, 'category_id' => 3, 'row_order' => 5, 'name' => 'Dry Fruits, Nuts & Seeds', 'slug' => 'dry-fruits-nuts-seeds', 'img' => ''],
+            ['id' => 11, 'category_id' => 3, 'row_order' => 1, 'name' => 'Chips & Wafers', 'slug' => 'chips-wafers', 'img' => ''],
+            ['id' => 12, 'category_id' => 3, 'row_order' => 2, 'name' => 'Namkeen & Bhujia', 'slug' => 'namkeen-bhujia', 'img' => ''],
+            ['id' => 13, 'category_id' => 3, 'row_order' => 3, 'name' => 'Sweets & Chocolates', 'slug' => 'sweets-chocolates', 'img' => ''],
+            ['id' => 14, 'category_id' => 3, 'row_order' => 4, 'name' => 'Dry Fruits, Nuts & Seeds', 'slug' => 'dry-fruits-nuts-seeds', 'img' => ''],
+            ['id' => 15, 'category_id' => 3, 'row_order' => 5, 'name' => 'Popcorn & Puffs', 'slug' => 'popcorn-puffs', 'img' => ''],
 
-            // Cat 4: Cold Drinks & Juices
-            ['id' => 18, 'category_id' => 4, 'row_order' => 1, 'name' => 'Soft Drinks & Soda', 'slug' => 'soft-drinks-soda', 'img' => ''],
-            ['id' => 19, 'category_id' => 4, 'row_order' => 2, 'name' => 'Juices & Fruit Drinks', 'slug' => 'juices-fruit-drinks', 'img' => ''],
-            ['id' => 20, 'category_id' => 4, 'row_order' => 3, 'name' => 'Tea & Coffee', 'slug' => 'tea-coffee', 'img' => ''],
-            ['id' => 21, 'category_id' => 4, 'row_order' => 4, 'name' => 'Energy Drinks & Water', 'slug' => 'energy-drinks-water', 'img' => ''],
+            // Cat 4: Bakery & Biscuits
+            ['id' => 16, 'category_id' => 4, 'row_order' => 1, 'name' => 'Biscuits & Cookies', 'slug' => 'biscuits-cookies', 'img' => ''],
+            ['id' => 17, 'category_id' => 4, 'row_order' => 2, 'name' => 'Breads & Buns', 'slug' => 'breads-buns', 'img' => ''],
+            ['id' => 18, 'category_id' => 4, 'row_order' => 3, 'name' => 'Rusk & Khari', 'slug' => 'rusk-khari', 'img' => ''],
+            ['id' => 19, 'category_id' => 4, 'row_order' => 4, 'name' => 'Cakes & Muffins', 'slug' => 'cakes-muffins', 'img' => ''],
 
-            // Cat 5: Instant & Frozen Food
-            ['id' => 22, 'category_id' => 5, 'row_order' => 1, 'name' => 'Noodles, Pasta & Soup', 'slug' => 'noodles-pasta-soup', 'img' => ''],
-            ['id' => 23, 'category_id' => 5, 'row_order' => 2, 'name' => 'Sauces & Spreads', 'slug' => 'sauces-spreads', 'img' => ''],
-            ['id' => 24, 'category_id' => 5, 'row_order' => 3, 'name' => 'Ice Cream & Desserts', 'slug' => 'ice-cream-desserts', 'img' => ''],
-            ['id' => 25, 'category_id' => 5, 'row_order' => 4, 'name' => 'Ready to Eat & Frozen Snacks', 'slug' => 'ready-to-eat-frozen-snacks', 'img' => ''],
+            // Cat 5: Cold Drinks & Juices
+            ['id' => 20, 'category_id' => 5, 'row_order' => 1, 'name' => 'Soft Drinks & Soda', 'slug' => 'soft-drinks-soda', 'img' => ''],
+            ['id' => 21, 'category_id' => 5, 'row_order' => 2, 'name' => 'Juices & Fruit Drinks', 'slug' => 'juices-fruit-drinks', 'img' => ''],
+            ['id' => 22, 'category_id' => 5, 'row_order' => 3, 'name' => 'Energy Drinks', 'slug' => 'energy-drinks', 'img' => ''],
+            ['id' => 23, 'category_id' => 5, 'row_order' => 4, 'name' => 'Water & Mixers', 'slug' => 'water-mixers', 'img' => ''],
 
-            // Cat 6: Atta, Rice & Dal
-            ['id' => 26, 'category_id' => 6, 'row_order' => 1, 'name' => 'Atta & Flours', 'slug' => 'atta-flours', 'img' => ''],
-            ['id' => 27, 'category_id' => 6, 'row_order' => 2, 'name' => 'Rice & Rice Products', 'slug' => 'rice-rice-products', 'img' => ''],
-            ['id' => 28, 'category_id' => 6, 'row_order' => 3, 'name' => 'Dals & Pulses', 'slug' => 'dals-pulses', 'img' => ''],
-            ['id' => 29, 'category_id' => 6, 'row_order' => 4, 'name' => 'Cooking Oils & Ghee', 'slug' => 'cooking-oils-ghee', 'img' => ''],
-            ['id' => 30, 'category_id' => 6, 'row_order' => 5, 'name' => 'Spices & Masalas', 'slug' => 'spices-masalas', 'img' => ''],
+            // Cat 6: Tea, Coffee & Health Drinks
+            ['id' => 24, 'category_id' => 6, 'row_order' => 1, 'name' => 'Tea Bags & Leaf', 'slug' => 'tea-bags-leaf', 'img' => ''],
+            ['id' => 25, 'category_id' => 6, 'row_order' => 2, 'name' => 'Instant Coffee', 'slug' => 'instant-coffee', 'img' => ''],
+            ['id' => 26, 'category_id' => 6, 'row_order' => 3, 'name' => 'Milk Drinks & Mixes', 'slug' => 'milk-drinks-mixes', 'img' => ''],
+            ['id' => 27, 'category_id' => 6, 'row_order' => 4, 'name' => 'Green & Herbal Tea', 'slug' => 'green-herbal-tea', 'img' => ''],
 
-            // Cat 7: Cleaning & Home Essentials
-            ['id' => 31, 'category_id' => 7, 'row_order' => 1, 'name' => 'Detergents & Fabric Care', 'slug' => 'detergents-fabric-care', 'img' => ''],
-            ['id' => 32, 'category_id' => 7, 'row_order' => 2, 'name' => 'Dishwashers & Cleaners', 'slug' => 'dishwashers-cleaners', 'img' => ''],
-            ['id' => 33, 'category_id' => 7, 'row_order' => 3, 'name' => 'Repellents & Fresheners', 'slug' => 'repellents-fresheners', 'img' => ''],
-            ['id' => 34, 'category_id' => 7, 'row_order' => 4, 'name' => 'Stationery, Games & Toys', 'slug' => 'stationery-games-toys', 'img' => ''],
-            ['id' => 35, 'category_id' => 7, 'row_order' => 5, 'name' => 'Electronics & Batteries', 'slug' => 'electronics-batteries', 'img' => ''],
-            ['id' => 36, 'category_id' => 7, 'row_order' => 6, 'name' => 'Home & Lifestyle', 'slug' => 'home-lifestyle-sub', 'img' => ''],
+            // Cat 7: Instant & Frozen Food
+            ['id' => 28, 'category_id' => 7, 'row_order' => 1, 'name' => 'Noodles & Cup Noodles', 'slug' => 'noodles-cup-noodles', 'img' => ''],
+            ['id' => 29, 'category_id' => 7, 'row_order' => 2, 'name' => 'Pasta & Vermicelli', 'slug' => 'pasta-vermicelli', 'img' => ''],
+            ['id' => 30, 'category_id' => 7, 'row_order' => 3, 'name' => 'Soups & Ready Meals', 'slug' => 'soups-ready-meals', 'img' => ''],
+            ['id' => 31, 'category_id' => 7, 'row_order' => 4, 'name' => 'Frozen Snacks & Veggies', 'slug' => 'frozen-snacks-veggies', 'img' => ''],
+            ['id' => 32, 'category_id' => 7, 'row_order' => 5, 'name' => 'Sauces, Ketchup & Spreads', 'slug' => 'sauces-ketchup-spreads', 'img' => ''],
+            ['id' => 33, 'category_id' => 7, 'row_order' => 6, 'name' => 'Honey & Jams', 'slug' => 'honey-jams', 'img' => ''],
 
-            // Cat 8: Personal Care & Wellness
-            ['id' => 37, 'category_id' => 8, 'row_order' => 1, 'name' => 'Bath & Body Care', 'slug' => 'bath-body-care', 'img' => ''],
-            ['id' => 38, 'category_id' => 8, 'row_order' => 2, 'name' => 'Hair Care', 'slug' => 'hair-care', 'img' => ''],
-            ['id' => 39, 'category_id' => 8, 'row_order' => 3, 'name' => 'Skin & Face Care', 'slug' => 'skin-face-care', 'img' => ''],
-            ['id' => 40, 'category_id' => 8, 'row_order' => 4, 'name' => 'Beauty & Cosmetics', 'slug' => 'beauty-cosmetics-sub', 'img' => ''],
-            ['id' => 41, 'category_id' => 8, 'row_order' => 5, 'name' => 'Feminine Hygiene', 'slug' => 'feminine-hygiene-sub', 'img' => ''],
-            ['id' => 42, 'category_id' => 8, 'row_order' => 6, 'name' => 'Baby Care', 'slug' => 'baby-care-sub', 'img' => ''],
-            ['id' => 43, 'category_id' => 8, 'row_order' => 7, 'name' => 'Health & Pharma', 'slug' => 'health-pharma-sub', 'img' => ''],
-            ['id' => 44, 'category_id' => 8, 'row_order' => 8, 'name' => 'Sexual Wellness', 'slug' => 'sexual-wellness-sub', 'img' => '']
+            // Cat 8: Atta, Rice & Dal
+            ['id' => 34, 'category_id' => 8, 'row_order' => 1, 'name' => 'Atta & Flours', 'slug' => 'atta-flours', 'img' => ''],
+            ['id' => 35, 'category_id' => 8, 'row_order' => 2, 'name' => 'Rice & Rice Products', 'slug' => 'rice-rice-products', 'img' => ''],
+            ['id' => 36, 'category_id' => 8, 'row_order' => 3, 'name' => 'Dals & Pulses', 'slug' => 'dals-pulses', 'img' => ''],
+            ['id' => 37, 'category_id' => 8, 'row_order' => 4, 'name' => 'Cooking Oils & Ghee', 'slug' => 'cooking-oils-ghee', 'img' => ''],
+            ['id' => 38, 'category_id' => 8, 'row_order' => 5, 'name' => 'Spices & Masalas', 'slug' => 'spices-masalas', 'img' => ''],
+            ['id' => 39, 'category_id' => 8, 'row_order' => 6, 'name' => 'Salt, Sugar & Jaggery', 'slug' => 'salt-sugar-jaggery', 'img' => ''],
+
+            // Cat 9: Chicken, Meat & Fish
+            ['id' => 40, 'category_id' => 9, 'row_order' => 1, 'name' => 'Fresh Chicken', 'slug' => 'fresh-chicken', 'img' => ''],
+            ['id' => 41, 'category_id' => 9, 'row_order' => 2, 'name' => 'Fresh Mutton', 'slug' => 'fresh-mutton', 'img' => ''],
+            ['id' => 42, 'category_id' => 9, 'row_order' => 3, 'name' => 'Fish & Seafood', 'slug' => 'fish-seafood', 'img' => ''],
+            ['id' => 43, 'category_id' => 9, 'row_order' => 4, 'name' => 'Eggs & Cold Cuts', 'slug' => 'eggs-cold-cuts', 'img' => ''],
+
+            // Cat 10: Cleaning & Household
+            ['id' => 44, 'category_id' => 10, 'row_order' => 1, 'name' => 'Detergents & Fabric Care', 'slug' => 'detergents-fabric-care', 'img' => ''],
+            ['id' => 45, 'category_id' => 10, 'row_order' => 2, 'name' => 'Dishwashers & Cleaners', 'slug' => 'dishwashers-cleaners', 'img' => ''],
+            ['id' => 46, 'category_id' => 10, 'row_order' => 3, 'name' => 'Toilet & Bathroom Cleaners', 'slug' => 'toilet-bathroom-cleaners', 'img' => ''],
+            ['id' => 47, 'category_id' => 10, 'row_order' => 4, 'name' => 'Trash Bags & Kitchen Needs', 'slug' => 'trash-bags-kitchen-needs', 'img' => ''],
+            ['id' => 48, 'category_id' => 10, 'row_order' => 5, 'name' => 'Repellents & Air Fresheners', 'slug' => 'repellents-air-fresheners', 'img' => ''],
+
+            // Cat 11: Personal Care
+            ['id' => 49, 'category_id' => 11, 'row_order' => 1, 'name' => 'Bath & Body Soaps', 'slug' => 'bath-body-soaps', 'img' => ''],
+            ['id' => 50, 'category_id' => 11, 'row_order' => 2, 'name' => 'Shampoos & Conditioners', 'slug' => 'shampoos-conditioners', 'img' => ''],
+            ['id' => 51, 'category_id' => 11, 'row_order' => 3, 'name' => 'Hair Oils & Styling', 'slug' => 'hair-oils-styling', 'img' => ''],
+            ['id' => 52, 'category_id' => 11, 'row_order' => 4, 'name' => 'Facewash & Skin Care', 'slug' => 'facewash-skin-care', 'img' => ''],
+            ['id' => 53, 'category_id' => 11, 'row_order' => 5, 'name' => 'Deodorants & Perfumes', 'slug' => 'deodorants-perfumes', 'img' => ''],
+            ['id' => 54, 'category_id' => 11, 'row_order' => 6, 'name' => 'Oral Care (Toothpaste & Brushes)', 'slug' => 'oral-care-toothpaste-brushes', 'img' => ''],
+
+            // Cat 12: Feminine Hygiene & Care
+            ['id' => 55, 'category_id' => 12, 'row_order' => 1, 'name' => 'Sanitary Pads & Liners', 'slug' => 'sanitary-pads-liners', 'img' => ''],
+            ['id' => 56, 'category_id' => 12, 'row_order' => 2, 'name' => 'Intimate Care & Hygiene', 'slug' => 'intimate-care-hygiene', 'img' => ''],
+
+            // Cat 13: Baby Care
+            ['id' => 57, 'category_id' => 13, 'row_order' => 1, 'name' => 'Baby Diapers & Wipes', 'slug' => 'baby-diapers-wipes', 'img' => ''],
+            ['id' => 58, 'category_id' => 13, 'row_order' => 2, 'name' => 'Baby Food & Formula', 'slug' => 'baby-food-formula', 'img' => ''],
+            ['id' => 59, 'category_id' => 13, 'row_order' => 3, 'name' => 'Baby Bath & Skin Care', 'slug' => 'baby-bath-skin-care', 'img' => ''],
+
+            // Cat 14: Pharma & Wellness
+            ['id' => 60, 'category_id' => 14, 'row_order' => 1, 'name' => 'Pain Relief & Bandages', 'slug' => 'pain-relief-bandages', 'img' => ''],
+            ['id' => 61, 'category_id' => 14, 'row_order' => 2, 'name' => 'Digestives & Antacids', 'slug' => 'digestives-antacids', 'img' => ''],
+            ['id' => 62, 'category_id' => 14, 'row_order' => 3, 'name' => 'Cough, Cold & Immunity', 'slug' => 'cough-cold-immunity', 'img' => ''],
+            ['id' => 63, 'category_id' => 14, 'row_order' => 4, 'name' => 'Sanitizers & Masks', 'slug' => 'sanitizers-masks', 'img' => ''],
+
+            // Cat 15: Sexual Wellness
+            ['id' => 64, 'category_id' => 15, 'row_order' => 1, 'name' => 'Condoms', 'slug' => 'condoms', 'img' => ''],
+            ['id' => 65, 'category_id' => 15, 'row_order' => 2, 'name' => 'Lubricants & Massagers', 'slug' => 'lubricants-massagers', 'img' => ''],
+
+            // Cat 16: Home & Kitchen
+            ['id' => 66, 'category_id' => 16, 'row_order' => 1, 'name' => 'Batteries & Bulbs', 'slug' => 'batteries-bulbs', 'img' => ''],
+            ['id' => 67, 'category_id' => 16, 'row_order' => 2, 'name' => 'Stationery & Office Needs', 'slug' => 'stationery-office-needs', 'img' => ''],
+            ['id' => 68, 'category_id' => 16, 'row_order' => 3, 'name' => 'Toys & Party Needs', 'slug' => 'toys-party-needs', 'img' => ''],
+            ['id' => 69, 'category_id' => 16, 'row_order' => 4, 'name' => 'Kitchen Tools & Cookware', 'slug' => 'kitchen-tools-cookware', 'img' => '']
         ];
         $db->table('subcategory')->insertBatch($subcategories);
 
-        // Helper function to map category_id + product_name to subcategory_id
-        $classifySubcategory = function($productName, $categoryId) {
+        $containsAny = function($str, array $keywords) {
+            foreach ($keywords as $kw) {
+                if (stripos($str, $kw) !== false) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        // Helper function to map product name to category_id + subcategory_id
+        $classifyProduct = function($productName, $origCategoryId) use ($containsAny) {
             $name = strtolower($productName);
-            if ($categoryId == 1) { // Fruits & Vegetables
-                if (strpos($name, 'herb') !== false || strpos($name, 'coriander') !== false || strpos($name, 'mint') !== false || strpos($name, 'ginger') !== false || strpos($name, 'garlic') !== false || strpos($name, 'chilli') !== false || strpos($name, 'lemon') !== false || strpos($name, 'dhaniya') !== false || strpos($name, 'adrak') !== false || strpos($name, 'lehsun') !== false) {
-                    return 3;
+
+            // 15. Sexual Wellness
+            if ($containsAny($name, ['condom', 'lubricant', 'massager', 'sleeve storker', 'intimacy', 'vibrator', 'pleasure', 'skore'])) {
+                if (stripos($name, 'condom') !== false) {
+                    return ['category_id' => 15, 'subcategory_id' => 64];
                 }
-                if (strpos($name, 'kiwi') !== false || strpos($name, 'imported') !== false || strpos($name, 'exotic') !== false || strpos($name, 'avocado') !== false || strpos($name, 'cherry') !== false || strpos($name, 'litchi') !== false) {
-                    return 4;
+                return ['category_id' => 15, 'subcategory_id' => 65];
+            }
+
+            // 13. Baby Care
+            if ($containsAny($name, ['diaper', 'wipes', 'cerelac', 'johnson', 'pampers', 'huggies', 'baby', 'nestum'])) {
+                if ($containsAny($name, ['diaper', 'pampers', 'huggies'])) {
+                    return ['category_id' => 13, 'subcategory_id' => 57];
                 }
-                if (strpos($name, 'banana') !== false || strpos($name, 'apple') !== false || strpos($name, 'pomegranate') !== false || strpos($name, 'mango') !== false || strpos($name, 'orange') !== false || strpos($name, 'grapes') !== false || strpos($name, 'papaya') !== false || strpos($name, 'watermelon') !== false || strpos($name, 'melon') !== false || strpos($name, 'pineapple') !== false || strpos($name, 'pear') !== false || strpos($name, 'plum') !== false || strpos($name, 'peach') !== false || strpos($name, 'strawberry') !== false || strpos($name, 'guava') !== false || strpos($name, 'sapota') !== false || strpos($name, 'chiku') !== false) {
-                    return 2;
+                if ($containsAny($name, ['cerelac', 'nestum', 'formula', 'infant'])) {
+                    return ['category_id' => 13, 'subcategory_id' => 58];
                 }
-                return 1;
+                return ['category_id' => 13, 'subcategory_id' => 59];
             }
-            if ($categoryId == 2) { // Dairy, Bread & Eggs
-                if (strpos($name, 'milk') !== false) return 5;
-                if (strpos($name, 'bread') !== false || strpos($name, 'pav') !== false || strpos($name, 'bun') !== false) return 6;
-                if (strpos($name, 'egg') !== false) return 7;
-                if (strpos($name, 'butter') !== false || strpos($name, 'ghee') !== false) return 8;
-                if (strpos($name, 'cheese') !== false) return 9;
-                if (strpos($name, 'paneer') !== false || strpos($name, 'tofu') !== false) return 10;
-                if (strpos($name, 'curd') !== false || strpos($name, 'dahi') !== false || strpos($name, 'yogurt') !== false) return 11;
-                return 12; // Chicken, Meat & Fish
+
+            // 12. Feminine Hygiene & Care
+            if ($containsAny($name, ['whisper', 'stayfree', 'sanitary', 'pad', 'panty', 'softex', 'sofy', 'pee safe'])) {
+                return ['category_id' => 12, 'subcategory_id' => 55];
             }
-            if ($categoryId == 3) { // Munchies & Snacks
-                if (strpos($name, 'chips') !== false || strpos($name, 'lays') !== false || strpos($name, 'kurkure') !== false || strpos($name, 'pringles') !== false || strpos($name, 'nachos') !== false) return 13;
-                if (strpos($name, 'namkeen') !== false || strpos($name, 'bhujia') !== false || strpos($name, 'sev') !== false || strpos($name, 'mixture') !== false || strpos($name, 'makhana') !== false || strpos($name, 'peanuts') !== false) return 14;
-                if (strpos($name, 'sweet') !== false || strpos($name, 'chocolate') !== false || strpos($name, 'candy') !== false || strpos($name, 'lollipop') !== false || strpos($name, 'soan papdi') !== false || strpos($name, 'gulab jamun') !== false || strpos($name, 'rasgulla') !== false || strpos($name, 'bourn') !== false || strpos($name, 'cadbury') !== false || strpos($name, 'chewing gum') !== false) return 15;
-                if (strpos($name, 'biscuit') !== false || strpos($name, 'cookie') !== false || strpos($name, 'parle') !== false || strpos($name, 'good day') !== false || strpos($name, 'oreo') !== false || strpos($name, 'bourbon') !== false || strpos($name, 'hide') !== false || strpos($name, 'marie') !== false || strpos($name, 'crack') !== false || strpos($name, 'krack') !== false || strpos($name, 'monaco') !== false || strpos($name, 'digestive') !== false) return 16;
-                return 17; // Dry Fruits
+
+            // 9. Chicken, Meat & Fish
+            if ($containsAny($name, ['chicken', 'mutton', 'fish', 'prawns', 'seafood', 'salami', 'sausage', 'bacon', 'licious', 'meat'])) {
+                if (stripos($name, 'chicken') !== false) {
+                    return ['category_id' => 9, 'subcategory_id' => 40];
+                }
+                if ($containsAny($name, ['mutton', 'goat', 'lamb'])) {
+                    return ['category_id' => 9, 'subcategory_id' => 41];
+                }
+                if ($containsAny($name, ['fish', 'prawn', 'salmon', 'surmai'])) {
+                    return ['category_id' => 9, 'subcategory_id' => 42];
+                }
+                return ['category_id' => 9, 'subcategory_id' => 43];
             }
-            if ($categoryId == 4) { // Cold Drinks & Juices
-                if (strpos($name, 'coke') !== false || strpos($name, 'pepsi') !== false || strpos($name, 'sprite') !== false || strpos($name, 'thums') !== false || strpos($name, 'limca') !== false || strpos($name, 'fanta') !== false || strpos($name, 'soda') !== false) return 18;
-                if (strpos($name, 'juice') !== false || strpos($name, 'maaza') !== false || strpos($name, 'slice') !== false || strpos($name, 'frooti') !== false || strpos($name, 'tropicana') !== false || strpos($name, 'drink') !== false || strpos($name, 'lassi') !== false || strpos($name, 'chaas') !== false || strpos($name, 'tang') !== false || strpos($name, 'rasna') !== false) return 19;
-                if (strpos($name, 'tea') !== false || strpos($name, 'coffee') !== false || strpos($name, 'label') !== false || strpos($name, 'bru') !== false || strpos($name, 'tata') !== false || strpos($name, 'nescafe') !== false) return 20;
-                return 21; // Energy Drinks
+
+            // 1. Vegetables & Fruits
+            if ($containsAny($name, ['apple', 'banana', 'orange', 'grapes', 'mango', 'pomegranate', 'papaya', 'watermelon', 'melon', 'pineapple', 'pear', 'plum', 'peach', 'strawberry', 'guava', 'kiwi', 'avocado', 'cherry', 'litchi', 'coconut', 'gajar', 'carrot', 'potato', 'onion', 'garlic', 'ginger', 'coriander', 'mint', 'chilli', 'lemon', 'cucumber', 'bhindi', 'cabbage', 'cauliflower', 'tomato', 'pyaz', 'tamatar', 'mirch', 'adrak', 'lehsun', 'dhaniya', 'palak', 'spinach', 'kheera', 'beans', 'brinjal', 'aloo'])) {
+                if (!$containsAny($name, ['juice', 'sauce', 'ketchup', 'chips', 'jam', 'biscuit', 'cookie', 'chocolate', 'ice cream', 'shampoo', 'hair oil', 'facewash', 'tea', 'soap', 'deodorant'])) {
+                    if ($containsAny($name, ['herb', 'coriander', 'mint', 'ginger', 'garlic', 'chilli', 'lemon', 'dhaniya', 'adrak', 'lehsun', 'mirch', 'curry leaf', 'lemongrass'])) {
+                        return ['category_id' => 1, 'subcategory_id' => 3];
+                    }
+                    if ($containsAny($name, ['kiwi', 'imported', 'exotic', 'avocado', 'cherry', 'litchi', 'mushroom', 'sprouts', 'sweet corn', 'broccoli'])) {
+                        return ['category_id' => 1, 'subcategory_id' => 4];
+                    }
+                    if ($containsAny($name, ['banana', 'apple', 'pomegranate', 'mango', 'orange', 'grapes', 'papaya', 'watermelon', 'melon', 'pineapple', 'pear', 'plum', 'peach', 'strawberry', 'guava', 'sapota', 'chiku', 'fruit'])) {
+                        return ['category_id' => 1, 'subcategory_id' => 2];
+                    }
+                    return ['category_id' => 1, 'subcategory_id' => 1];
+                }
             }
-            if ($categoryId == 5) { // Instant & Frozen Food
-                if (strpos($name, 'noodle') !== false || strpos($name, 'maggi') !== false || strpos($name, 'yippee') !== false || strpos($name, 'ramen') !== false || strpos($name, 'pasta') !== false || strpos($name, 'soup') !== false) return 22;
-                if (strpos($name, 'ketchup') !== false || strpos($name, 'sauce') !== false || strpos($name, 'jam') !== false || strpos($name, 'mayonnaise') !== false || strpos($name, 'spread') !== false || strpos($name, 'honey') !== false) return 23;
-                if (strpos($name, 'ice cream') !== false || strpos($name, 'tub') !== false || strpos($name, 'dessert') !== false || strpos($name, 'cake') !== false || strpos($name, 'muffin') !== false || strpos($name, 'pastry') !== false) return 24;
-                return 25; // Ready to Eat & Frozen
+
+            // 2. Dairy, Bread & Eggs
+            if ($containsAny($name, ['milk', 'butter', 'ghee', 'cheese', 'paneer', 'tofu', 'curd', 'dahi', 'yogurt', 'egg', 'lassi', 'chaas', 'buttermilk', 'shrikhand', 'milkshake'])) {
+                if (!$containsAny($name, ['biscuit', 'cookie', 'chocolate', 'soap', 'shampoo', 'hair', 'rusk'])) {
+                    if (stripos($name, 'egg') !== false) {
+                        return ['category_id' => 2, 'subcategory_id' => 10];
+                    }
+                    if ($containsAny($name, ['paneer', 'tofu'])) {
+                        return ['category_id' => 2, 'subcategory_id' => 8];
+                    }
+                    if ($containsAny($name, ['curd', 'dahi', 'yogurt', 'shrikhand'])) {
+                        return ['category_id' => 2, 'subcategory_id' => 9];
+                    }
+                    if ($containsAny($name, ['cheese', 'slice', 'spread'])) {
+                        return ['category_id' => 2, 'subcategory_id' => 7];
+                    }
+                    if ($containsAny($name, ['butter', 'ghee'])) {
+                        if (!$containsAny($name, ['peanut', 'chocolate'])) {
+                            return ['category_id' => 2, 'subcategory_id' => 6];
+                        }
+                    }
+                    return ['category_id' => 2, 'subcategory_id' => 5];
+                }
             }
-            if ($categoryId == 6) { // Atta, Rice & Dal
-                if (strpos($name, 'atta') !== false || strpos($name, 'flour') !== false || strpos($name, 'besan') !== false || strpos($name, 'maida') !== false || strpos($name, 'suji') !== false || strpos($name, 'sattu') !== false) return 26;
-                if (strpos($name, 'rice') !== false || strpos($name, 'basmati') !== false || strpos($name, 'poha') !== false) return 27;
-                if (strpos($name, 'dal') !== false || strpos($name, 'pulse') !== false || strpos($name, 'chana') !== false || strpos($name, 'moong') !== false || strpos($name, 'toor') !== false || strpos($name, 'urad') !== false || strpos($name, 'masoor') !== false || strpos($name, 'rajma') !== false || strpos($name, 'chhole') !== false) return 28;
-                if (strpos($name, 'oil') !== false || strpos($name, 'ghee') !== false || strpos($name, 'mustard') !== false || strpos($name, 'refined') !== false || strpos($name, 'olive') !== false) return 29;
-                return 30; // Spices & Masalas
+
+            // 4. Bakery & Biscuits
+            if ($containsAny($name, ['biscuit', 'cookie', 'rusk', 'khari', 'bread', 'pav', 'bun', 'cake', 'muffin', 'croissant', 'pastry', 'waffle', 'tortilla'])) {
+                if (stripos($name, 'ice cream') === false) {
+                    if ($containsAny($name, ['biscuit', 'cookie', 'cookies'])) {
+                        return ['category_id' => 4, 'subcategory_id' => 16];
+                    }
+                    if ($containsAny($name, ['bread', 'pav', 'bun', 'loaf'])) {
+                        return ['category_id' => 4, 'subcategory_id' => 17];
+                    }
+                    if ($containsAny($name, ['rusk', 'khari', 'toast'])) {
+                        return ['category_id' => 4, 'subcategory_id' => 18];
+                    }
+                    return ['category_id' => 4, 'subcategory_id' => 19];
+                }
             }
-            if ($categoryId == 7) { // Cleaning & Home Essentials
-                if (strpos($name, 'detergent') !== false || strpos($name, 'surf') !== false || strpos($name, 'ariel') !== false || strpos($name, 'tide') !== false || strpos($name, 'wheel') !== false || strpos($name, 'comfort') !== false) return 31;
-                if (strpos($name, 'vim') !== false || strpos($name, 'pril') !== false || strpos($name, 'dishwash') !== false || strpos($name, 'cleaner') !== false || strpos($name, 'harpic') !== false || strpos($name, 'lizol') !== false || strpos($name, 'colin') !== false) return 32;
-                if (strpos($name, 'repellent') !== false || strpos($name, 'hit') !== false || strpos($name, 'baygon') !== false || strpos($name, 'freshener') !== false || strpos($name, 'aer') !== false || strpos($name, 'candle') !== false || strpos($name, 'diffuser') !== false) return 33;
-                if (strpos($name, 'notebook') !== false || strpos($name, 'diary') !== false || strpos($name, 'diaries') !== false || strpos($name, 'stationery') !== false || strpos($name, 'pen') !== false || strpos($name, 'game') !== false || strpos($name, 'toy') !== false) return 34;
-                if (strpos($name, 'bulb') !== false || strpos($name, 'led') !== false || strpos($name, 'battery') !== false || strpos($name, 'duracell') !== false || strpos($name, 'trimmer') !== false || strpos($name, 'appliances') !== false) return 35;
-                return 36; // Home & Lifestyle
+
+            // 6. Tea, Coffee & Health Drinks
+            if ($containsAny($name, ['tea', 'coffee', 'horlicks', 'boost', 'bournvita', 'complan', 'pediasure', 'ensure', 'health drink', 'chai'])) {
+                if (!$containsAny($name, ['iced', 'oil', 'face', 'scrub', 'body', 'cup'])) {
+                    if ($containsAny($name, ['green', 'herbal', 'chamomile'])) {
+                        return ['category_id' => 6, 'subcategory_id' => 27];
+                    }
+                    if ($containsAny($name, ['coffee', 'nescafe', 'bru', 'davidoff'])) {
+                        return ['category_id' => 6, 'subcategory_id' => 25];
+                    }
+                    if ($containsAny($name, ['horlicks', 'boost', 'bournvita', 'complan', 'pediasure', 'ensure', 'mix'])) {
+                        return ['category_id' => 6, 'subcategory_id' => 26];
+                    }
+                    return ['category_id' => 6, 'subcategory_id' => 24];
+                }
             }
-            if ($categoryId == 8) { // Personal Care & Wellness
-                if (strpos($name, 'soap') !== false || strpos($name, 'body') !== false || strpos($name, 'shower') !== false || strpos($name, 'handwash') !== false) return 37;
-                if (strpos($name, 'shampoo') !== false || strpos($name, 'hair') !== false || strpos($name, 'conditioner') !== false) return 38;
-                if (strpos($name, 'face') !== false || strpos($name, 'cream') !== false || strpos($name, 'lotion') !== false || strpos($name, 'nivea') !== false || strpos($name, 'pond') !== false || strpos($name, 'vaseline') !== false || strpos($name, 'moisturizer') !== false) return 39;
-                if (strpos($name, 'beauty') !== false || strpos($name, 'cosmetics') !== false || strpos($name, 'lipstick') !== false || strpos($name, 'gloss') !== false || strpos($name, 'liner') !== false || strpos($name, 'makeup') !== false) return 40;
-                if (strpos($name, 'sanitary') !== false || strpos($name, 'pad') !== false || strpos($name, 'hygiene') !== false || strpos($name, 'panty') !== false || strpos($name, 'liner') !== false) return 41;
-                if (strpos($name, 'baby') !== false || strpos($name, 'diaper') !== false || strpos($name, 'wipes') !== false || strpos($name, 'cerelac') !== false || strpos($name, 'johnson') !== false || strpos($name, 'pampers') !== false || strpos($name, 'huggies') !== false) return 42;
-                if (strpos($name, 'health') !== false || strpos($name, 'pharma') !== false || strpos($name, 'pain') !== false || strpos($name, 'fever') !== false || strpos($name, 'crocin') !== false || strpos($name, 'calpol') !== false || strpos($name, 'spray') !== false || strpos($name, 'gel') !== false || strpos($name, 'sanitizer') !== false) return 43;
-                return 44; // Sexual Wellness
+
+            // 5. Cold Drinks & Juices
+            if ($containsAny($name, ['coke', 'pepsi', 'sprite', 'fanta', 'limca', 'mirinda', 'soda', 'juice', 'drink', 'water', 'tonic', 'red bull', 'monster', 'energy', 'paper boat', 'real juice', 'tang', 'rasna', 'jaljeera', 'sharbats'])) {
+                if (!$containsAny($name, ['wash', 'cream', 'shampoo'])) {
+                    if ($containsAny($name, ['juice', 'pulp', 'maaza', 'frooti', 'slice', 'real', 'tropicana', 'paper boat'])) {
+                        return ['category_id' => 5, 'subcategory_id' => 21];
+                    }
+                    if ($containsAny($name, ['red bull', 'monster', 'sting', 'energy', 'glucon'])) {
+                        return ['category_id' => 5, 'subcategory_id' => 22];
+                    }
+                    if ($containsAny($name, ['water', 'bisleri', 'kinley', 'aquafina', 'tonic', 'club'])) {
+                        return ['category_id' => 5, 'subcategory_id' => 23];
+                    }
+                    return ['category_id' => 5, 'subcategory_id' => 20];
+                }
             }
-            return 1;
+
+            // 3. Munchies & Snacks
+            if ($containsAny($name, ['chips', 'wafer', 'lays', 'kurkure', 'pringles', 'nachos', 'bingo', 'namkeen', 'bhujia', 'sev', 'mixture', 'gathiya', 'sweet', 'chocolate', 'candy', 'lollipop', 'cadbury', 'dairy milk', 'snickers', 'kitkat', '5 star', 'munch', 'gems', 'almond', 'cashew', 'pista', 'raisin', 'kishmish', 'walnut', 'makhana', 'popcorn', 'puff', 'puffs', 'kaju', 'badam'])) {
+                if (!$containsAny($name, ['wash', 'shampoo', 'hair oil'])) {
+                    if ($containsAny($name, ['chips', 'wafer', 'lays', 'pringles', 'nachos', 'bingo'])) {
+                        return ['category_id' => 3, 'subcategory_id' => 11];
+                    }
+                    if ($containsAny($name, ['namkeen', 'bhujia', 'sev', 'mixture', 'gathiya', 'haldiram', 'bikaji'])) {
+                        return ['category_id' => 3, 'subcategory_id' => 12];
+                    }
+                    if ($containsAny($name, ['sweet', 'chocolate', 'candy', 'lollipop', 'cadbury', 'dairy milk', 'snickers', 'kitkat', 'gems', 'toffee'])) {
+                        return ['category_id' => 3, 'subcategory_id' => 13];
+                    }
+                    if ($containsAny($name, ['almond', 'cashew', 'pista', 'raisin', 'walnut', 'kaju', 'badam', 'kishmish', 'nuts', 'seeds'])) {
+                        return ['category_id' => 3, 'subcategory_id' => 14];
+                    }
+                    return ['category_id' => 3, 'subcategory_id' => 15];
+                }
+            }
+
+            // 7. Instant & Frozen Food
+            if ($containsAny($name, ['noodle', 'maggi', 'yippee', 'ramen', 'pasta', 'vermicelli', 'macaroni', 'soup', 'ketchup', 'sauce', 'jam', 'mayonnaise', 'spread', 'honey', 'frozen', 'ready to', 'nugget', 'fries', 'burger patty', 'mccain', 'schezwan', 'chutney', 'peanut butter'])) {
+                if ($containsAny($name, ['noodle', 'maggi', 'yippee', 'ramen'])) {
+                    return ['category_id' => 7, 'subcategory_id' => 28];
+                }
+                if ($containsAny($name, ['pasta', 'vermicelli', 'macaroni'])) {
+                    return ['category_id' => 7, 'subcategory_id' => 29];
+                }
+                if ($containsAny($name, ['soup', 'ready', 'instant meal'])) {
+                    return ['category_id' => 7, 'subcategory_id' => 30];
+                }
+                if ($containsAny($name, ['ketchup', 'sauce', 'mayonnaise', 'spread', 'mustard', 'schezwan', 'chutney', 'peanut butter'])) {
+                    return ['category_id' => 7, 'subcategory_id' => 32];
+                }
+                if ($containsAny($name, ['honey', 'jam', 'marmalade'])) {
+                    return ['category_id' => 7, 'subcategory_id' => 33];
+                }
+                return ['category_id' => 7, 'subcategory_id' => 31];
+            }
+
+            // 8. Atta, Rice & Dal
+            if ($containsAny($name, ['atta', 'flour', 'besan', 'maida', 'suji', 'sooji', 'sattu', 'rice', 'basmati', 'poha', 'dal', 'pulse', 'chana', 'moong', 'toor', 'urad', 'masoor', 'rajma', 'chhole', 'kabuli', 'oil', 'mustard', 'refined', 'olive', 'soyabean', 'spices', 'masala', 'turmeric', 'jeera', 'salt', 'sugar', 'jaggery', 'haldi', 'hing', 'pepper', 'cardamom', 'clove'])) {
+                if (!$containsAny($name, ['hair', 'baby', 'cerelac', 'soap'])) {
+                    if ($containsAny($name, ['atta', 'flour', 'besan', 'maida', 'suji', 'sooji', 'sattu'])) {
+                        return ['category_id' => 8, 'subcategory_id' => 34];
+                    }
+                    if ($containsAny($name, ['rice', 'basmati', 'poha'])) {
+                        return ['category_id' => 8, 'subcategory_id' => 35];
+                    }
+                    if ($containsAny($name, ['dal', 'pulse', 'chana', 'moong', 'toor', 'urad', 'masoor', 'rajma', 'chhole', 'kabuli'])) {
+                        return ['category_id' => 8, 'subcategory_id' => 36];
+                    }
+                    if ($containsAny($name, ['oil', 'ghee'])) {
+                        return ['category_id' => 8, 'subcategory_id' => 37];
+                    }
+                    if ($containsAny($name, ['salt', 'sugar', 'jaggery'])) {
+                        return ['category_id' => 8, 'subcategory_id' => 39];
+                    }
+                    return ['category_id' => 8, 'subcategory_id' => 38];
+                }
+            }
+
+            // 10. Cleaning & Household
+            if ($containsAny($name, ['detergent', 'surf', 'ariel', 'tide', 'liquid wash', 'comfort', 'vanish', 'fabric', 'cleaner', 'vim', 'pril', 'dishwash', 'harpic', 'lizol', 'colin', 'phenyl', 'toilet', 'bathroom', 'garbage bag', 'trash bag', 'tissue', 'napkin', 'foil', 'scrub pad', 'repellent', 'hit', 'baygon', 'freshener', 'aer', 'odonil', 'coil', 'mortein'])) {
+                if ($containsAny($name, ['detergent', 'surf', 'ariel', 'tide', 'comfort', 'vanish'])) {
+                    return ['category_id' => 10, 'subcategory_id' => 44];
+                }
+                if ($containsAny($name, ['vim', 'pril', 'dishwash', 'scrub pad', 'sponge'])) {
+                    return ['category_id' => 10, 'subcategory_id' => 45];
+                }
+                if ($containsAny($name, ['harpic', 'toilet', 'bathroom', 'phenyl', 'lizol', 'colin', 'cleaner'])) {
+                    if ($containsAny($name, ['toilet', 'bathroom', 'harpic'])) {
+                        return ['category_id' => 10, 'subcategory_id' => 46];
+                    }
+                }
+                if ($containsAny($name, ['garbage', 'trash', 'foil', 'tissue', 'napkin', 'kitchen roll'])) {
+                    return ['category_id' => 10, 'subcategory_id' => 47];
+                }
+                return ['category_id' => 10, 'subcategory_id' => 48];
+            }
+
+            // 11. Personal Care
+            if ($containsAny($name, ['soap', 'body wash', 'shower gel', 'handwash', 'dettol', 'lifebuoy', 'shampoo', 'hair oil', 'conditioner', 'hair styling', 'hair color', 'facewash', 'face wash', 'skin', 'cream', 'lotion', 'moisturizer', 'deodorant', 'perfume', 'body spray', 'roll-on', 'toothpaste', 'toothbrush', 'oral', 'colgate', 'pepsodent', 'sensodyne', 'mouthwash'])) {
+                if ($containsAny($name, ['soap', 'body wash', 'shower gel', 'handwash', 'liquid hand'])) {
+                    return ['category_id' => 11, 'subcategory_id' => 49];
+                }
+                if ($containsAny($name, ['shampoo', 'conditioner'])) {
+                    return ['category_id' => 11, 'subcategory_id' => 50];
+                }
+                if ($containsAny($name, ['hair oil', 'hair color', 'hair serum', 'almond oil', 'coconut oil'])) {
+                    if ($containsAny($name, ['hair', 'color'])) {
+                        return ['category_id' => 11, 'subcategory_id' => 51];
+                    }
+                }
+                if ($containsAny($name, ['deodorant', 'perfume', 'spray', 'roll-on', 'cologne'])) {
+                    return ['category_id' => 11, 'subcategory_id' => 53];
+                }
+                if ($containsAny($name, ['toothpaste', 'toothbrush', 'colgate', 'oral', 'mouthwash'])) {
+                    return ['category_id' => 11, 'subcategory_id' => 54];
+                }
+                return ['category_id' => 11, 'subcategory_id' => 52];
+            }
+
+            // 14. Pharma & Wellness
+            if ($containsAny($name, ['pain', 'bandage', 'crocin', 'calpol', 'combiflam', 'digene', 'eno', 'antacid', 'pudin hara', 'cough', 'vicks', 'strepsils', 'lozenge', 'multivitamin', 'capsule', 'tablet', 'sanitizer', 'mask', 'wellness'])) {
+                if ($containsAny($name, ['digene', 'eno', 'antacid', 'pudin', 'gas'])) {
+                    return ['category_id' => 14, 'subcategory_id' => 61];
+                }
+                if ($containsAny($name, ['cough', 'vicks', 'strepsils', 'lozenge', 'cold', 'immunity'])) {
+                    return ['category_id' => 14, 'subcategory_id' => 62];
+                }
+                if ($containsAny($name, ['sanitizer', 'mask'])) {
+                    return ['category_id' => 14, 'subcategory_id' => 63];
+                }
+                return ['category_id' => 14, 'subcategory_id' => 60];
+            }
+
+            // 16. Home & Kitchen (Default Fallback for non-grocery household items)
+            if ($containsAny($name, ['battery', 'duracell', 'bulb', 'led', 'notebook', 'diary', 'pen', 'pencil', 'stationery', 'toy', 'game', 'party', 'balloon', 'knife', 'spoon', 'container', 'bottle', 'cookware'])) {
+                if ($containsAny($name, ['battery', 'duracell', 'bulb', 'led'])) {
+                    return ['category_id' => 16, 'subcategory_id' => 66];
+                }
+                if ($containsAny($name, ['notebook', 'diary', 'pen', 'pencil', 'stationery'])) {
+                    return ['category_id' => 16, 'subcategory_id' => 67];
+                }
+                if ($containsAny($name, ['toy', 'game', 'party', 'balloon'])) {
+                    return ['category_id' => 16, 'subcategory_id' => 68];
+                }
+                return ['category_id' => 16, 'subcategory_id' => 69];
+            }
+
+            // Default Fallback mapping based on original category_id
+            $fallbackMap = [
+                1 => ['category_id' => 1, 'subcategory_id' => 1],   // Fruits & Veg -> Vegetables
+                2 => ['category_id' => 2, 'subcategory_id' => 5],   // Dairy -> Milk
+                3 => ['category_id' => 3, 'subcategory_id' => 11],  // Munchies -> Chips
+                4 => ['category_id' => 5, 'subcategory_id' => 20],  // Drinks -> Soft Drinks
+                5 => ['category_id' => 7, 'subcategory_id' => 28],  // Instant -> Noodles
+                6 => ['category_id' => 8, 'subcategory_id' => 34],  // Grains -> Atta
+                7 => ['category_id' => 10, 'subcategory_id' => 44], // Cleaning -> Detergents
+                8 => ['category_id' => 11, 'subcategory_id' => 49]  // Personal Care -> Soaps
+            ];
+            return isset($fallbackMap[$origCategoryId]) ? $fallbackMap[$origCategoryId] : ['category_id' => 1, 'subcategory_id' => 1];
         };
 
         // Reviews templates pool for generating ratings
@@ -342,18 +538,16 @@ class ProductImportSeeder extends Seeder
                 ];
                 $db->table('product_variants')->insert($variantData);
                 
-                // Category association
-                $categoryId = isset($item['category_id']) ? $item['category_id'] : 1;
+                // Category & Subcategory classification
+                $classification = $classifyProduct($productName, isset($item['category_id']) ? $item['category_id'] : 1);
                 $categoriesBatch[] = [
                     'product_id'  => $productId,
-                    'category_id' => $categoryId
+                    'category_id' => $classification['category_id']
                 ];
 
-                // Subcategory classification
-                $subcatId = $classifySubcategory($productName, $categoryId);
                 $subcategoriesBatch[] = [
                     'product_id' => $productId,
-                    'subcategory_id' => $subcatId
+                    'subcategory_id' => $classification['subcategory_id']
                 ];
                 
                 // Link Multiple Images
