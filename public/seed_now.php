@@ -1,5 +1,5 @@
 <?php
-// Direct seeder execution using Composer autoloader and Constants
+// Direct seeder execution using Composer autoloader and Configs
 header('Content-Type: text/plain');
 
 ini_set('memory_limit', '512M');
@@ -19,9 +19,14 @@ define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
 define('WRITEPATH', realpath($paths->writableDirectory) . DIRECTORY_SEPARATOR);
 define('ROOTPATH', dirname(APPPATH) . DIRECTORY_SEPARATOR);
 
-// Load constants first (defines Config\APP_NAMESPACE etc.)
+// Load constants first
 if (file_exists(APPPATH . 'Config/Constants.php')) {
     require_once APPPATH . 'Config/Constants.php';
+}
+
+// Load Modules configuration class
+if (file_exists(APPPATH . 'Config/Modules.php')) {
+    require_once APPPATH . 'Config/Modules.php';
 }
 
 // Include Composer autoloader to resolve framework classes
