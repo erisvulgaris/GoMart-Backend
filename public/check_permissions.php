@@ -2,10 +2,10 @@
 header('Content-Type: application/json');
 
 $paths = [
-    'writable_logs' => WRITEPATH . 'logs',
-    'writable_uploads' => WRITEPATH . 'uploads',
-    'public_uploads' => FCPATH . 'uploads',
-    'public_product_uploads' => FCPATH . 'uploads/product',
+    'writable_logs' => '/var/www/html/writable/logs',
+    'writable_uploads' => '/var/www/html/writable/uploads',
+    'public_uploads' => '/var/www/html/public/uploads',
+    'public_product_uploads' => '/var/www/html/public/uploads/product',
 ];
 
 $results = [];
