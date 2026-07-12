@@ -12,7 +12,6 @@ if ($db->connect_error) {
 }
 
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 200;
-$offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 
 // Create uploads directory if not exists
 $upload_dir = '/var/www/html/public/uploads/products';
@@ -20,9 +19,22 @@ if (!file_exists($upload_dir)) {
     mkdir($upload_dir, 0777, true);
 }
 
-// 1. Fetch products to process
-// We want to process products that have an external URL (starts with http)
-// OR products that have the placeholder image, but have original images in product_images table
+// Track failed product IDs to exclude them from subsequent queries
+$failed_file = '/var/www/html/writable/failed_image_ids.txt';
+$failed_ids = [];
+if (file_exists($failed_file)) {
+    $content = trim(file_get_contents($failed_file));
+    if ($content !== '') {
+        $failed_ids = array_map('intval', explode(',', $content));
+    }
+}
+
+$exclude_clause = '';
+if (!empty($failed_ids)) {
+    $exclude_clause = "AND p.id NOT IN (" . implode(',', $failed_ids) . ")";
+}
+
+// Fetch products to process
 $query = "
     SELECT DISTINCT p.id, p.product_name, p.main_img, p.slug 
     FROM product p
@@ -31,6 +43,7 @@ $query = "
         p.main_img LIKE 'http%' 
         OR p.main_img = 'uploads/products/placeholder.png'
     )
+    $exclude_clause
     ORDER BY p.id ASC
     LIMIT $limit
 ";
@@ -74,6 +87,7 @@ foreach ($products as $p) {
     
     if (!$candidate_url) {
         $failed++;
+        $failed_ids[] = $p_id;
         $logs[] = ["id" => $p_id, "name" => $p_name, "status" => "failed", "reason" => "No candidate URL found"];
         continue;
     }
@@ -91,6 +105,7 @@ foreach ($products as $p) {
     
     if ($http_code != 200 || !$img_data) {
         $failed++;
+        $failed_ids[] = $p_id;
         $logs[] = ["id" => $p_id, "name" => $p_name, "status" => "failed", "reason" => "Download failed (HTTP $http_code) from $candidate_url"];
         continue;
     }
@@ -99,6 +114,7 @@ foreach ($products as $p) {
     $img = @imagecreatefromstring($img_data);
     if (!$img) {
         $failed++;
+        $failed_ids[] = $p_id;
         $logs[] = ["id" => $p_id, "name" => $p_name, "status" => "failed", "reason" => "GD failed to parse image data"];
         continue;
     }
@@ -149,6 +165,7 @@ foreach ($products as $p) {
         $logs[] = ["id" => $p_id, "name" => $p_name, "status" => "success", "path" => $db_path];
     } else {
         $failed++;
+        $failed_ids[] = $p_id;
         $logs[] = ["id" => $p_id, "name" => $p_name, "status" => "failed", "reason" => "Failed to save WebP to disk"];
     }
     
@@ -156,15 +173,25 @@ foreach ($products as $p) {
     imagedestroy($new_img);
 }
 
+// Save back failed IDs list if new ones were added
+if (!empty($failed_ids)) {
+    $failed_ids = array_unique($failed_ids);
+    file_put_contents($failed_file, implode(',', $failed_ids));
+}
+
+// Clean up failed file if we finished the entire catalog
+if ($processed == 0 && file_exists($failed_file)) {
+    unlink($failed_file);
+}
+
 $db->close();
 
 echo json_encode([
     "status" => "success",
     "limit" => $limit,
-    "offset" => $offset,
     "processed" => $processed,
     "succeeded" => $succeeded,
     "failed" => $failed,
-    "next_offset" => $offset + $limit,
+    "total_failures_excluded" => count($failed_ids),
     "results" => $logs
 ], JSON_PRETTY_PRINT);
