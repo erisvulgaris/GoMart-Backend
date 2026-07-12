@@ -89,9 +89,113 @@ class CustomerAppAPI_1_6 extends BaseController
             return base_url('uploads/products/placeholder.png');
         }
         if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0) {
+            $parsedUrl = parse_url($path);
+            $allowedHosts = ['cdn.grofers.com', 'images.blinkit.com', 'cdn.blinkit.com'];
+            $host = isset($parsedUrl['host']) ? $parsedUrl['host'] : '';
+
+            $isAllowed = false;
+            foreach ($allowedHosts as $allowedHost) {
+                if ($host === $allowedHost || str_ends_with($host, '.' . $allowedHost)) {
+                    $isAllowed = true;
+                    break;
+                }
+            }
+
+            if ($isAllowed) {
+                return base_url('api/v1_6/customer/image-proxy?url=' . urlencode($path));
+            }
             return $path;
         }
         return base_url($path);
+    }
+
+    public function imageProxy()
+    {
+        $url = $this->request->getGet('url');
+        if (empty($url)) {
+            return $this->servePlaceholder();
+        }
+
+        $url = htmlspecialchars_decode(urldecode($url));
+
+        // Security check: Only allow images from grofers (Blinkit) CDN
+        $parsedUrl = parse_url($url);
+        $allowedHosts = ['cdn.grofers.com', 'images.blinkit.com', 'cdn.blinkit.com'];
+        $host = isset($parsedUrl['host']) ? $parsedUrl['host'] : '';
+
+        $isAllowed = false;
+        foreach ($allowedHosts as $allowedHost) {
+            if ($host === $allowedHost || str_ends_with($host, '.' . $allowedHost)) {
+                $isAllowed = true;
+                break;
+            }
+        }
+
+        if (!$isAllowed) {
+            return $this->servePlaceholder();
+        }
+
+        $hash = md5($url);
+        $cacheDir = WRITEPATH . 'cache/images/';
+        $cacheFile = $cacheDir . $hash;
+
+        if (file_exists($cacheFile) && filesize($cacheFile) > 0) {
+            return $this->serveFile($cacheFile);
+        }
+
+        if (!is_dir($cacheDir)) {
+            mkdir($cacheDir, 0755, true);
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
+        $imgData = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode == 200 && !empty($imgData)) {
+            file_put_contents($cacheFile, $imgData);
+            return $this->serveFile($cacheFile);
+        }
+
+        return $this->servePlaceholder();
+    }
+
+    private function serveFile($path)
+    {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mimeType = finfo_file($finfo, $path);
+        finfo_close($finfo);
+
+        if (empty($mimeType) || $mimeType === 'text/plain') {
+            $mimeType = 'image/png';
+        }
+
+        return $this->response
+            ->setHeader('Content-Type', $mimeType)
+            ->setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+            ->setHeader('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + 31536000))
+            ->setHeader('Pragma', 'cache')
+            ->setBody(file_get_contents($path));
+    }
+
+    private function servePlaceholder()
+    {
+        $placeholderPath = FCPATH . 'uploads/products/placeholder.png';
+        if (file_exists($placeholderPath)) {
+            return $this->serveFile($placeholderPath);
+        }
+        
+        return $this->response
+            ->setHeader('Content-Type', 'image/png')
+            ->setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+            ->setBody(base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='));
     }
 
     private function generateToken($data, $type = "email")
@@ -2346,7 +2450,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
             }
 
-            $product['main_img'] = base_url() . $product['main_img'];
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
             $product['variants'] = $variants;
             $finalProducts[]     = $product;
         }
@@ -2487,11 +2591,11 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
 
                 if (!empty($variant['variant_image'])) {
-                    $variant['image'] = base_url($variant['variant_image']);
+                    $variant['image'] = $this->resolve_api_image_url($variant['variant_image']);
                 }
             }
 
-            $similarProduct['main_img'] = base_url($similarProduct['main_img']);
+            $similarProduct['main_img'] = $this->resolve_api_image_url($similarProduct['main_img']);
             $similarProduct['variants'] = $variants;
 
             // ── ratings ───────────────────────────────────────────────────────────
@@ -2647,11 +2751,11 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
 
                 if (!empty($variant['variant_image'])) {
-                    $variant['image'] = base_url($variant['variant_image']);
+                    $variant['image'] = $this->resolve_api_image_url($variant['variant_image']);
                 }
             }
 
-            $categoryProduct['main_img'] = base_url($categoryProduct['main_img']);
+            $categoryProduct['main_img'] = $this->resolve_api_image_url($categoryProduct['main_img']);
             $categoryProduct['variants'] = $variants;
 
             // ── ratings ───────────────────────────────────────────────────────────
@@ -2984,7 +3088,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 $variant['cart_quantity'] = $cartData[$cartKey] ?? 0;
 
                 if (!empty($variant['variant_image'])) {
-                    $variant['image'] = base_url($variant['variant_image']);
+                    $variant['image'] = $this->resolve_api_image_url($variant['variant_image']);
                 }
 
                 $validVariants[] = $variant;
@@ -2992,7 +3096,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
             // Only include product if valid variants exist
             if (count($validVariants) > 0) {
-                $product['main_img'] = base_url($product['main_img']);
+                $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
                 $product['variants'] = $validVariants;
                 $finalProducts[] = $product;
             }
@@ -3210,7 +3314,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // Append product variants & calculate discounts
         foreach ($products as &$product) {
-            $product['main_img'] = base_url($product['main_img']);
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
 
             // Fetch variants
             $variants = $productVariantsModel
@@ -3236,7 +3340,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
 
                 if (!empty($variant['variant_image'])) {
-                    $variant['image'] = base_url($variant['variant_image']);
+                    $variant['image'] = $this->resolve_api_image_url($variant['variant_image']);
                 }
             }
 
@@ -3874,7 +3978,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // Append product variants
         foreach ($products as &$product) {
-            $product['main_img'] = base_url($product['main_img']);
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
 
             // Fetch product variants
             $variants = $productVariantsModel
@@ -3986,7 +4090,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // Append product variants
         foreach ($products as &$product) {
-            $product['main_img'] = base_url($product['main_img']);
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
 
             // Fetch product variants
             $variants = $productVariantsModel
@@ -4473,7 +4577,7 @@ class CustomerAppAPI_1_6 extends BaseController
             order_products.product_id, 
             order_products.discounted_price, 
             seller.store_name, 
-            CONCAT("' . base_url() . '", product.main_img) AS main_img,
+            product.main_img AS main_img,
             IF(order_products.discounted_price = 0, order_products.price, order_products.discounted_price) AS final_price'
         )
             ->join('seller', 'seller.id = order_products.seller_id', 'left')
@@ -4551,7 +4655,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
         foreach ($data['orderProducts'] as &$orderProduct) {
             $product = $productModel->select('main_img, is_returnable, return_days, id')->find($orderProduct['product_id']);
-            $orderProduct['main_img'] = base_url($product['main_img']) ?? null;
+            $orderProduct['main_img'] = $this->resolve_api_image_url($product['main_img']) ?? null;
             $orderProduct['is_returnable'] = 0;
             $orderProduct['differenceInDays'] = 0;
 
@@ -4858,7 +4962,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
             }
 
-            $product['main_img'] = base_url($product['main_img']);
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
             $product['variants'] = $variants;
 
 
@@ -5068,9 +5172,9 @@ class CustomerAppAPI_1_6 extends BaseController
             }
 
             if (!empty($variant['variant_image'])) {
-                $variant['image'] = base_url($variant['variant_image']);
+                $variant['image'] = $this->resolve_api_image_url($variant['variant_image']);
             } else {
-                $variant['image'] = base_url($product['main_img']);
+                $variant['image'] = $this->resolve_api_image_url($product['main_img']);
             }
         }
         return $this->response->setJSON([
@@ -5131,7 +5235,7 @@ class CustomerAppAPI_1_6 extends BaseController
             ->findAll($limit, $offset);
 
         foreach ($products as &$product) {
-            $product['main_img'] = base_url($product['main_img']);
+            $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
 
             $variants = $productVariantsModel
                 ->where('product_id', $product['id'])
@@ -5657,7 +5761,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 ->first();
 
             $cartItem['product_name'] = $product['product_name'];
-            $cartItem['image'] = base_url() . $product['main_img'];
+            $cartItem['image'] = $this->resolve_api_image_url($product['main_img']);
             $cartItem['weight'] = $variant['title'];
 
             if ($variant) {
@@ -5781,7 +5885,7 @@ class CustomerAppAPI_1_6 extends BaseController
                     ->first();
 
                 if ($product) {
-                    $data[] = base_url() . $product['main_img']; // Store images in an array
+                    $data[] = $this->resolve_api_image_url($product['main_img']); // Store images in an array
                 }
             }
         }
