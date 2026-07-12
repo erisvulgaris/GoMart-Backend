@@ -916,4 +916,3 @@ $routes->post('/api/v2/seller/createTicket', 'SellerAppApi::createTicket');
 $routes->post('/api/v2/seller/fetchSellerTickets', 'SellerAppApi::fetchSellerTickets');
 $routes->post('/api/v2/seller/fetchTicketDetails', 'SellerAppApi::fetchTicketDetails');
 
-$routes->get('/api/v1_6/customer/triggerImportSeeder', 'CustomerAppAPI_1_6::triggerImportSeeder');
