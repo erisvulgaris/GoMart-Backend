@@ -12,7 +12,7 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    $tables = ['product', 'product_variants', 'seller', 'city', 'deliverable_area', 'category', 'subcategory'];
+    $tables = ['product', 'product_variants', 'seller', 'city', 'deliverable_area', 'category', 'subcategory', 'product_ratings', 'product_images'];
     $results = [];
     
     foreach ($tables as $table) {
