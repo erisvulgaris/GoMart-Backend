@@ -32,7 +32,7 @@ $query = "
         OR p.main_img = 'uploads/products/placeholder.png'
     )
     ORDER BY p.id ASC
-    LIMIT $limit OFFSET $offset
+    LIMIT $limit
 ";
 
 $res = $db->query($query);
