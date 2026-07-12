@@ -7,25 +7,31 @@ set_time_limit(300);
 
 echo "Starting seeder script...\n";
 
-// Path to the front controller
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
-
-// Ensure the current directory is pointing to the front controller's directory
-if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
-    chdir(FCPATH);
-}
 
 // Load paths config
 require FCPATH . '../app/Config/Paths.php';
 $paths = new Config\Paths();
 
-// Load bootstrap
-require $paths->systemDirectory . '/Boot.php';
+// Define path constants required by CodeIgniter
+define('APPPATH', realpath($paths->appDirectory) . DIRECTORY_SEPARATOR);
+define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
+define('WRITEPATH', realpath($paths->writableDirectory) . DIRECTORY_SEPARATOR);
+define('ROOTPATH', dirname(APPPATH) . DIRECTORY_SEPARATOR);
 
-// Manually boot the framework
-CodeIgniter\Boot::bootWeb($paths);
+// Load the autoloader
+require SYSTEMPATH . 'Autoloader/Autoloader.php';
+require APPPATH . 'Config/Autoload.php';
+require APPPATH . 'Config/Services.php';
 
-// Resolve seeder and execute
+$loader = CodeIgniter\Config\Services::autoloader();
+$loader->initialize(new Config\Autoload(), new Config\Modules());
+$loader->register();
+
+// Load Common functions
+require SYSTEMPATH . 'Common.php';
+
+// Now run the seeder!
 try {
     echo "Running ProductImportSeeder...\n";
     $seeder = new \App\Database\Seeds\ProductImportSeeder();
