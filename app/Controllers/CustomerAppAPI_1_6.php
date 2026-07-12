@@ -88,6 +88,12 @@ class CustomerAppAPI_1_6 extends BaseController
         if (empty($path)) {
             return base_url('uploads/products/placeholder.png');
         }
+
+        // Normalize single-slash protocol (e.g. http:/ or https:/) to double-slash (http:// or https://)
+        if (preg_match('/^https?:\/[^\/]/', $path)) {
+            $path = preg_replace('/^(https?):\/+/', '$1://', $path);
+        }
+
         if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0) {
             $parsedUrl = parse_url($path);
             $allowedHosts = ['cdn.grofers.com', 'images.blinkit.com', 'cdn.blinkit.com'];
