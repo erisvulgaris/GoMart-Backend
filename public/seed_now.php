@@ -1,5 +1,5 @@
 <?php
-// Direct seeder execution using Composer autoloader and Configs
+// Direct seeder execution using Composer autoloader, Constants, and Configs in correct order
 header('Content-Type: text/plain');
 
 ini_set('memory_limit', '512M');
@@ -19,22 +19,22 @@ define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
 define('WRITEPATH', realpath($paths->writableDirectory) . DIRECTORY_SEPARATOR);
 define('ROOTPATH', dirname(APPPATH) . DIRECTORY_SEPARATOR);
 
-// Load constants first
+// 1. Load constants first (defines Config\APP_NAMESPACE etc.)
 if (file_exists(APPPATH . 'Config/Constants.php')) {
     require_once APPPATH . 'Config/Constants.php';
 }
 
-// Load Modules configuration class
+// 2. Include Composer autoloader to resolve framework classes (including parent config classes)
+if (file_exists(ROOTPATH . 'vendor/autoload.php')) {
+    require_once ROOTPATH . 'vendor/autoload.php';
+}
+
+// 3. Load Modules configuration class (now resolved safely via composer autoload)
 if (file_exists(APPPATH . 'Config/Modules.php')) {
     require_once APPPATH . 'Config/Modules.php';
 }
 
-// Include Composer autoloader to resolve framework classes
-if (file_exists(ROOTPATH . 'vendor/autoload.php')) {
-    require ROOTPATH . 'vendor/autoload.php';
-}
-
-// Load the autoloader config
+// 4. Load the autoloader config
 require SYSTEMPATH . 'Autoloader/Autoloader.php';
 require APPPATH . 'Config/Autoload.php';
 require APPPATH . 'Config/Services.php';
