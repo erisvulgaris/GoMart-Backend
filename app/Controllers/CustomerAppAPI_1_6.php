@@ -94,6 +94,24 @@ class CustomerAppAPI_1_6 extends BaseController
         return base_url($path);
     }
 
+    public function triggerImportSeeder()
+    {
+        ini_set('memory_limit', '512M');
+        set_time_limit(300);
+
+        try {
+            $seeder = new \App\Database\Seeds\ProductImportSeeder();
+            $seeder->run();
+            return $this->response->setJSON(['status' => 'success', 'message' => 'ProductImportSeeder executed successfully!']);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                'status' => 'error', 
+                'message' => $e->getMessage(), 
+                'trace' => $e->getTraceAsString()
+            ]);
+        }
+    }
+
     private function generateToken($data, $type = "email")
     {
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
