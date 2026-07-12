@@ -24,11 +24,15 @@ if [ -z "$DB_EXISTS" ]; then
     echo "Database cleaned. Seeding 'database.sql' now..."
     if mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 "$MYSQL_DATABASE" < /var/www/html/database/database.sql; then
         echo "Database seeding completed successfully!"
+        
+        # Seed database with the latest scraped catalog from import_products.json (Only on fresh install)
+        echo "Importing products to database..."
+        php spark db:seed ProductImportSeeder
     else
         echo "ERROR: Database seeding failed! SQL import returned non-zero exit code."
     fi
 else
-    echo "Database already seeded. Skipping SQL import."
+    echo "Database already seeded. Skipping SQL import and product seeding."
 fi
 
 # Apply active production database overrides
@@ -43,10 +47,6 @@ mysql -h"db" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --ssl=0 -D"$MYSQL_DATABASE" -e 
 
 # Clear CodeIgniter cache to ensure settings overrides are loaded
 php spark cache:clear
-
-# Seed database with the latest scraped catalog from import_products.json
-echo "Importing products to database..."
-php spark db:seed ProductImportSeeder
 
 
 # Ensure CodeIgniter writable subdirectories and public uploads exist and have correct permissions
