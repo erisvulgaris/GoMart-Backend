@@ -49,8 +49,8 @@ require SYSTEMPATH . 'Common.php';
 // Now run the seeder directly!
 try {
     echo "Running ProductImportSeeder...\n";
-    $seeder = new \App\Database\Seeds\ProductImportSeeder();
-    $seeder->run();
+    $seeder = \Config\Database::seeder();
+    $seeder->call('ProductImportSeeder');
     echo "\nSeeder finished successfully!\n";
 } catch (Exception $e) {
     echo "\nError during seeder execution:\n";
