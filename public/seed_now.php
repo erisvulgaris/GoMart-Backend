@@ -1,9 +1,11 @@
 <?php
-// Mock CLI environment and run seeder via Spark bootstrapper with output buffering
-ob_start();
+// Direct seeder execution using Composer autoloader
+header('Content-Type: text/plain');
 
 ini_set('memory_limit', '512M');
 set_time_limit(300);
+
+echo "Starting direct seeder runner...\n";
 
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
@@ -11,36 +13,37 @@ define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 require FCPATH . '../app/Config/Paths.php';
 $paths = new Config\Paths();
 
-// Mock CLI environment variables so CodeIgniter Spark thinks it is running in CLI!
-$_SERVER['argv'] = ['spark', 'db:seed', 'ProductImportSeeder'];
-$_SERVER['argc'] = 3;
+// Define path constants required by CodeIgniter
+define('APPPATH', realpath($paths->appDirectory) . DIRECTORY_SEPARATOR);
+define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
+define('WRITEPATH', realpath($paths->writableDirectory) . DIRECTORY_SEPARATOR);
+define('ROOTPATH', dirname(APPPATH) . DIRECTORY_SEPARATOR);
 
-// Define CLI constants if not already defined (running in Apache/FPM)
-if (!defined('STDIN')) {
-    define('STDIN', fopen('php://input', 'r'));
-}
-if (!defined('STDOUT')) {
-    define('STDOUT', fopen('php://output', 'w'));
-}
-if (!defined('STDERR')) {
-    define('STDERR', fopen('php://output', 'w'));
+// Include Composer autoloader to resolve framework classes
+if (file_exists(ROOTPATH . 'vendor/autoload.php')) {
+    require ROOTPATH . 'vendor/autoload.php';
 }
 
-// Load the Boot class
-require $paths->systemDirectory . '/Boot.php';
+// Load the autoloader config
+require SYSTEMPATH . 'Autoloader/Autoloader.php';
+require APPPATH . 'Config/Autoload.php';
+require APPPATH . 'Config/Services.php';
 
-// Boot Spark!
+$loader = CodeIgniter\Config\Services::autoloader();
+$loader->initialize(new Config\Autoload(), new Config\Modules());
+$loader->register();
+
+// Load Common functions
+require SYSTEMPATH . 'Common.php';
+
+// Now run the seeder directly!
 try {
-    CodeIgniter\Boot::bootSpark($paths);
+    echo "Running ProductImportSeeder...\n";
+    $seeder = new \App\Database\Seeds\ProductImportSeeder();
+    $seeder->run();
+    echo "\nSeeder finished successfully!\n";
 } catch (Exception $e) {
-    ob_end_clean();
-    header('Content-Type: text/plain');
-    echo "Error during Spark execution:\n";
+    echo "\nError during seeder execution:\n";
     echo $e->getMessage() . "\n";
     echo $e->getTraceAsString() . "\n";
-    exit;
 }
-
-// Flush output
-header('Content-Type: text/plain');
-ob_end_flush();
