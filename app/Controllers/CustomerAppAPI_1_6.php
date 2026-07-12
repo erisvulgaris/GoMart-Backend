@@ -135,12 +135,28 @@ class CustomerAppAPI_1_6 extends BaseController
             return $this->servePlaceholder();
         }
 
+        // Get extension from URL
+        $path = isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        if (empty($ext)) {
+            $ext = 'png';
+        }
+
         $hash = md5($url);
         $cacheDir = WRITEPATH . 'cache/images/';
-        $cacheFile = $cacheDir . $hash;
+        $cacheFile = $cacheDir . $hash . '.' . $ext;
+
+        $mimeTypes = [
+            'png'  => 'image/png',
+            'jpg'  => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'webp' => 'image/webp',
+            'gif'  => 'image/gif',
+        ];
+        $mimeType = isset($mimeTypes[$ext]) ? $mimeTypes[$ext] : 'image/png';
 
         if (file_exists($cacheFile) && filesize($cacheFile) > 0) {
-            return $this->serveFile($cacheFile);
+            return $this->serveFile($cacheFile, $mimeType);
         }
 
         if (!is_dir($cacheDir)) {
@@ -161,22 +177,14 @@ class CustomerAppAPI_1_6 extends BaseController
 
         if ($httpCode == 200 && !empty($imgData)) {
             file_put_contents($cacheFile, $imgData);
-            return $this->serveFile($cacheFile);
+            return $this->serveFile($cacheFile, $mimeType);
         }
 
         return $this->servePlaceholder();
     }
 
-    private function serveFile($path)
+    private function serveFile($path, $mimeType = 'image/png')
     {
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mimeType = finfo_file($finfo, $path);
-        finfo_close($finfo);
-
-        if (empty($mimeType) || $mimeType === 'text/plain') {
-            $mimeType = 'image/png';
-        }
-
         return $this->response
             ->setHeader('Content-Type', $mimeType)
             ->setHeader('Cache-Control', 'public, max-age=31536000, immutable')
@@ -189,7 +197,7 @@ class CustomerAppAPI_1_6 extends BaseController
     {
         $placeholderPath = FCPATH . 'uploads/products/placeholder.png';
         if (file_exists($placeholderPath)) {
-            return $this->serveFile($placeholderPath);
+            return $this->serveFile($placeholderPath, 'image/png');
         }
         
         return $this->response
