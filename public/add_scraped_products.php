@@ -18,7 +18,8 @@ if ($db->connect_error) {
     echo json_encode(['ok' => false, 'error' => $db->connect_error]);
     exit;
 }
-$db->set_charset('utf8mb4');
+// Set connection charset to latin1 to match the product table default collation
+$db->set_charset('latin1');
 
 // Get JSON POST input
 $input = file_get_contents('php://input');
@@ -27,6 +28,10 @@ if (!is_array($products)) {
     http_response_code(400);
     echo json_encode(['ok' => false, 'error' => 'Invalid JSON input']);
     exit;
+}
+
+function safe_latin1(string $str): string {
+    return (string) mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8');
 }
 
 $inserted = 0;
@@ -48,9 +53,14 @@ foreach ($products as $p) {
     $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $name)));
     $slug = trim($slug, '-');
     
+    // Convert strings to Latin1 for safe insertion into Latin1-collated columns
+    $name_latin = safe_latin1($name);
+    $description_latin = safe_latin1($description);
+    $slug_latin = safe_latin1($slug);
+    
     // Check if product already exists (by slug or name)
     $stmt = $db->prepare("SELECT id FROM product WHERE slug = ? OR product_name = ?");
-    $stmt->bind_param("ss", $slug, $name);
+    $stmt->bind_param("ss", $slug_latin, $name_latin);
     $stmt->execute();
     $res = $stmt->get_result();
     if ($res->num_rows > 0) {
@@ -62,13 +72,14 @@ foreach ($products as $p) {
     
     // Insert into product table
     $main_img = !empty($images) ? $images[0] : '';
+    $main_img_latin = safe_latin1($main_img);
     $brand_id = 1;
     $seller_id = 1;
     $tax_id = 0;
     $popular = 0;
     $deal = 0;
-    $manufacturer = 'Sanskriti Foods';
-    $made_in = 'India';
+    $manufacturer = safe_latin1('Sanskriti Foods');
+    $made_in = safe_latin1('India');
     $total_allowed_qty = 10;
     $tax_inc = 1;
     $date = date('Y-m-d H:i:s');
@@ -79,7 +90,7 @@ foreach ($products as $p) {
         $errors[] = "Failed to prepare product insert for $name: " . $db->error;
         continue;
     }
-    $stmt->bind_param("iiissssiississs", $brand_id, $seller_id, $tax_id, $name, $slug, $main_img, $description, $popular, $deal, $manufacturer, $made_in, $total_allowed_qty, $tax_inc, $date, $status);
+    $stmt->bind_param("iiissssiississs", $brand_id, $seller_id, $tax_id, $name_latin, $slug_latin, $main_img_latin, $description_latin, $popular, $deal, $manufacturer, $made_in, $total_allowed_qty, $tax_inc, $date, $status);
     if (!$stmt->execute()) {
         $errors[] = "Failed to execute product insert for $name: " . $stmt->error;
         $stmt->close();
@@ -93,6 +104,7 @@ foreach ($products as $p) {
     if (preg_match('/(\d+\s*(G|g|KG|kg))/i', $name, $m)) {
         $var_title = strtolower($m[1]);
     }
+    $var_title_latin = safe_latin1($var_title);
     
     $var_status = 1;
     $stock = 50;
@@ -101,17 +113,18 @@ foreach ($products as $p) {
     
     $v_stmt = $db->prepare("INSERT INTO product_variants (product_id, status, title, price, discounted_price, stock, is_unlimited_stock, stock_unit_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     if ($v_stmt) {
-        $v_stmt->bind_param("iisddiii", $product_id, $var_status, $var_title, $price, $salePrice, $stock, $is_unlimited, $stock_unit_id);
+        $v_stmt->bind_param("iisddiii", $product_id, $var_status, $var_title_latin, $price, $salePrice, $stock, $is_unlimited, $stock_unit_id);
         $v_stmt->execute();
         $v_stmt->close();
     }
     
     // Insert into product_images
     foreach ($images as $img) {
+        $img_latin = safe_latin1($img);
         $i_stmt = $db->prepare("INSERT INTO product_images (product_id, product_variant_id, image) VALUES (?, ?, ?)");
         if ($i_stmt) {
             $variant_id = 0;
-            $i_stmt->bind_param("iis", $product_id, $variant_id, $img);
+            $i_stmt->bind_param("iis", $product_id, $variant_id, $img_latin);
             $i_stmt->execute();
             $i_stmt->close();
         }
