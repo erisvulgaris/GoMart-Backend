@@ -53,15 +53,15 @@ function classify(string $name): array
         // 11 Personal care
         [11, 0, '/shampoo|conditioner|soap|body wash|face wash|face cream|moisturizer|sunscreen|lotion|deodorant|perfume|toothpaste|toothbrush|colgate|close.?up|sensodyne|razor|shaving|hair oil|hair gel|nivea|pond.?s|vaseline|fair.?lovely|garnier|loreal|dove|pears|dettol soap|clinic plus|pantene|head.?shoulders|handwash|hand wash|talc|powder|lipstick|makeup|kajal|foundation|serum|toner|scrub|face pack/'],
         // 16 Home & kitchen / decor / stationery
-        [16, 0, '/decor|candle|frame|vase|cushion|bedsheet|curtain|lamp|bulb|led|battery|duracell|matchbox|match box|lighter|kitchen tool|utensil|pan|kadhai|tawa|bottle|flask|tiffin|container|storage|hanger|clip|stationery|notebook|pen|pencil|glue|tape|foil|aluminium|plastic bag|zip lock|broom|mop|bucket|mug|plate|spoon|fork|glass set|home.?kitchen|pooja|agarbatti|incense|diya/'],
+        [16, 0, '/decor|candle|frame|vase|cushion|bedsheet|curtain|lamp|bulb|led|battery|duracell|matchbox|match box|lighter|kitchen tool|utensil|sink|pan|kadhai|tawa|bottle|flask|tiffin|container|storage|hanger|clip|stationery|notebook|pen|pencil|glue|tape|foil|aluminium|plastic bag|zip lock|broom|mop|bucket|mug|plate|spoon|fork|glass set|home.?kitchen|pooja|agarbatti|incense|diya/'],
         // 5 Cold drinks & Juices
-        [5, 0, '/coke|pepsi|sprite|fanta|thums up|limca|maaza|frooti|slice|juice|cold drink|soft drink|soda|red bull|monster|energy drink|bisleri|kinley|mineral water|packaged water|sparkling|beverage|tropicana|real juice|appy|paper boat/'],
+        [5, 0, '/coke|pepsi|sprite|fanta|thums up|limca|maaza|frooti|slice|juice|cold drink|soft drink|soda|red bull|monster|energy drink|bisleri|kinley|mineral water|packaged water|water|drink|sparkling|beverage|tropicana|real juice|appy|paper boat/'],
         // 6 Tea coffee health drinks (not pharma)
         [6, 0, '/\btea\b|chai|coffee|nescafe|bru|bournvita|horlicks|complan|boost|green tea|black tea|tata tea|red label|taj mahal|health drink|malted|cocoa powder drink/'],
         // 4 Bakery biscuits
         [4, 0, '/biscuit|cookie|parle|oreo|bourbon|marie|hide.?seek|good day|rusk|khari|cake|muffin|pastry|croissant|bakery/'],
         // 3 Munchies & Snacks
-        [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji|dry\s*fruit|dryfruit|almond|cashew|raisin|pista|kaju|badam|kishmish|walnut|dates\b|khajur|seeds?\b/'],
+        [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji|dry\s*fruit|dryfruit|almond|cashew|raisin|pista|kaju|badam|kishmish|walnut|dates\b|khajur|seeds?\b|candy|candies|toffees?|lollipops?|sweets|mithai|laddu|ladoo|peda|barfi|halwa|soan papdi|rasgulla|gulab jamun|crisps?|aloo\s*(lachha|bhujia|chips)/'],
         // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, marmalade, fruit pops, etc.)
         [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread|pop\b|pops\b|popsicle|kulfi/'],
         // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
