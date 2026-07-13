@@ -74,6 +74,27 @@ function needs_image(?string $mainImg): bool
     return true;
 }
 
+function significant_tokens(string $name): array
+{
+    $stop = [
+        'the', 'and', 'for', 'with', 'pack', 'of', 'pcs', 'pc', 'ml', 'ltr', 'kg', 'gm', 'g',
+        'fresh', 'farm', 'grocery', 'cityloop', 'blinkit', 'value', 'combo', 'unit',
+    ];
+    $parts = preg_split('/[^a-z0-9]+/u', $name) ?: [];
+    $out = [];
+    foreach ($parts as $p) {
+        $p = trim($p);
+        if ($p === '' || is_numeric($p) || mb_strlen($p) < 3) {
+            continue;
+        }
+        if (in_array($p, $stop, true)) {
+            continue;
+        }
+        $out[] = $p;
+    }
+    return array_values(array_unique($out));
+}
+
 function find_url_for_name(string $productName, array $byName): ?string
 {
     $key = normalize_name($productName);
@@ -108,7 +129,38 @@ function find_url_for_name(string $productName, array $byName): ?string
             }
         }
     }
-    return $best;
+    if ($best !== null) {
+        return $best;
+    }
+
+    // token overlap (≥2 significant tokens, prefer highest overlap then longer name)
+    $keyTokens = significant_tokens($key);
+    if (count($keyTokens) < 2) {
+        return null;
+    }
+    $bestScore = 0;
+    $bestUrl = null;
+    foreach ($byName as $n => $url) {
+        if (!is_http_url($url)) {
+            continue;
+        }
+        $nn = normalize_name((string) $n);
+        $tokens = significant_tokens($nn);
+        if (count($tokens) < 2) {
+            continue;
+        }
+        $overlap = count(array_intersect($keyTokens, $tokens));
+        if ($overlap < 2) {
+            continue;
+        }
+        // score: overlap * 100 + length of shorter name (stability)
+        $score = $overlap * 100 + min(mb_strlen($key), mb_strlen($nn));
+        if ($score > $bestScore) {
+            $bestScore = $score;
+            $bestUrl = $url;
+        }
+    }
+    return $bestUrl;
 }
 
 if ($action === 'status') {
@@ -159,6 +211,7 @@ if ($action === 'apply') {
     $stmt->close();
 
     // Enrich primary image map by product id for download pipeline
+    // Prefer writable path (public/data may be read-only in Docker image)
     $added = 0;
     $map = ['products' => [], 'galleries' => []];
     if (is_file($mapFile)) {
@@ -177,7 +230,12 @@ if ($action === 'apply') {
     }
     $map['product_count'] = count($map['products']);
     $map['updated_at'] = gmdate('c');
-    file_put_contents($mapFile, json_encode($map, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    $writableMap = dirname(__DIR__) . '/writable/blinkit_image_map_runtime.json';
+    $mapJson = json_encode($map, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $mapWritten = @file_put_contents($mapFile, $mapJson);
+    if ($mapWritten === false) {
+        @file_put_contents($writableMap, $mapJson);
+    }
 
     echo json_encode([
         'ok' => true,
@@ -185,6 +243,7 @@ if ($action === 'apply') {
         'updated_rows' => $updated,
         'already_had_cdn' => $skippedOk,
         'map_entries_added' => $added,
+        'map_written_public' => $mapWritten !== false,
         'next' => 'Run insert_missing if needed, then bulk_download_images.php',
     ], JSON_PRETTY_PRINT);
     exit;
@@ -264,15 +323,19 @@ if ($action === 'insert_missing') {
     $stmtP->close();
     $stmtV->close();
 
-    // refresh map
+    // refresh map (writable fallback if public/data is read-only)
+    $map = ['products' => [], 'galleries' => []];
     if (is_file($mapFile)) {
-        $map = json_decode((string) file_get_contents($mapFile), true) ?: ['products' => [], 'galleries' => []];
-        $res2 = $db->query("SELECT id, main_img FROM product WHERE is_delete=0 AND main_img LIKE 'http%'");
-        while ($r = $res2->fetch_assoc()) {
-            $map['products'][(string) $r['id']] = $r['main_img'];
-        }
-        $map['product_count'] = count($map['products']);
-        file_put_contents($mapFile, json_encode($map, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        $map = json_decode((string) file_get_contents($mapFile), true) ?: $map;
+    }
+    $res2 = $db->query("SELECT id, main_img FROM product WHERE is_delete=0 AND main_img LIKE 'http%'");
+    while ($r = $res2->fetch_assoc()) {
+        $map['products'][(string) $r['id']] = $r['main_img'];
+    }
+    $map['product_count'] = count($map['products'] ?? []);
+    $mapJson = json_encode($map, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if (@file_put_contents($mapFile, $mapJson) === false) {
+        @file_put_contents(dirname(__DIR__) . '/writable/blinkit_image_map_runtime.json', $mapJson);
     }
 
     echo json_encode([
