@@ -109,6 +109,31 @@ if ($action === 'status') {
     exit;
 }
 
+if ($action === 'debug') {
+    $ids = [4399, 3932, 3872, 3867, 3866, 3803, 3800, 3687, 3686, 3685, 4298, 4387];
+    $out = [];
+    foreach ($ids as $id) {
+        $row = $db->query("SELECT product_name FROM product WHERE id = $id")->fetch_assoc();
+        if ($row) {
+            $name = (string) $row['product_name'];
+            [$cat] = classify($name);
+            
+            // Check current mapping
+            $mapRow = $db->query("SELECT category_id FROM product_categories WHERE product_id = $id")->fetch_assoc();
+            $mappedCat = $mapRow ? (int) $mapRow['category_id'] : null;
+            
+            $out[] = [
+                'id' => $id,
+                'name' => $name,
+                'classified_cat' => $cat,
+                'mapped_cat' => $mappedCat
+            ];
+        }
+    }
+    echo json_encode(['ok' => true, 'debug' => $out], JSON_PRETTY_PRINT);
+    exit;
+}
+
 if ($action === 'run') {
     $res = $db->query('SELECT id, product_name FROM product WHERE is_delete=0');
     $counts = [];
