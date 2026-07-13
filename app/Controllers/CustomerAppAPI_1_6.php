@@ -1791,6 +1791,32 @@ class CustomerAppAPI_1_6 extends BaseController
         return array_values($out);
     }
 
+    /**
+     * M02: Snack/junk names must not appear under produce PLP (mirrors commerceHelpers.productFitsCategory).
+     */
+    private function productFitsCategoryName(string $productName, string $categoryName): bool
+    {
+        $p = $productName;
+        $c = strtolower($categoryName);
+        $snack = '/\b(chips?|namkeen|kurkure|lays|bingo|chocolate|muesli|kellogg|yoga\s*bar|biscuit|cookie|maggi|ketchup|pickle|achar|cereal|flakes|drink\s*mix|soda|cola|pepsi|coke)\b/i';
+        $produceJunk = '/\b(ketchup|muesli|chips?|juice|drink\s*mix|tropicana|tang\b|paper\s*boat|real\s+fruit|delight\s+(juice|drink)|instant\s+drink|pasta\s*sauce|pizza\s*sauce|chutney|puree|salsa|baked\s*beans|ragu|veeba|heinz)\b/i';
+        $pharmaOk = '/\b(paracetamol|dolo|crocin|volini|moov|vitamin|tablet|syrup|ointment|bandage|medicine|pharma|antacid|ors|electral|vicks|iodex|melatonin)\b/i';
+        if (preg_match('/veg|fruit|produce/i', $c)) {
+            if (preg_match($snack, $p) || preg_match($produceJunk, $p)) {
+                return false;
+            }
+        }
+        if (preg_match('/pharma|medicine|wellness/i', $c)) {
+            if (preg_match($snack, $p) && !preg_match($pharmaOk, $p)) {
+                return false;
+            }
+            if (preg_match('/\b(chips?|ketchup|pickle|oil|atta|namkeen|maggi|biscuit|muesli)\b/i', $p) && !preg_match($pharmaOk, $p)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function fetchAllCategories()
     {
         $categoryModel = new CategoryModel();
@@ -2559,7 +2585,17 @@ class CustomerAppAPI_1_6 extends BaseController
             $finalProducts[]     = $product;
         }
 
-        $totalPages     = ceil($totalProducts / $limit);
+        // M02: client/mobile cannot bypass aisle integrity — filter by category name
+        $catRow = $categoryModel->select('category_name')->where('id', (int) $dataInput['category_id'])->first();
+        $catNameForFilter = (string) ($catRow['category_name'] ?? '');
+        if ($catNameForFilter !== '') {
+            $finalProducts = array_values(array_filter($finalProducts, function ($prod) use ($catNameForFilter) {
+                return $this->productFitsCategoryName((string) ($prod['product_name'] ?? ''), $catNameForFilter);
+            }));
+        }
+
+        $totalPages     = ceil(max(count($finalProducts), $totalProducts) / $limit);
+        // Prefer filtered count for current page honesty
         $hasNextPage    = $page < $totalPages;
         $hasPreviousPage = $page > 1;
 
