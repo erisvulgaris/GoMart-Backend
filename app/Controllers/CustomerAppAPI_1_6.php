@@ -173,17 +173,49 @@ class CustomerAppAPI_1_6 extends BaseController
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 25);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
+        curl_setopt($ch, CURLOPT_ENCODING, '');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+            'Referer: https://blinkit.com/',
+            'Origin: https://blinkit.com',
+            'Accept-Language: en-IN,en;q=0.9',
+        ]);
         $imgData = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        if ($httpCode == 200 && !empty($imgData)) {
-            file_put_contents($cacheFile, $imgData);
+        if ($httpCode == 200 && !empty($imgData) && strlen($imgData) > 100) {
+            @file_put_contents($cacheFile, $imgData);
             return $this->serveFile($cacheFile, $mimeType);
+        }
+
+        // Retry once without query-string transforms (some CDN URLs reject resized variants)
+        $retryUrl = preg_replace('#https://cdn\.grofers\.com/cdn-cgi/image/[^/]+/#', 'https://cdn.grofers.com/', $url) ?? $url;
+        if ($retryUrl !== $url) {
+            $ch = curl_init($retryUrl);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_TIMEOUT => 25,
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+                CURLOPT_HTTPHEADER => [
+                    'Accept: image/*',
+                    'Referer: https://blinkit.com/',
+                ],
+            ]);
+            $imgData = curl_exec($ch);
+            $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            if ($httpCode == 200 && !empty($imgData) && strlen($imgData) > 100) {
+                @file_put_contents($cacheFile, $imgData);
+                return $this->serveFile($cacheFile, $mimeType);
+            }
         }
 
         return $this->servePlaceholder();
