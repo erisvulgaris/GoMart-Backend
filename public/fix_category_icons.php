@@ -124,8 +124,8 @@ try {
     $subsMap = $map['subcategories'] ?? [];
 
     if ($action === 'status') {
-        $catTotal = (int) ($db->query('SELECT COUNT(*) c FROM category WHERE is_delete=0')->fetch_assoc()['c'] ?? 0);
-        $catWith = (int) ($db->query("SELECT COUNT(*) c FROM category WHERE is_delete=0 AND category_img IS NOT NULL AND category_img != '' AND category_img NOT LIKE '%cityloopapp.com/' AND category_img NOT LIKE 'https://cityloopapp.com'")->fetch_assoc()['c'] ?? 0);
+        $catTotal = (int) ($db->query('SELECT COUNT(*) c FROM category')->fetch_assoc()['c'] ?? 0);
+        $catWith = (int) ($db->query("SELECT COUNT(*) c FROM category WHERE category_img IS NOT NULL AND category_img != '' AND category_img NOT LIKE '%cityloopapp.com/' AND category_img NOT LIKE 'https://cityloopapp.com' AND category_img NOT LIKE 'http://cityloopapp.com%'")->fetch_assoc()['c'] ?? 0);
         // subcategory table uses `img` (legacy) — no is_delete on base schema in some dumps
         $subTotal = 0;
         $subWith = 0;
@@ -155,7 +155,7 @@ try {
         $proxyFallback = 0;
 
         // --- Categories ---
-        $res = $db->query('SELECT id, category_name, category_img FROM category WHERE is_delete=0');
+        $res = $db->query('SELECT id, category_name, category_img FROM category');
         $stmt = $db->prepare('UPDATE category SET category_img = ? WHERE id = ?');
         while ($row = $res->fetch_assoc()) {
             $match = best_match($row['category_name'], $catsMap);
@@ -248,19 +248,15 @@ try {
             throw new RuntimeException('name and image required');
         }
         if ($kind === 'category') {
-            $stmt = $db->prepare('UPDATE category SET category_img = ? WHERE category_name = ? AND is_delete = 0');
+            $stmt = $db->prepare('UPDATE category SET category_img = ? WHERE category_name = ?');
             $stmt->bind_param('ss', $image, $name);
             $stmt->execute();
             $n = $stmt->affected_rows;
             // fuzzy: if 0 rows, try LIKE
             if ($n <= 0) {
-                $like = '%' . $name . '%';
-                $stmt2 = $db->prepare('UPDATE category SET category_img = ? WHERE category_name LIKE ? AND is_delete = 0 LIMIT 1');
-                if ($stmt2) {
-                    $stmt2->bind_param('ss', $image, $like);
-                    $stmt2->execute();
-                    $n = $stmt2->affected_rows;
-                }
+                $like = '%' . $db->real_escape_string($name) . '%';
+                $db->query("UPDATE category SET category_img = '" . $db->real_escape_string($image) . "' WHERE category_name LIKE '$like' LIMIT 1");
+                $n = $db->affected_rows;
             }
             echo json_encode(['ok' => true, 'kind' => 'category', 'name' => $name, 'affected' => $n, 'image' => $image]);
             exit;
