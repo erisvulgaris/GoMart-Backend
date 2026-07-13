@@ -63,7 +63,7 @@ function classify(string $name): array
         // 3 Munchies & Snacks
         [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji|dry\s*fruit|dryfruit|almond|cashew|raisin|pista|kaju|badam|kishmish|walnut|dates\b|khajur|seeds?\b|candy|candies|toffees?|lollipops?|sweets|mithai|laddu|ladoo|peda|barfi|halwa|soan papdi|rasgulla|gulab jamun|crisps?|aloo\s*(lachha|bhujia|chips)/'],
         // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, marmalade, fruit pops, etc.)
-        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread|pop\b|pops\b|popsicle|kulfi/'],
+        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|flakes\b|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread|pop\b|pops\b|popsicle|kulfi/'],
         // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
         [2, 0, '/\bmilk\b|doodh|curd|dahi|yogurt|yoghurt|paneer|butter|ghee|cheese|amul|mother dairy|toned milk|full cream|egg\b|eggs\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
         // 8 Staples (Atta, Rice & Dal)
