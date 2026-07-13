@@ -1976,8 +1976,18 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // ── Images ───────────────────────────────────────────────────────────
         $productImages   = $productImagesModel->select('image')->where('product_id', $product['id'])->where('product_variant_id', 0)->findAll();
-        $product['images'] = array_map(fn($img) => $this->resolve_api_image_url($img['image']), $productImages);
-        array_unshift($product['images'], $this->resolve_api_image_url($product['main_img']));
+        $resolvedMain    = $this->resolve_api_image_url($product['main_img']);
+        $product['main_img'] = $resolvedMain;
+        // Also expose high-res path for zoom (500 -> 1000 local variants)
+        $product['main_img_full'] = str_replace(
+            ['/uploads/products/500/', '/uploads/products/gallery/500/', 'uploads/products/500/', 'uploads/products/gallery/500/'],
+            ['/uploads/products/1000/', '/uploads/products/gallery/1000/', 'uploads/products/1000/', 'uploads/products/gallery/1000/'],
+            $resolvedMain
+        );
+        $galleryResolved = array_map(fn($img) => $this->resolve_api_image_url($img['image']), $productImages);
+        // Dedupe while keeping main first
+        $images = array_values(array_unique(array_filter(array_merge([$resolvedMain], $galleryResolved))));
+        $product['images'] = $images;
 
         // ── Variants ─────────────────────────────────────────────────────────
         $variants = $productVariantsModel

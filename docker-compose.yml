@@ -20,6 +20,8 @@ services:
       - db
     volumes:
       - writable_data:/var/www/html/writable
+      # Persist product images only (do not mask logo/category uploads from the image)
+      - uploads_products_data:/var/www/html/public/uploads/products
 
   db:
     image: mysql:8.0
@@ -35,4 +37,5 @@ services:
 
 volumes:
   writable_data:
+  uploads_products_data:
   db_data:
