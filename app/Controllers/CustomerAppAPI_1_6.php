@@ -7068,6 +7068,15 @@ class CustomerAppAPI_1_6 extends BaseController
             $userModel->set('wallet', $closingAmount)->where('id', $user['id'])->update();
         }
 
+        // T24: credit CityLoop wallet cashback from admin cashback_tiers.json (item subtotal thresholds)
+        $cashbackCredited = $this->creditOrderCashbackTier(
+            (int) $user['id'],
+            (float) $subTotal,
+            (int) $orderId,
+            $walletModel,
+            $userModel
+        );
+
         // Insert order status
         $orderStatusesModel = new OrderStatusesModel();
         $orderStatusesData = [
@@ -7182,8 +7191,41 @@ class CustomerAppAPI_1_6 extends BaseController
             'status' => 'success',
             'message' => 'Order Placed Successfully',
             'order_id' => $orderId,
+            'wallet_cashback' => $cashbackCredited,
             'base_url' => base_url()
         ]);
+    }
+
+    /**
+     * T24: Delegate to App\Libraries\CashbackTiers (COD + Razorpay verify).
+     * Idempotent per order via remark match. Returns cashback amount credited (0 if none).
+     */
+    private function creditOrderCashbackTier(
+        int $userId,
+        float $itemSubtotal,
+        int $orderId,
+        $walletModel,
+        $userModel
+    ): float {
+        $cfgPaths = [];
+        if (defined('FCPATH')) {
+            $cfgPaths[] = FCPATH . 'data/cashback_tiers.json';
+        }
+        if (defined('WRITEPATH')) {
+            $cfgPaths[] = WRITEPATH . 'cashback_tiers.json';
+        }
+        if (defined('ROOTPATH')) {
+            $cfgPaths[] = ROOTPATH . 'public/data/cashback_tiers.json';
+        }
+        $cfg = \App\Libraries\CashbackTiers::loadConfig($cfgPaths);
+        return \App\Libraries\CashbackTiers::creditOrderCashback(
+            $userId,
+            $itemSubtotal,
+            $orderId,
+            $walletModel,
+            $userModel,
+            $cfg
+        );
     }
 
     public function createRazorpayOrder()
@@ -7686,6 +7728,20 @@ class CustomerAppAPI_1_6 extends BaseController
                 if (!$this->settings['seller_only_one_seller_cart']) {
                     $cartsModel->where('user_id', $user['id'])->delete();
                 }
+
+                // T24: wallet cashback on paid gateway order (same helper as placeCODOrder)
+                $paidOrderId = (int) ($dataInput['order_id'] ?? 0);
+                $orderRow = $orderModel->select('subtotal')->where('id', $paidOrderId)->where('user_id', $user['id'])->first();
+                $paidSubtotal = $orderRow ? (float) $orderRow['subtotal'] : 0.0;
+                $walletModelForCashback = new WalletModel();
+                $this->creditOrderCashbackTier(
+                    (int) $user['id'],
+                    $paidSubtotal,
+                    $paidOrderId,
+                    $walletModelForCashback,
+                    $userModel
+                );
+
                 // OPTIMIZED NOTIFICATION SYSTEM - Collect all tokens first, then send in batches
                 $allNotifications = [];
 
