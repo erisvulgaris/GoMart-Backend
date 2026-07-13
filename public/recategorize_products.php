@@ -61,13 +61,13 @@ function classify(string $name): array
         // 4 Bakery biscuits
         [4, 0, '/biscuit|cookie|parle|oreo|bourbon|marie|hide.?seek|good day|rusk|khari|cake|muffin|pastry|croissant|bakery/'],
         // 3 Munchies & Snacks
-        [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji/'],
+        [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji|dry\s*fruit|dryfruit|almond|cashew|raisin|pista|kaju|badam|kishmish|walnut|dates\b|khajur|seeds?\b/'],
         // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, etc.)
-        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread/'],
+        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread/'],
         // 9 Meat / eggs / fish
         [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
         // 1 Produce (Vegetables & Fruits)
-        [1, 0, '/onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruit|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon/'],
+        [1, 0, '/\b(onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruits?|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon)s?\b/i'],
         // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
         [2, 0, '/\bmilk\b|doodh|curd|dahi|yogurt|yoghurt|paneer|butter|ghee|cheese|amul|mother dairy|toned milk|full cream|egg\b|eggs\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
         // 8 Staples (Atta, Rice & Dal)
