@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityLoop · Catalog Images Admin</title>
+  <style>
+    :root { --green:#318616; --bg:#f5f6f8; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin:0; background:var(--bg); color:#111; }
+    header { background:#fff; border-bottom:1px solid #e5e7eb; padding:16px 20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    h1 { font-size:18px; margin:0; }
+    .btn { background:var(--green); color:#fff; border:0; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; font-size:13px; }
+    .btn.secondary { background:#fff; color:#111; border:1px solid #e5e7eb; }
+    .btn:disabled { opacity:.5; cursor:wait; }
+    main { max-width:1100px; margin:0 auto; padding:20px; }
+    .card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px; margin-bottom:16px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; }
+    .tile { border:1px solid #eee; border-radius:14px; padding:10px; background:#fafafa; }
+    .tile img { width:100%; aspect-ratio:1; object-fit:contain; background:#fff; border-radius:10px; }
+    .tile h3 { font-size:12px; margin:8px 0 4px; line-height:1.3; min-height:2.4em; }
+    .tile input { width:100%; font-size:11px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
+    .muted { color:#6b7280; font-size:12px; }
+    pre { background:#111; color:#9fef9f; padding:12px; border-radius:10px; overflow:auto; font-size:11px; max-height:200px; }
+    label { font-size:12px; font-weight:700; display:block; margin-bottom:4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catalog images (categories · subcategories)</h1>
+    <button class="btn" id="btnSeed">Seed from Blinkit map</button>
+    <button class="btn secondary" id="btnDownload">Seed + download files</button>
+    <button class="btn secondary" id="btnStatus">Refresh status</button>
+    <span class="muted" id="statusLine">—</span>
+  </header>
+  <main>
+    <div class="card">
+      <p class="muted">
+        Icons come from Blinkit layout scrape (<code>blinkit_category_icons.json</code>).
+        Seed maps names to CDN icons via image-proxy or local <code>uploads/category</code>.
+        Edit a path/URL below and click Save on that tile.
+      </p>
+      <pre id="log">Ready.</pre>
+    </div>
+    <div class="card">
+      <h2 style="margin:0 0 12px;font-size:15px;">Categories</h2>
+      <div class="grid" id="catGrid"></div>
+    </div>
+    <div class="card">
+      <h2 style="margin:0 0 12px;font-size:15px;">Subcategories (first 80)</h2>
+      <div class="grid" id="subGrid"></div>
+    </div>
+  </main>
+  <script>
+    const KEY = 'cityloop_img_fix_2026';
+    const logEl = document.getElementById('log');
+    const statusLine = document.getElementById('statusLine');
+    function log(x) {
+      logEl.textContent = typeof x === 'string' ? x : JSON.stringify(x, null, 2);
+    }
+    function resolveSrc(path) {
+      if (!path) return '/assets/dist/img/no-data.png';
+      if (path.startsWith('http') || path.startsWith('/')) return path;
+      return '/' + path.replace(/^\/+/, '');
+    }
+    async function seed(download) {
+      statusLine.textContent = 'Seeding…';
+      const action = download ? 'download' : 'apply';
+      const r = await fetch('fix_category_icons.php?key=' + KEY + '&action=' + action);
+      const j = await r.json();
+      log(j);
+      statusLine.textContent = j.ok ? `Updated cats ${j.updated_categories}, subs ${j.updated_subcategories}` : (j.error || 'Failed');
+      await loadLists();
+    }
+    async function status() {
+      const r = await fetch('fix_category_icons.php?key=' + KEY + '&action=status');
+      const j = await r.json();
+      log(j);
+      if (j.ok) statusLine.textContent = `Cats ${j.db_categories_with_img}/${j.db_categories} · Subs ${j.db_subcategories_with_img}/${j.db_subcategories}`;
+    }
+    async function loadLists() {
+      // Use public customer API is hard without auth for admin — load map preview + optional live via admin session later.
+      // Preview from blinkit map for editors; after seed, paths show from status re-fetch via apply results.
+      const map = await fetch('data/blinkit_category_icons.json').then(r => r.json());
+      const catGrid = document.getElementById('catGrid');
+      catGrid.innerHTML = '';
+      (map.categories || []).forEach(c => {
+        const url = c.local_path || (c.icon_url ? 'api/v1_6/customer/image-proxy?url=' + encodeURIComponent(c.icon_url.replace('http://','https://')) : '');
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.innerHTML = `
+          <img src="${resolveSrc(url)}" alt="" loading="lazy" onerror="this.src='/assets/dist/img/no-data.png'"/>
+          <h3>${c.name}</h3>
+          <p class="muted">${c.group || ''}</p>
+          <label>Image path / URL</label>
+          <input data-kind="category" data-name="${c.name.replace(/"/g,'&quot;')}" value="${(url||'').replace(/"/g,'&quot;')}" />
+          <button class="btn secondary" style="width:100%;margin-top:8px" data-save>Save</button>
+        `;
+        catGrid.appendChild(tile);
+      });
+      const subGrid = document.getElementById('subGrid');
+      subGrid.innerHTML = '';
+      (map.subcategories || []).slice(0, 80).forEach(s => {
+        const url = s.local_path || (s.icon_url ? 'api/v1_6/customer/image-proxy?url=' + encodeURIComponent(s.icon_url.replace('http://','https://')) : '');
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.innerHTML = `
+          <img src="${resolveSrc(url)}" alt="" loading="lazy" onerror="this.src='/assets/dist/img/no-data.png'"/>
+          <h3>${s.name}</h3>
+          <p class="muted">${s.parent || ''}</p>
+          <label>Image path / URL</label>
+          <input data-kind="subcategory" data-name="${s.name.replace(/"/g,'&quot;')}" value="${(url||'').replace(/"/g,'&quot;')}" />
+          <button class="btn secondary" style="width:100%;margin-top:8px" data-save>Save</button>
+        `;
+        subGrid.appendChild(tile);
+      });
+      document.querySelectorAll('[data-save]').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const tile = e.target.closest('.tile');
+          const input = tile.querySelector('input');
+          const kind = input.dataset.kind;
+          const name = input.dataset.name;
+          const image = input.value.trim();
+          btn.disabled = true;
+          try {
+            const r = await fetch('fix_category_icons.php?key=' + KEY + '&action=save_one', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ kind, name, image })
+            });
+            const j = await r.json();
+            log(j);
+            if (j.ok) {
+              tile.querySelector('img').src = resolveSrc(image) + (image.includes('?') ? '&' : '?') + 't=' + Date.now();
+            }
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      });
+    }
+    document.getElementById('btnSeed').onclick = () => seed(false);
+    document.getElementById('btnDownload').onclick = () => seed(true);
+    document.getElementById('btnStatus').onclick = status;
+    loadLists().then(status);
+  </script>
+</body>
+</html>
