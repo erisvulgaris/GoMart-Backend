@@ -38,42 +38,42 @@ function classify(string $name): array
 {
     $n = mb_strtolower($name);
 
-    // Order matters — most specific first
+    // Order matters — most specific first (T24: Non-food & specialized categories evaluated before Produce/Dairy/Staples)
     $rules = [
         // 15 Sexual wellness
         [15, 0, '/condom|durex|kamasutra|lubricant|lube|massager|vibrator|intimate wash|sexual/'],
-        // 13 Baby
+        // 13 Baby Care
         [13, 0, '/diaper|pampers|huggies|baby wipes|baby soap|baby shampoo|cerelac|infant|baby care|nappy|wipes baby|johnson.?s baby|mamy|littles|baby oil|feeding bottle/'],
-        // 12 Feminine
+        // 12 Feminine Hygiene
         [12, 0, '/sanitary|whisper|stayfree|sofy|tampon|panty liner|menstrual|feminine|v wash|intimate hygiene/'],
         // 14 Pharma (real medical — avoid "healthy" snacks)
         [14, 0, '/paracetamol|dolo|crocin|disprin|aspirin|ibuprofen|antacid|digene|eno|ors|electral|volini|moov|iodex|vicks|benadryl|cough syrup|band.?aid|bandage|betadine|antiseptic|neosporin|thermometer|glucometer|oximeter|face mask|n95|sanitizer gel|hand sanitizer|first aid|medical|pharma|dolo-?650|cetrizine|cetirizine|zincovit|becosules|supradyn|revital|shelcal|calcium tablet|multivitamin|protein powder|ensure|pediasure|horlicks women|muscleblaze|whey protein|pain relief|fever|antibiotic|ointment|eye drop|nasal spray|volini|moov spray|iodex|digene|eno sachet/'],
-        // 9 Meat
-        [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
-        // 1 Produce
-        [1, 0, '/onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruit|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon/'],
-        // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
-        [2, 0, '/\bmilk\b|doodh|curd|dahi|yogurt|yoghurt|paneer|butter|ghee|cheese|amul|mother dairy|toned milk|full cream|egg\b|eggs\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
-        // 8 Staples
-        [8, 0, '/atta|flour|maida|besan|suji|rava|rice|basmati|dal|toor|moong|masoor|chana|rajma|kabuli|soya chunk|poha|dalia|sattu|wheat|pulses|lentil|urad/'],
-        // 5 Cold drinks
+        // 10 Cleaning & Household
+        [10, 0, '/detergent|surf excel|ariel|tide|wheel|vim|pril|harpic|lizol|colin|comfort|hit|baygon|repellent|disinfectant|floor cleaner|toilet cleaner|dishwash|phenyl|garbage bag|tissue|napkin|foil|scrub|cleaner|domex|harpic|lizol|room freshener|odonil/'],
+        // 11 Personal care
+        [11, 0, '/shampoo|conditioner|soap|body wash|face wash|face cream|moisturizer|sunscreen|lotion|deodorant|perfume|toothpaste|toothbrush|colgate|close.?up|sensodyne|razor|shaving|hair oil|hair gel|nivea|pond.?s|vaseline|fair.?lovely|garnier|loreal|dove|pears|dettol soap|clinic plus|pantene|head.?shoulders|handwash|hand wash|talc|powder|lipstick|makeup|kajal|foundation|serum|toner|scrub|face pack/'],
+        // 16 Home & kitchen / decor / stationery
+        [16, 0, '/decor|candle|frame|vase|cushion|bedsheet|curtain|lamp|bulb|led|battery|duracell|matchbox|match box|lighter|kitchen tool|utensil|pan|kadhai|tawa|bottle|flask|tiffin|container|storage|hanger|clip|stationery|notebook|pen|pencil|glue|tape|foil|aluminium|plastic bag|zip lock|broom|mop|bucket|mug|plate|spoon|fork|glass set|home.?kitchen|pooja|agarbatti|incense|diya/'],
+        // 5 Cold drinks & Juices
         [5, 0, '/coke|pepsi|sprite|fanta|thums up|limca|maaza|frooti|slice|juice|cold drink|soft drink|soda|red bull|monster|energy drink|bisleri|kinley|mineral water|packaged water|sparkling|beverage|tropicana|real juice|appy|paper boat/'],
         // 6 Tea coffee health drinks (not pharma)
         [6, 0, '/\btea\b|chai|coffee|nescafe|bru|bournvita|horlicks|complan|boost|green tea|black tea|tata tea|red label|taj mahal|health drink|malted|cocoa powder drink/'],
         // 4 Bakery biscuits
         [4, 0, '/biscuit|cookie|parle|oreo|bourbon|marie|hide.?seek|good day|rusk|khari|cake|muffin|pastry|croissant|bakery/'],
-        // 3 Munchies
+        // 3 Munchies & Snacks
         [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji/'],
-        // 7 Instant / frozen / sauces
+        // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, etc.)
         [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread/'],
-        // oil/masala with staples-ish → 8 or 7; use masala as 8 adjacent — put oil/masala under 8 via kitchen
+        // 9 Meat / eggs / fish
+        [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
+        // 1 Produce (Vegetables & Fruits)
+        [1, 0, '/onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruit|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon/'],
+        // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
+        [2, 0, '/\bmilk\b|doodh|curd|dahi|yogurt|yoghurt|paneer|butter|ghee|cheese|amul|mother dairy|toned milk|full cream|egg\b|eggs\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
+        // 8 Staples (Atta, Rice & Dal)
+        [8, 0, '/atta|flour|maida|besan|suji|rava|rice|basmati|dal|toor|moong|masoor|chana|rajma|kabuli|soya chunk|poha|dalia|sattu|wheat|pulses|lentil|urad/'],
+        // oil/masala under 8 (Staples)
         [8, 0, '/mustard oil|refined oil|olive oil|sunflower oil|groundnut oil|soyabean oil|oil\b|turmeric|haldi|jeera|cumin|masala|chilli powder|garam masala|hing|salt\b|sugar\b|jaggery|spice/'],
-        // 11 Personal care
-        [11, 0, '/shampoo|conditioner|soap|body wash|face wash|face cream|moisturizer|sunscreen|lotion|deodorant|perfume|toothpaste|toothbrush|colgate|close.?up|sensodyne|razor|shaving|hair oil|hair gel|nivea|pond.?s|vaseline|fair.?lovely|garnier|loreal|dove|pears|dettol soap|clinic plus|pantene|head.?shoulders|handwash|hand wash|talc|powder|lipstick|makeup|kajal|foundation|serum|toner|scrub|face pack/'],
-        // 10 Cleaning
-        [10, 0, '/detergent|surf excel|ariel|tide|wheel|vim|pril|harpic|lizol|colin|comfort|hit|baygon|repellent|disinfectant|floor cleaner|toilet cleaner|dishwash|phenyl|garbage bag|tissue|napkin|foil|scrub|cleaner|domex|harpic|lizol|room freshener|odonil/'],
-        // 16 Home & kitchen / decor / stationery
-        [16, 0, '/decor|candle|frame|vase|cushion|bedsheet|curtain|lamp|bulb|led|battery|duracell|matchbox|match box|lighter|kitchen tool|utensil|pan|kadhai|tawa|bottle|flask|tiffin|container|storage|hanger|clip|stationery|notebook|pen|pencil|glue|tape|foil|aluminium|plastic bag|zip lock|broom|mop|bucket|mug|plate|spoon|fork|glass set|home.?kitchen|pooja|agarbatti|incense|diya/'],
     ];
 
     foreach ($rules as [$cat, $sub, $pat]) {

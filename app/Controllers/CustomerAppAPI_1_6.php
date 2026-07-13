@@ -3484,6 +3484,17 @@ class CustomerAppAPI_1_6 extends BaseController
                             $s -= 45000;
                         }
                     }
+                    if ($term === 'butter') {
+                        if (
+                            preg_match('/\b(amul|salted|unsalted|table|white|cooking|delicious|dairy|cow|buffalo|pasteurised|pasteurized)\b/i', $name)
+                            && $last === 'butter'
+                        ) {
+                            $s += 25000;
+                        }
+                        if (preg_match('/\b(peanut|cookie|almond|cocoa|shea|body|scrub|lip|face|chocolate)\b/i', $name)) {
+                            $s -= 45000;
+                        }
+                    }
                 } elseif (str_contains($name, $term)) {
                     $s += 40; // substring inside another token
                 }
