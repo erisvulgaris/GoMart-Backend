@@ -3623,8 +3623,11 @@ class CustomerAppAPI_1_6 extends BaseController
                 'my_order_id'          => $order['my_order_id'],
                 'order_date'           => date('d M Y, h:iA', strtotime($order['order_date'])),
 
-                // Status
+                // Status — expose numeric id for cancel/track UI; keep text labels too
+                // (previously `status` was only the label string, breaking isOrderTrackable)
+                'status_id'            => (int)($order['status'] ?? 0),
                 'status'               => $order['order_status']  ?? '',
+                'order_status'         => $order['order_status']  ?? '',
                 'text_color'           => $order['text_color']    ?? '#1D4ED8',
                 'bg_color'             => $order['bg_color']      ?? '#DBEAFE',
 
@@ -3638,15 +3641,20 @@ class CustomerAppAPI_1_6 extends BaseController
                 'delivery_instruction' => $order['delivery_instruction']  ?? null,
                 'billing_gst'          => $order['billing_gst']           ?? '',
 
-                // Amount breakdown (formatted strings, matching JS parseFloat)
-                'subtotal'             => number_format($subtotal,         2),
-                'tax'                  => number_format($tax,              2),
-                'delivery_charge'      => number_format($deliveryCharge,   2),
-                'additional_charge'    => number_format($additionalCharge, 2),
-                'tip_amount'           => number_format($tipAmount,        2),
-                'coupon_discount'      => number_format($couponDiscount,   2),
-                'wallet_used'          => number_format($walletUsed,       2),
-                'payment'              => number_format($total,            2),
+                // Amount breakdown — raw numbers for JS math (no thousand commas)
+                // Also keep *_fmt if clients want display strings
+                'subtotal'             => round($subtotal, 2),
+                'tax'                  => round($tax, 2),
+                'delivery_charge'      => round($deliveryCharge, 2),
+                'additional_charge'    => round($additionalCharge, 2),
+                'tip_amount'           => round($tipAmount, 2),
+                'coupon_discount'      => round($couponDiscount, 2),
+                'coupon_amount'        => round($couponDiscount, 2),
+                'wallet_used'          => round($walletUsed, 2),
+                'used_wallet_amount'   => round($walletUsed, 2),
+                'payment'              => round($total, 2),
+                'subtotal_fmt'         => number_format($subtotal,         2),
+                'payment_fmt'          => number_format($total,            2),
 
                 // Delivery boy — null when not yet assigned
                 'delivery_boy'         => $deliveryBoyInfo,
