@@ -1800,7 +1800,7 @@ class CustomerAppAPI_1_6 extends BaseController
         $c = strtolower($categoryName);
         $snack = '/\b(chips?|namkeen|kurkure|lays|bingo|chocolate|muesli|kellogg|yoga\s*bar|biscuit|cookie|maggi|ketchup|pickle|achar|cereal|flakes|drink\s*mix|soda|cola|pepsi|coke)\b/i';
         $produceJunk = '/\b(ketchup|muesli|chips?|juice|drink\s*mix|tropicana|tang\b|paper\s*boat|real\s+fruit|delight\s+(juice|drink)|instant\s+drink|pasta\s*sauce|pizza\s*sauce|chutney|puree|salsa|baked\s*beans|ragu|veeba|heinz)\b/i';
-        $produceNonFood = '/\b(dove|nivea|aqualogica|dettol|medimix|lifebuoy|lux\b|pears\b|himalaya|garnier|loreal|ponds|vaseline|sunscreen|moisturizer|moisturis|hand\s*wash|body\s*polish|body\s*scrub|face\s*wash|shampoo|conditioner|toothpaste|deodorant|perfume|lotion|serum|soap\b|cream\b|wipes?)\b/i';
+        $produceNonFood = '/\b(dove|nivea|aqualogica|dettol|medimix|lifebuoy|lux\b|pears\b|himalaya|garnier|loreal|ponds|vaseline|colgate|forest\s*essentials|exo\b|vim\b|harpic|lizol|sunscreen|moisturizer|moisturis|hand\s*wash|body\s*polish|body\s*scrub|face\s*(wash|cleanser)|cleanser|mouthwash|dishwash|dishwashing|shampoo|conditioner|toothpaste|deodorant|perfume|lotion|serum|soap\b|cream\b|wipes?)\b/i';
         $pharmaOk = '/\b(paracetamol|dolo|crocin|volini|moov|vitamin|tablet|syrup|ointment|bandage|medicine|pharma|antacid|ors|electral|vicks|iodex|melatonin)\b/i';
         if (preg_match('/veg|fruit|produce/i', $c)) {
             if (preg_match($snack, $p) || preg_match($produceJunk, $p) || preg_match($produceNonFood, $p)) {
