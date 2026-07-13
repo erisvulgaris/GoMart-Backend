@@ -1,0 +1,12 @@
+{
+  "free_delivery_min": 199,
+  "tiers": [
+    { "min": 599, "cashback": 50, "label": "Silver" },
+    { "min": 999, "cashback": 100, "label": "Gold" },
+    { "min": 1500, "cashback": 150, "label": "Platinum" },
+    { "min": 2500, "cashback": 250, "label": "Diamond" }
+  ],
+  "currency": "INR",
+  "wallet_name": "CityLoop Wallet",
+  "updated_at": "2026-07-13"
+}
