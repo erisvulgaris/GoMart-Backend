@@ -1762,6 +1762,35 @@ class CustomerAppAPI_1_6 extends BaseController
     //     return $this->response->setJSON(['status' => 'success', 'data' => $result]);
     // }
 
+    /**
+     * Categories permanently excluded from customer surfaces (CityLoop policy).
+     */
+    private function isRestrictedCategory(array $category): bool
+    {
+        $id = (int) ($category['id'] ?? 0);
+        $name = strtolower((string) ($category['category_name'] ?? $category['name'] ?? ''));
+        $slug = strtolower((string) ($category['slug'] ?? ''));
+        if ($id === 15) {
+            return true;
+        }
+        if (str_contains($name, 'sexual') || str_contains($slug, 'sexual')) {
+            return true;
+        }
+        return false;
+    }
+
+    private function filterRestrictedCategories(array $categories): array
+    {
+        $out = [];
+        foreach ($categories as $category) {
+            if ($this->isRestrictedCategory($category)) {
+                continue;
+            }
+            $out[] = $category;
+        }
+        return array_values($out);
+    }
+
     public function fetchAllCategories()
     {
         $categoryModel = new CategoryModel();
@@ -1775,6 +1804,7 @@ class CustomerAppAPI_1_6 extends BaseController
 
         // Fetch all categories ordered by `row_order` in ascending order
         $categories = $categoryModel->orderBy('row_order', 'ASC')->findAll();
+        $categories = $this->filterRestrictedCategories($categories);
 
         // Append base_url to category_img
         foreach ($categories as &$category) {
@@ -1805,6 +1835,7 @@ class CustomerAppAPI_1_6 extends BaseController
             $categories = $categoryModel->where('category_group_id', $group['id'])
                 ->orderBy('row_order', 'ASC')
                 ->findAll();
+            $categories = $this->filterRestrictedCategories($categories);
 
             // Skip group if no categories found
             if (empty($categories)) {
@@ -1854,8 +1885,16 @@ class CustomerAppAPI_1_6 extends BaseController
             'icon_library' =>  0
         ];
 
-        // Add other categories
+        // Add other categories (skip restricted e.g. Sexual Wellness)
         foreach ($headerCategories as $index => $headerCategory) {
+            $probe = [
+                'id' => (int) $headerCategory['category_id'],
+                'category_name' => (string) ($headerCategory['category'] ?? $headerCategory['title'] ?? ''),
+                'slug' => '',
+            ];
+            if ($this->isRestrictedCategory($probe)) {
+                continue;
+            }
             $result[] = [
                 'id' => $headerCategory['id'],
                 'title' => $headerCategory['title'],
@@ -1876,6 +1915,15 @@ class CustomerAppAPI_1_6 extends BaseController
 
         $categoryModel = new CategoryModel();
         $category = $categoryModel->where('id', $dataInput['category_id'])->first();
+
+        // Block restricted categories (e.g. Sexual Wellness) for customers
+        if ($category && $this->isRestrictedCategory($category)) {
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data'   => [],
+                'message' => 'Category not available',
+            ]);
+        }
 
         $subcategoryModel = new SubcategoryModel();
         $subcategories = $subcategoryModel->where('category_id', $dataInput['category_id'])
