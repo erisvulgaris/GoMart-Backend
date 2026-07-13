@@ -3448,6 +3448,29 @@ class CustomerAppAPI_1_6 extends BaseController
 
         $products = $productQuery->findAll();
 
+        // Rank: whole-word title match (milk) ≫ substring (milky) ≫ description/tag noise
+        $term = strtolower(trim((string) $searchTerm));
+        usort($products, static function ($a, $b) use ($term) {
+            $score = static function ($p) use ($term) {
+                $name = strtolower((string) ($p['product_name'] ?? ''));
+                $s = 0;
+                if ($name === $term) {
+                    $s += 100000;
+                }
+                // whole word / token boundary (milk ≠ milky)
+                if (preg_match('/(^|[^a-z0-9])' . preg_quote($term, '/') . '([^a-z0-9]|$)/i', $name)) {
+                    $s += 50000;
+                    if (str_starts_with($name, $term . ' ') || str_starts_with($name, $term . '-')) {
+                        $s += 10000;
+                    }
+                } elseif (str_contains($name, $term)) {
+                    $s += 40; // substring inside another token
+                }
+                return $s;
+            };
+            return $score($b) <=> $score($a);
+        });
+
         $perKmTime = $deliverableAreaModel
             ->where('is_delete', 0)
             ->where('id', $dataInput['deliverable_area_id'])
