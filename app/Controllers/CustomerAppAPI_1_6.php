@@ -2346,14 +2346,16 @@ class CustomerAppAPI_1_6 extends BaseController
         );
 
         // Resolve product IDs for subcategory filter via pivot, then intersect with category
-        $subcategoryProductIds = [];
-        if (!empty($dataInput['subcategory_id']) && $dataInput['subcategory_id'] != 0) {
+        $subcategoryIdRequested = (int) ($dataInput['subcategory_id'] ?? 0);
+        $subcategoryFilterActive    = $subcategoryIdRequested !== 0;
+        $subcategoryProductIds      = [];
+        if ($subcategoryFilterActive) {
             $rawSubcategoryProductIds = array_column(
-                $productSubcategoryModel->select('product_id')->where('subcategory_id', $dataInput['subcategory_id'])->findAll(),
+                $productSubcategoryModel->select('product_id')->where('subcategory_id', $subcategoryIdRequested)->findAll(),
                 'product_id'
             );
 
-            // ✅ Intersect: only keep products that belong to BOTH the category AND subcategory
+            // Intersect: only keep products that belong to BOTH the category AND subcategory
             $subcategoryProductIds = array_values(
                 array_intersect($primaryCategoryProductIds, $rawSubcategoryProductIds)
             );
