@@ -47,7 +47,7 @@ function classify(string $name): array
         // 12 Feminine Hygiene
         [12, 0, '/sanitary|whisper|stayfree|sofy|tampon|panty liner|menstrual|feminine|v wash|intimate hygiene/'],
         // 14 Pharma (real medical — avoid "healthy" snacks)
-        [14, 0, '/paracetamol|dolo|crocin|disprin|aspirin|ibuprofen|antacid|digene|eno|ors|electral|volini|moov|iodex|vicks|benadryl|cough syrup|band.?aid|bandage|betadine|antiseptic|neosporin|thermometer|glucometer|oximeter|face mask|n95|sanitizer gel|hand sanitizer|first aid|medical|pharma|dolo-?650|cetrizine|cetirizine|zincovit|becosules|supradyn|revital|shelcal|calcium tablet|multivitamin|protein powder|ensure|pediasure|horlicks women|muscleblaze|whey protein|pain relief|fever|antibiotic|ointment|eye drop|nasal spray|volini|moov spray|iodex|digene|eno sachet/'],
+        [14, 0, '/paracetamol|dolo|crocin|disprin|aspirin|ibuprofen|antacid|digene|eno|ors|electral|volini|moov|iodex|vicks|benadryl|cough syrup|band.?aid|bandage|betadine|antiseptic|neosporin|thermometer|glucometer|oximeter|face mask|n95|sanitizer gel|hand sanitizer|first aid|medical|pharma|dolo-?650|cetrizine|cetirizine|zincovit|becosules|supradyn|revital|shelcal|calcium tablet|multivitamin|protein powder|ensure|pediasure|horlicks women|muscleblaze|whey protein|pain relief|reliev|balm|pain|fever|antibiotic|ointment|eye drop|nasal spray|volini|moov spray|iodex|digene|eno sachet|melatonin|supplement|gummy|gummies|capsule|tablet\b/'],
         // 10 Cleaning & Household
         [10, 0, '/detergent|surf excel|ariel|tide|wheel|vim|pril|harpic|lizol|colin|comfort|hit|baygon|repellent|disinfectant|floor cleaner|toilet cleaner|dishwash|phenyl|garbage bag|tissue|napkin|foil|scrub|cleaner|domex|harpic|lizol|room freshener|odonil/'],
         // 11 Personal care
@@ -62,18 +62,18 @@ function classify(string $name): array
         [4, 0, '/biscuit|cookie|parle|oreo|bourbon|marie|hide.?seek|good day|rusk|khari|cake|muffin|pastry|croissant|bakery/'],
         // 3 Munchies & Snacks
         [3, 0, '/chips|lays|kurkure|bingo|namkeen|bhujia|mixture|sev|makhana|popcorn|nachos|pringles|snack|wafer|puffcorn|uncle chip|too yum|haldiram|bikaji|balaji|dry\s*fruit|dryfruit|almond|cashew|raisin|pista|kaju|badam|kishmish|walnut|dates\b|khajur|seeds?\b/'],
-        // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, etc.)
-        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread/'],
-        // 9 Meat / eggs / fish
-        [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
-        // 1 Produce (Vegetables & Fruits)
-        [1, 0, '/\b(onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruits?|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon)s?\b/i'],
+        // 7 Instant / frozen / sauces (includes peanut butter, tomato puree, marmalade, fruit pops, etc.)
+        [7, 0, '/maggi|noodles|pasta|ketchup|sauce|mayonnaise|jam|honey|peanut butter|marmalade|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|spread|pop\b|pops\b|popsicle|kulfi/'],
         // 2 Dairy / eggs / bread (bread also bakery — dairy first for milk)
         [2, 0, '/\bmilk\b|doodh|curd|dahi|yogurt|yoghurt|paneer|butter|ghee|cheese|amul|mother dairy|toned milk|full cream|egg\b|eggs\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
         // 8 Staples (Atta, Rice & Dal)
         [8, 0, '/atta|flour|maida|besan|suji|rava|rice|basmati|dal|toor|moong|masoor|chana|rajma|kabuli|soya chunk|poha|dalia|sattu|wheat|pulses|lentil|urad/'],
         // oil/masala under 8 (Staples)
         [8, 0, '/mustard oil|refined oil|olive oil|sunflower oil|groundnut oil|soyabean oil|oil\b|turmeric|haldi|jeera|cumin|masala|chilli powder|garam masala|hing|salt\b|sugar\b|jaggery|spice/'],
+        // 9 Meat / eggs / fish
+        [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
+        // 1 Produce (Vegetables & Fruits)
+        [1, 0, '/\b(onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruits?|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon)s?\b/i'],
     ];
 
     foreach ($rules as [$cat, $sub, $pat]) {
