@@ -3449,6 +3449,7 @@ class CustomerAppAPI_1_6 extends BaseController
         $products = $productQuery->findAll();
 
         // Rank: whole-word title match (milk) ≫ substring (milky) ≫ description/tag noise
+        // Prefer head-noun dairy milk over "Milk Cake" / chocolate that merely contain "milk".
         $term = strtolower(trim((string) $searchTerm));
         usort($products, static function ($a, $b) use ($term) {
             $score = static function ($p) use ($term) {
@@ -3457,11 +3458,29 @@ class CustomerAppAPI_1_6 extends BaseController
                 if ($name === $term) {
                     $s += 100000;
                 }
+                $tokens = preg_split('/[^a-z0-9]+/i', $name, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+                $meaningful = array_values(array_filter($tokens, static function ($t) {
+                    return !preg_match('/^(\d+|ml|g|kg|l|ltr|litre|liter|pack|pcs|gm|gram|unit|pc|sachet)$/i', $t);
+                }));
+                $last = $meaningful ? $meaningful[count($meaningful) - 1] : '';
                 // whole word / token boundary (milk ≠ milky)
                 if (preg_match('/(^|[^a-z0-9])' . preg_quote($term, '/') . '([^a-z0-9]|$)/i', $name)) {
                     $s += 50000;
-                    if (str_starts_with($name, $term . ' ') || str_starts_with($name, $term . '-')) {
-                        $s += 10000;
+                    if ($last === $term) {
+                        $s += 35000;
+                    } elseif (str_starts_with($name, $term . ' ') || str_starts_with($name, $term . '-')) {
+                        $s += 2000;
+                    }
+                    if ($term === 'milk') {
+                        if (
+                            preg_match('/\b(toned|full cream|cow|buffalo|skimmed|homogeni[sz]ed|lactose|taaza|gold|dairy|uht|fresh)\b/i', $name)
+                            && $last === 'milk'
+                        ) {
+                            $s += 25000;
+                        }
+                        if (preg_match('/\b(chocolate|cake|bread|biscuit|cookie|bar|creme|wafer|silk|oreo|milkinis|shake)\b/i', $name)) {
+                            $s -= 45000;
+                        }
                     }
                 } elseif (str_contains($name, $term)) {
                     $s += 40; // substring inside another token
