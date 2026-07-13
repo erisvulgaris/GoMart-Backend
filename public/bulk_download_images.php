@@ -92,7 +92,8 @@ function resize_jpg(string $binary, int $size, int $q = 80): ?string
     return $out === false ? null : $out;
 }
 
-foreach ([100, 500, 1000] as $sz) {
+// 100px retired — list/cards use 300px (sharper on retina displays)
+foreach ([300, 500, 1000] as $sz) {
     $d = __DIR__ . "/uploads/products/{$sz}";
     if (!is_dir($d)) {
         mkdir($d, 0755, true);
@@ -115,13 +116,13 @@ for ($b = 0; $b < $batches; $b++) {
     foreach ($slice as $pid) {
         $id = (int) $pid;
         $cdn = $products[$pid];
-        $abs100 = __DIR__ . "/uploads/products/100/{$id}.jpg";
+        $abs300 = __DIR__ . "/uploads/products/300/{$id}.jpg";
         $abs500 = __DIR__ . "/uploads/products/500/{$id}.jpg";
         $abs1000 = __DIR__ . "/uploads/products/1000/{$id}.jpg";
-        $rel100 = "uploads/products/100/{$id}.jpg";
+        $rel300 = "uploads/products/300/{$id}.jpg";
 
-        if (is_file($abs100) && filesize($abs100) > 200 && is_file($abs500) && is_file($abs1000)) {
-            $stmt->bind_param('si', $rel100, $id);
+        if (is_file($abs300) && filesize($abs300) > 200 && is_file($abs500) && is_file($abs1000)) {
+            $stmt->bind_param('si', $rel300, $id);
             $stmt->execute();
             $skip++;
             $processed++;
@@ -138,13 +139,13 @@ for ($b = 0; $b < $batches; $b++) {
             continue;
         }
 
-        $j100 = resize_jpg($bytes, 100, 78) ?? $bytes;
+        $j300 = resize_jpg($bytes, 300, 82) ?? $bytes;
         $j500 = resize_jpg($bytes, 500, 82) ?? $bytes;
         $j1000 = resize_jpg($bytes, 1000, 85) ?? $bytes;
-        file_put_contents($abs100, $j100);
+        file_put_contents($abs300, $j300);
         file_put_contents($abs500, $j500);
         file_put_contents($abs1000, $j1000);
-        $stmt->bind_param('si', $rel100, $id);
+        $stmt->bind_param('si', $rel300, $id);
         $stmt->execute();
         $ok++;
         $processed++;

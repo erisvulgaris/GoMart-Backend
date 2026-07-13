@@ -6,10 +6,11 @@
  *   ?action=restore_cdn          Restore CDN URLs from blinkit_image_map.json into MySQL
  *   ?action=status               Report missing local files / CDN vs local stats
  *   ?action=download&offset=0&limit=40
- *                                Download CDN images, write 500x500 + 1000x1000, update DB
+ *                                Download CDN images, write 300/500/1000, update DB
  *   ?key=cityloop_img_fix_2026  Required secret (query or header X-Fix-Key)
  *
  * Safe to re-run. Designed for Coolify/Docker (DB host "db").
+ * Note: 100px list size was retired — cards use 300px (sharper on retina).
  */
 declare(strict_types=1);
 
@@ -19,10 +20,10 @@ header('Content-Type: application/json; charset=utf-8');
 
 const FIX_KEY = 'cityloop_img_fix_2026';
 const MAP_FILE = __DIR__ . '/data/blinkit_image_map.json';
-const UPLOAD_100 = __DIR__ . '/uploads/products/100';
+const UPLOAD_300 = __DIR__ . '/uploads/products/300';
 const UPLOAD_500 = __DIR__ . '/uploads/products/500';
 const UPLOAD_1000 = __DIR__ . '/uploads/products/1000';
-const UPLOAD_GALLERY_100 = __DIR__ . '/uploads/products/gallery/100';
+const UPLOAD_GALLERY_300 = __DIR__ . '/uploads/products/gallery/300';
 const UPLOAD_GALLERY_500 = __DIR__ . '/uploads/products/gallery/500';
 const UPLOAD_GALLERY_1000 = __DIR__ . '/uploads/products/gallery/1000';
 
@@ -62,7 +63,7 @@ function load_map(): array
 
 function ensure_dirs(): void
 {
-    foreach ([UPLOAD_100, UPLOAD_500, UPLOAD_1000, UPLOAD_GALLERY_100, UPLOAD_GALLERY_500, UPLOAD_GALLERY_1000] as $dir) {
+    foreach ([UPLOAD_300, UPLOAD_500, UPLOAD_1000, UPLOAD_GALLERY_300, UPLOAD_GALLERY_500, UPLOAD_GALLERY_1000] as $dir) {
         if (!is_dir($dir)) {
             mkdir($dir, 0755, true);
         }
@@ -136,9 +137,9 @@ function resize_to_jpeg(string $binary, int $size, int $quality = 82): ?string
     return $out === false ? null : $out;
 }
 
-function save_triple(string $binary, string $path100, string $path500, string $path1000): bool
+function save_triple(string $binary, string $path300, string $path500, string $path1000): bool
 {
-    $jpg100 = resize_to_jpeg($binary, 100, 78);
+    $jpg300 = resize_to_jpeg($binary, 300, 82);
     $jpg500 = resize_to_jpeg($binary, 500, 82);
     $jpg1000 = resize_to_jpeg($binary, 1000, 85);
     if ($jpg500 === null || $jpg1000 === null) {
@@ -146,13 +147,13 @@ function save_triple(string $binary, string $path100, string $path500, string $p
             return false;
         }
         @file_put_contents($path1000, $binary);
-        @file_put_contents($path100, $binary);
+        @file_put_contents($path300, $binary);
         return true;
     }
-    if ($jpg100 === null) {
-        $jpg100 = $jpg500;
+    if ($jpg300 === null) {
+        $jpg300 = $jpg500;
     }
-    return file_put_contents($path100, $jpg100) !== false
+    return file_put_contents($path300, $jpg300) !== false
         && file_put_contents($path500, $jpg500) !== false
         && file_put_contents($path1000, $jpg1000) !== false;
 }
@@ -160,8 +161,8 @@ function save_triple(string $binary, string $path100, string $path500, string $p
 /** @deprecated use save_triple */
 function save_pair(string $binary, string $path500, string $path1000): bool
 {
-    $path100 = str_replace(['/500/', '\\500\\'], ['/100/', '\\100\\'], $path500);
-    return save_triple($binary, $path100, $path500, $path1000);
+    $path300 = str_replace(['/500/', '\\500\\'], ['/300/', '\\300\\'], $path500);
+    return save_triple($binary, $path300, $path500, $path1000);
 }
 
 try {
@@ -258,21 +259,21 @@ try {
         foreach ($slice as $pid) {
             $id = (int) $pid;
             $cdn = $map['products'][$pid];
-            // Prefer lightweight 100px for list/cards in DB; UI swaps to 500/1000
-            $path100Rel = "uploads/products/100/{$id}.jpg";
+            // Prefer 300px for list/cards in DB; UI swaps to 500/1000 for detail/zoom
+            $path300Rel = "uploads/products/300/{$id}.jpg";
             $path500Rel = "uploads/products/500/{$id}.jpg";
             $path1000Rel = "uploads/products/1000/{$id}.jpg";
-            $abs100 = UPLOAD_100 . "/{$id}.jpg";
+            $abs300 = UPLOAD_300 . "/{$id}.jpg";
             $abs500 = UPLOAD_500 . "/{$id}.jpg";
             $abs1000 = UPLOAD_1000 . "/{$id}.jpg";
 
-            if (is_file($abs100) && filesize($abs100) > 200 && is_file($abs500) && is_file($abs1000)) {
-                $stmtMain->bind_param('si', $path100Rel, $id);
+            if (is_file($abs300) && filesize($abs300) > 200 && is_file($abs500) && is_file($abs1000)) {
+                $stmtMain->bind_param('si', $path300Rel, $id);
                 $stmtMain->execute();
                 $skipped++;
             } else {
                 $bytes = download_bytes($cdn);
-                if ($bytes === null || !save_triple($bytes, $abs100, $abs500, $abs1000)) {
+                if ($bytes === null || !save_triple($bytes, $abs300, $abs500, $abs1000)) {
                     // Keep CDN so site still works
                     $stmtMain->bind_param('si', $cdn, $id);
                     $stmtMain->execute();
@@ -280,7 +281,7 @@ try {
                     $details[] = ['id' => $id, 'status' => 'download_failed', 'cdn' => $cdn];
                     continue;
                 }
-                $stmtMain->bind_param('si', $path100Rel, $id);
+                $stmtMain->bind_param('si', $path300Rel, $id);
                 $stmtMain->execute();
                 $ok++;
             }
@@ -333,7 +334,7 @@ try {
             'done' => $done,
             'total_products_in_map' => count($ids),
             'failures_sample' => array_slice($details, 0, 5),
-            'note' => 'List/card UI uses 500px path; zoom should swap to uploads/products/1000/{id}.jpg',
+            'note' => 'List/card UI uses 300px path; detail 500; zoom 1000',
         ], JSON_PRETTY_PRINT);
         exit;
     }
