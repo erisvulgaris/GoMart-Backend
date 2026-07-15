@@ -66,8 +66,8 @@ function classify(string $name): array
         [7, 0, '/peanut butter|almond butter|cashew butter|hazelnut butter|nut butter|nutella|chocolate spread|fruit spread|sandwich spread|marmalade|jam\\b|jelly\\b|maggi|noodles|pasta|ketchup|sauce|mayonnaise|honey|ice cream|frozen|mccain|soup|oats|muesli|corn flakes|flakes\\b|chocos|cereal|instant|vermicelli|upma|ready to eat|pickle|achar|thokku|chutney|pop\\b|pops\\b|popsicle|kulfi/'],
         // 2 Dairy / eggs / bread — dairy butter only (not peanut/nut/chocolate "butter")
         [2, 0, '/\\bmilk\\b|doodh|curd|dahi|yogurt|yoghurt|paneer|(?<!(peanut|almond|cashew|nut|coco|hazelnut|sunflower|pumpkin|shea)\\s)butter|table butter|cooking butter|white butter|ghee|cheese|amul(?!\\s*dark\\s*chocolate)|mother dairy|toned milk|full cream|egg\\b|eggs\\b|brown egg|white egg|bread|pav|bun|sandwich bread|brown bread|white bread|cream cheese|lassi|buttermilk|chaas/'],
-        // 8 Staples (Atta, Rice & Dal)
-        [8, 0, '/atta|flour|maida|besan|suji|rava|rice|basmati|dal|toor|moong|masoor|chana|rajma|kabuli|soya chunk|poha|dalia|sattu|wheat|pulses|lentil|urad/'],
+        // 8 Staples (Atta, Rice & Dal) — "wheat" alone is NOT atta (bread/biscuits use wheat too)
+        [8, 0, '/atta|chakki|shudh chakki|multigrain atta|wheat atta|wheat flour|whole wheat atta|flour|maida|besan|suji|rava|rice|basmati|dal|toor|moong|masoor|chana|rajma|kabuli|soya chunk|poha|dalia|sattu|pulses|lentil|urad/'],
         // oil/masala under 8 (Staples)
         [8, 0, '/mustard oil|refined oil|olive oil|sunflower oil|groundnut oil|soyabean oil|oil\b|turmeric|haldi|jeera|cumin|masala|chilli powder|garam masala|hing|salt\b|sugar\b|jaggery|spice/'],
         // 9 Meat / eggs / fish

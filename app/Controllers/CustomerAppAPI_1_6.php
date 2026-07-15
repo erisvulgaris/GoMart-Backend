@@ -1817,7 +1817,16 @@ class CustomerAppAPI_1_6 extends BaseController
         }
         // Dairy aisle: nut/chocolate spreads are NOT dairy (keyword "butter" trap)
         if (preg_match('/dairy|bread|egg/i', $c)) {
-            if (preg_match('/peanut butter|almond butter|cashew butter|hazelnut butter|nut butter|nutella|chocolate spread|fruit spread|sandwich spread|jam\b|jelly\b/i', $p)) {
+            if (preg_match('/peanut butter|almond butter|cashew butter|hazelnut butter|nut butter|nutella|chocolate spread|fruit spread|sandwich spread|jam\\b|jelly\\b/i', $p)) {
+                return false;
+            }
+        }
+        // Atta / staples aisle: wheat in the name ≠ atta flour (e.g. wheat bread, wheat biscuits)
+        if (preg_match('/atta|rice|dal|staple|pulses/i', $c)) {
+            if (preg_match('/\\b(biscuit|cookie|bread|noodle|maggi|chips|snack|wafer|puff|cake|rusk|namkeen|chocolate)\\b/i', $p)) {
+                return false;
+            }
+            if (preg_match('/\\bwheat\\b/i', $p) && !preg_match('/atta|chakki|flour|maida|besan|multigrain atta|wheat atta|wheat flour|whole wheat atta|poha|dalia|rava|suji|daliya/i', $p)) {
                 return false;
             }
         }
@@ -3541,6 +3550,18 @@ class CustomerAppAPI_1_6 extends BaseController
 
         $products = $productQuery->findAll();
 
+        // Intent: "dairy butter" / "butter" search must not surface peanut & nut spreads
+        $termLower = strtolower(trim((string) $searchTerm));
+        if (
+            preg_match('/\b(butter|dairy\s*butter)\b/i', $termLower)
+            && !preg_match('/peanut|almond|cashew|nutella|nut\s*butter/i', $termLower)
+        ) {
+            $products = array_values(array_filter($products, static function ($prod) {
+                $name = strtolower((string) ($prod['product_name'] ?? ''));
+                return !preg_match('/peanut|almond|cashew|hazelnut|nut butter|nutella|chocolate spread/i', $name);
+            }));
+        }
+
         // Rank: whole-word title match (milk) ≫ substring (milky) ≫ description/tag noise
         // Prefer head-noun dairy milk over "Milk Cake" / chocolate that merely contain "milk".
         $term = strtolower(trim((string) $searchTerm));
@@ -3584,6 +3605,14 @@ class CustomerAppAPI_1_6 extends BaseController
                         }
                         if (preg_match('/\b(peanut|cookie|almond|cocoa|shea|body|scrub|lip|face|chocolate)\b/i', $name)) {
                             $s -= 45000;
+                        }
+                    }
+                    if (str_contains($term, 'dairy') && str_contains($term, 'butter')) {
+                        if (preg_match('/\b(amul|mother dairy|table|white|cooking|salted|unsalted|pasteurised|pasteurized)\b/i', $name) && preg_match('/\bbutter\b/i', $name)) {
+                            $s += 35000;
+                        }
+                        if (preg_match('/peanut|almond|cashew|hazelnut|nut butter|nutella|chocolate spread/i', $name)) {
+                            $s -= 100000;
                         }
                     }
                 } elseif (str_contains($name, $term)) {
