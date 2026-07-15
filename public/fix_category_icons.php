@@ -124,6 +124,28 @@ function best_match(string $name, array $candidates): ?array
     return $best;
 }
 
+function blinkit_parents_for_category(string $categoryName): array
+{
+    $aliases = [
+        'Vegetables & Fruits' => ['Vegetables & Fruits'],
+        'Dairy, Bread & Eggs' => ['Dairy, Bread & Eggs'],
+        'Munchies & Snacks' => ['Chips & Namkeen', 'Sweets & Chocolates'],
+        'Bakery & Biscuits' => ['Bakery & Biscuits'],
+        'Cold Drinks & Juices' => ['Drinks & Juices'],
+        'Tea, Coffee & Health Drinks' => ['Tea, Coffee & Milk Drinks'],
+        'Instant & Frozen Food' => ['Instant Food'],
+        'Atta, Rice & Dal' => ['Atta, Rice & Dal'],
+        'Chicken, Meat & Fish' => ['Chicken, Meat & Fish'],
+        'Cleaning & Household' => ['Cleaners & Repellents'],
+        'Personal Care' => ['Bath & Body', 'Hair', 'Skin & Face', 'Beauty & Cosmetics'],
+        'Feminine Hygiene & Care' => ['Feminine Hygiene'],
+        'Baby Care' => ['Baby Care'],
+        'Pharma & Wellness' => ['Health & Pharma'],
+        'Home & Kitchen' => ['Home & Lifestyle', 'Kitchenware & Appliances', 'Electronics', 'Stationery & Games'],
+    ];
+    return $aliases[$categoryName] ?? [];
+}
+
 try {
     $map = load_map();
     $catsMap = $map['categories'] ?? [];
@@ -217,11 +239,15 @@ try {
         $stmt->close();
 
         // --- Subcategories (column is `img`) ---
-        $res2 = $db->query('SELECT id, name, img FROM subcategory');
+        $res2 = $db->query('SELECT s.id, s.name, s.img, s.category_id, c.category_name FROM subcategory s LEFT JOIN category c ON c.id = s.category_id');
         $stmt2 = $db->prepare('UPDATE subcategory SET img = ? WHERE id = ?');
         if ($res2 && $stmt2) {
             while ($row = $res2->fetch_assoc()) {
-                $match = best_match($row['name'], $subsMap);
+                $parents = blinkit_parents_for_category((string) ($row['category_name'] ?? ''));
+                $candidates = $parents
+                    ? array_values(array_filter($subsMap, static fn(array $item): bool => in_array((string) ($item['parent'] ?? ''), $parents, true)))
+                    : $subsMap;
+                $match = best_match($row['name'], $candidates ?: $subsMap);
                 if (!$match || empty($match['icon_url'])) {
                     continue;
                 }
