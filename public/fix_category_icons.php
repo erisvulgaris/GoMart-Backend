@@ -155,15 +155,33 @@ try {
         $proxyFallback = 0;
 
         // --- Categories ---
+        $exactCategoryIcons = [
+            'Vegetables & Fruits' => 'vegetables_fruits.png',
+            'Dairy, Bread & Eggs' => 'dairy_bread_eggs.png',
+            'Munchies & Snacks' => 'chips_namkeen.png',
+            'Bakery & Biscuits' => 'bakery_biscuits.png',
+            'Cold Drinks & Juices' => 'drinks_juices.png',
+            'Tea, Coffee & Health Drinks' => 'tea_coffee_milk_drinks.png',
+            'Instant & Frozen Food' => 'instant_food.png',
+            'Atta, Rice & Dal' => 'atta_rice_dal.png',
+            'Chicken, Meat & Fish' => 'chicken_meat_fish.png',
+            'Cleaning & Household' => 'cleaners_repellents.png',
+            'Personal Care' => 'bath_body.png',
+            'Feminine Hygiene & Care' => 'feminine_hygiene.png',
+            'Baby Care' => 'baby_care.png',
+            'Pharma & Wellness' => 'health_pharma.png',
+            'Home & Kitchen' => 'home_lifestyle.png',
+        ];
         $res = $db->query('SELECT id, category_name, category_img FROM category');
         $stmt = $db->prepare('UPDATE category SET category_img = ? WHERE id = ?');
         while ($row = $res->fetch_assoc()) {
+            $exactFile = $exactCategoryIcons[$row['category_name']] ?? null;
             $match = best_match($row['category_name'], $catsMap);
             if (!$match || empty($match['icon_url'])) {
-                continue;
+                if (!$exactFile) continue;
             }
-            $cdn = normalize_cdn($match['icon_url']);
-            $pathRel = 'uploads/category/' . slugify($match['name']) . '.png';
+            $cdn = normalize_cdn($match['icon_url'] ?? '');
+            $pathRel = 'uploads/category/' . ($exactFile ?: slugify($match['name']) . '.png');
             $pathAbs = __DIR__ . '/' . $pathRel;
             $final = $pathRel;
 
