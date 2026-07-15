@@ -5,4 +5,5 @@
 - Added 28 validated Blinkit category images and 306 validated subcategory images under `public/uploads`.
 - Removed emoji and box-icon fallbacks from the category tile UI.
 - Refined the purple home campaign hero, gold wallet treatment, and two-line product title previews.
+- Scoped legacy subcategory image matching to the correct Blinkit parent aisle and corrected ambiguous legacy labels.
 - Verified the web unit suite (73 tests) and Next.js production build.

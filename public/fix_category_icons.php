@@ -243,6 +243,19 @@ try {
             'Vegetables & Fruits|Herbs & Seasonings' => 'uploads/subcategory/vegetables_fruits__coriander_others.png',
             'Vegetables & Fruits|Exotic Produce' => 'uploads/subcategory/vegetables_fruits__exotics.png',
             'Bakery & Biscuits|Breads & Buns' => 'uploads/subcategory/bakery_biscuits__gourmet_bakery.png',
+            'Dairy, Bread & Eggs|Butter & Ghee' => 'uploads/subcategory/dairy_bread_eggs__cheese_butter.png',
+            'Cold Drinks & Juices|Juices & Fruit Drinks' => 'uploads/subcategory/drinks_juices__fruit_juices.png',
+            'Cold Drinks & Juices|Water & Mixers' => 'uploads/subcategory/drinks_juices__water_ice_cubes.png',
+            'Tea, Coffee & Health Drinks|Green & Herbal Tea' => 'uploads/subcategory/tea_coffee_milk_drinks__green_tea.png',
+            'Instant & Frozen Food|Sauces, Ketchup & Spreads' => 'uploads/subcategory/sauces_spreads__cooking_sauces.png',
+            'Instant & Frozen Food|Honey & Jams' => 'uploads/subcategory/sauces_spreads__chyawanprash_honey.png',
+            'Atta, Rice & Dal|Spices & Masalas' => 'uploads/subcategory/oil_ghee_masala__powdered_spices.png',
+            'Cleaning & Household|Dishwashers & Cleaners' => 'uploads/subcategory/cleaners_repellents__dishwashing_gels_bars.png',
+            'Cleaning & Household|Trash Bags & Kitchen Needs' => 'uploads/subcategory/cleaners_repellents__garbage_bags.png',
+            'Personal Care|Deodorants & Perfumes' => 'uploads/subcategory/bath_body__fragrance_talc.png',
+            'Personal Care|Facewash & Skin Care' => 'uploads/subcategory/skin_face__face_cleaning.png',
+            'Baby Care|Baby Bath & Skin Care' => 'uploads/subcategory/baby_care__skin_hair_care.png',
+            'Home & Kitchen|Kitchen Tools & Cookware' => 'uploads/subcategory/kitchenware_appliances__kitchen_accessories.png',
         ];
         $res2 = $db->query('SELECT s.id, s.name, s.img, s.category_id, c.category_name FROM subcategory s LEFT JOIN category c ON c.id = s.category_id');
         $stmt2 = $db->prepare('UPDATE subcategory SET img = ? WHERE id = ?');
