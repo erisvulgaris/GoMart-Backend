@@ -129,12 +129,12 @@ function blinkit_parents_for_category(string $categoryName): array
     $aliases = [
         'Vegetables & Fruits' => ['Vegetables & Fruits'],
         'Dairy, Bread & Eggs' => ['Dairy, Bread & Eggs'],
-        'Munchies & Snacks' => ['Chips & Namkeen', 'Sweets & Chocolates'],
+        'Munchies & Snacks' => ['Chips & Namkeen', 'Sweets & Chocolates', 'Dry Fruits & Cereals'],
         'Bakery & Biscuits' => ['Bakery & Biscuits'],
         'Cold Drinks & Juices' => ['Drinks & Juices'],
         'Tea, Coffee & Health Drinks' => ['Tea, Coffee & Milk Drinks'],
-        'Instant & Frozen Food' => ['Instant Food'],
-        'Atta, Rice & Dal' => ['Atta, Rice & Dal'],
+        'Instant & Frozen Food' => ['Instant Food', 'Sauces & Spreads'],
+        'Atta, Rice & Dal' => ['Atta, Rice & Dal', 'Oil, Ghee & Masala'],
         'Chicken, Meat & Fish' => ['Chicken, Meat & Fish'],
         'Cleaning & Household' => ['Cleaners & Repellents'],
         'Personal Care' => ['Bath & Body', 'Hair', 'Skin & Face', 'Beauty & Cosmetics'],
@@ -239,6 +239,11 @@ try {
         $stmt->close();
 
         // --- Subcategories (column is `img`) ---
+        $preferredSubcategoryIcons = [
+            'Vegetables & Fruits|Herbs & Seasonings' => 'uploads/subcategory/vegetables_fruits__coriander_others.png',
+            'Vegetables & Fruits|Exotic Produce' => 'uploads/subcategory/vegetables_fruits__exotics.png',
+            'Bakery & Biscuits|Breads & Buns' => 'uploads/subcategory/bakery_biscuits__gourmet_bakery.png',
+        ];
         $res2 = $db->query('SELECT s.id, s.name, s.img, s.category_id, c.category_name FROM subcategory s LEFT JOIN category c ON c.id = s.category_id');
         $stmt2 = $db->prepare('UPDATE subcategory SET img = ? WHERE id = ?');
         if ($res2 && $stmt2) {
@@ -248,6 +253,15 @@ try {
                     ? array_values(array_filter($subsMap, static fn(array $item): bool => in_array((string) ($item['parent'] ?? ''), $parents, true)))
                     : $subsMap;
                 $match = best_match($row['name'], $candidates ?: $subsMap);
+                $preferredKey = (string) ($row['category_name'] ?? '') . '|' . (string) $row['name'];
+                $preferredPath = $preferredSubcategoryIcons[$preferredKey] ?? null;
+                if ($preferredPath && is_file(__DIR__ . '/' . $preferredPath)) {
+                    $id = (int) $row['id'];
+                    $stmt2->bind_param('si', $preferredPath, $id);
+                    $stmt2->execute();
+                    $updatedSubs++;
+                    continue;
+                }
                 if (!$match || empty($match['icon_url'])) {
                     continue;
                 }
