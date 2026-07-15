@@ -226,7 +226,8 @@ try {
                     continue;
                 }
                 $cdn = normalize_cdn($match['icon_url']);
-                $pathRel = 'uploads/subcategory/' . slugify(($match['parent'] ?? '') . '_' . $match['name']) . '.png';
+                // Keep the same parent/name separator used by the scraped asset pack.
+                $pathRel = 'uploads/subcategory/' . slugify($match['parent'] ?? '') . '__' . slugify($match['name']) . '.png';
                 $pathAbs = __DIR__ . '/' . $pathRel;
                 $final = $pathRel;
                 if ($doDownload) {
