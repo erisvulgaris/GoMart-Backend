@@ -2440,20 +2440,10 @@ class CustomerAppAPI_1_6 extends BaseController
                 array_intersect($primaryCategoryProductIds, $rawSubcategoryProductIds)
             );
 
-            // Keyword fallback when pivot is empty (common after recategorize wiped subcategories)
-            if (empty($subcategoryProductIds) && !empty($primaryCategoryProductIds) && $subcategoryNameForFilter !== '') {
-                $catIdInt = (int) $dataInput['category_id'];
-                $nameRows = $productModel->select('id, product_name')
-                    ->whereIn('id', $primaryCategoryProductIds)
-                    ->where('is_delete', 0)
-                    ->findAll();
-                foreach ($nameRows as $nr) {
-                    if ($this->productMatchesSubcategoryName((string) ($nr['product_name'] ?? ''), $subcategoryNameForFilter, $catIdInt)) {
-                        $subcategoryProductIds[] = (int) $nr['id'];
-                    }
-                }
-                $subcategoryProductIds = array_values(array_unique($subcategoryProductIds));
-            }
+            // The product_subcategories pivot is authoritative.  Do not infer
+            // an aisle from product-name keywords: names such as "tomato
+            // ketchup" and "fruit juice" are precisely what caused products
+            // to leak into unrelated Blinkit aisles.
         }
 
         $brandIds = !empty($brands)
@@ -2686,15 +2676,6 @@ class CustomerAppAPI_1_6 extends BaseController
             $product['main_img'] = $this->resolve_api_image_url($product['main_img']);
             $product['variants'] = $variants;
             $finalProducts[]     = $product;
-        }
-
-        // M02: client/mobile cannot bypass aisle integrity — filter by category name
-        $catRow = $categoryModel->select('category_name')->where('id', (int) $dataInput['category_id'])->first();
-        $catNameForFilter = (string) ($catRow['category_name'] ?? '');
-        if ($catNameForFilter !== '') {
-            $finalProducts = array_values(array_filter($finalProducts, function ($prod) use ($catNameForFilter) {
-                return $this->productFitsCategoryName((string) ($prod['product_name'] ?? ''), $catNameForFilter);
-            }));
         }
 
         $totalPages     = ceil(max(count($finalProducts), $totalProducts) / $limit);

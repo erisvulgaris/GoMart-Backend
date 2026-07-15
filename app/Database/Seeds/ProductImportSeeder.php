@@ -539,7 +539,22 @@ class ProductImportSeeder extends Seeder
                 $db->table('product_variants')->insert($variantData);
                 
                 // Category & Subcategory classification
-                $classification = $classifyProduct($productName, isset($item['category_id']) ? $item['category_id'] : 1);
+                // Scraper-provided aisle ids are authoritative.  Only fall back
+                // to the legacy name classifier for older import files that do
+                // not carry a validated subcategory yet.
+                $sourceCategoryId = (int) ($item['category_id'] ?? 0);
+                $sourceSubcategoryId = (int) ($item['subcategory_id'] ?? 0);
+                $sourceSubcategory = null;
+                if ($sourceCategoryId > 0 && $sourceSubcategoryId > 0) {
+                    $sourceSubcategory = $db->table('subcategory')
+                        ->where('id', $sourceSubcategoryId)
+                        ->where('category_id', $sourceCategoryId)
+                        ->get()
+                        ->getRowArray();
+                }
+                $classification = $sourceSubcategory
+                    ? ['category_id' => $sourceCategoryId, 'subcategory_id' => $sourceSubcategoryId]
+                    : $classifyProduct($productName, $sourceCategoryId ?: 1);
                 $categoriesBatch[] = [
                     'product_id'  => $productId,
                     'category_id' => $classification['category_id']
