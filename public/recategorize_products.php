@@ -172,6 +172,42 @@ function classifySubcategoryId(string $name, int $categoryId, array $subIndex): 
     return 0;
 }
 
+/** Match the current CityLoop aisle names when older Blinkit aliases do not match. */
+function fallbackSubcategoryId(string $name, int $categoryId, array $subIndex): int
+{
+    $n = mb_strtolower($name);
+    $rules = [
+        1 => [['banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|pineapple|melon|pear|fruit', 'Fresh Fruits'], ['onion|potato|tomato|aloo|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|beans|peas|mushroom|corn|vegetable', 'Fresh Vegetables'], ['coriander|cori|dhania|mint|pudina|ginger|garlic|adrak|lehsun|herb|seasoning', 'Herbs & Seasonings']],
+        2 => [['milk|doodh', 'Milk'], ['bread|pav|bun', 'Bread & Buns'], ['egg', 'Eggs'], ['curd|dahi|yogurt', 'Curd & Yogurt'], ['paneer|tofu', 'Paneer & Tofu'], ['cheese|butter|ghee', 'Butter & Ghee']],
+        3 => [['chip|lays|kurkure|wafer', 'Chips & Wafers'], ['namkeen|bhujia|mixture|sev', 'Namkeen & Bhujia'], ['chocolate|sweet|candy|mithai', 'Sweets & Chocolates'], ['almond|cashew|raisin|pista|nut|makhana|seed', 'Dry Fruits, Nuts & Seeds'], ['popcorn|puff', 'Popcorn & Puffs']],
+        4 => [['biscuit|cookie', 'Biscuits & Cookies'], ['bread|bun|pav', 'Breads & Buns'], ['rusk|khari', 'Rusk & Khari'], ['cake|muffin|pastry', 'Cakes & Muffins']],
+        5 => [['juice|frooti|maaza|slice|tropicana', 'Juices & Fruit Drinks'], ['energy|red bull|monster', 'Energy Drinks'], ['water|mineral|bisleri|kinley', 'Water & Mixers'], ['coke|pepsi|sprite|fanta|soda|drink', 'Soft Drinks & Soda']],
+        6 => [['tea|chai', 'Tea Bags & Leaf'], ['coffee|nescafe|bru', 'Instant Coffee'], ['bournvita|horlicks|complan|boost|health drink', 'Milk Drinks & Mixes'], ['green tea|herbal tea', 'Green & Herbal Tea']],
+        7 => [['noodle|maggi', 'Noodles & Cup Noodles'], ['pasta|vermicelli', 'Pasta & Vermicelli'], ['soup|ready meal|instant', 'Soups & Ready Meals'], ['frozen', 'Frozen Snacks & Veggies'], ['sauce|ketchup|spread|mayonnaise', 'Sauces, Ketchup & Spreads'], ['honey|jam|jelly', 'Honey & Jams']],
+        8 => [['atta|flour|maida|besan|suji', 'Atta & Flours'], ['rice|basmati', 'Rice & Rice Products'], ['dal|pulse|toor|moong|masoor|rajma|chana', 'Dals & Pulses'], ['oil|ghee', 'Cooking Oils & Ghee'], ['masala|spice|turmeric|haldi|jeera', 'Spices & Masalas'], ['salt|sugar|jaggery', 'Salt, Sugar & Jaggery']],
+        9 => [['chicken', 'Fresh Chicken'], ['mutton', 'Fresh Mutton'], ['fish|prawn|seafood', 'Fish & Seafood'], ['egg|sausage|salami|cold cut', 'Eggs & Cold Cuts']],
+        10 => [['detergent|surf|ariel|tide|fabric|comfort', 'Detergents & Fabric Care'], ['dishwash|vim|pril|dish', 'Dishwashers & Cleaners'], ['toilet|bathroom|harpic|lizol', 'Toilet & Bathroom Cleaners'], ['garbage|trash|foil|scrub|kitchen', 'Trash Bags & Kitchen Needs'], ['repellent|hit|baygon|freshener|odonil', 'Repellents & Air Fresheners']],
+        11 => [['soap|body wash|bath', 'Bath & Body Soaps'], ['shampoo|conditioner', 'Shampoos & Conditioners'], ['hair oil|hair gel|hair styling', 'Hair Oils & Styling'], ['face|skin|cream|moisturizer|lotion|sunscreen', 'Facewash & Skin Care'], ['deodorant|perfume', 'Deodorants & Perfumes'], ['toothpaste|toothbrush|oral|colgate', 'Oral Care (Toothpaste & Brushes)']],
+        12 => [['sanitary|pad|liner|tampon|feminine|menstrual', 'Sanitary Pads & Liners'], ['intimate|hygiene|v wash', 'Intimate Care & Hygiene']],
+        13 => [['diaper|nappy|wipe', 'Baby Diapers & Wipes'], ['cerelac|baby food|formula|infant', 'Baby Food & Formula'], ['baby soap|baby shampoo|baby bath|baby skin', 'Baby Bath & Skin Care']],
+        14 => [['pain|bandage|band aid|volini|moov', 'Pain Relief & Bandages'], ['digene|eno|antacid|digest', 'Digestives & Antacids'], ['cough|cold|vicks|immunity', 'Cough, Cold & Immunity'], ['sanitizer|mask', 'Sanitizers & Masks']],
+        16 => [['battery|bulb|led|lamp', 'Batteries & Bulbs'], ['stationery|pen|pencil|notebook|office', 'Stationery & Office Needs'], ['toy|party', 'Toys & Party Needs'], ['kitchen|utensil|pan|tawa|cookware', 'Kitchen Tools & Cookware']],
+    ];
+    $pick = static function (string $subName) use ($categoryId, $subIndex): int {
+        $key = $categoryId . '|' . trim(preg_replace('/[^a-z0-9]+/', ' ', mb_strtolower($subName)) ?? '');
+        return (int) ($subIndex[$key] ?? 0);
+    };
+    foreach ($rules[$categoryId] ?? [] as [$pattern, $subName]) {
+        if (preg_match('/' . $pattern . '/i', $n)) {
+            $id = $pick($subName);
+            if ($id > 0) return $id;
+        }
+    }
+    $res = $GLOBALS['db']->query('SELECT id FROM subcategory WHERE category_id = ' . (int) $categoryId . ' ORDER BY row_order ASC LIMIT 1');
+    $row = $res ? $res->fetch_assoc() : null;
+    return (int) ($row['id'] ?? 0);
+}
+
 /** @return array<string,int> keys "categoryId|normalized sub name" */
 function loadSubcategoryIndex(mysqli $db): array
 {
@@ -261,6 +297,9 @@ if ($action === 'run') {
         $counts[$cat] = ($counts[$cat] ?? 0) + 1;
 
         $subId = classifySubcategoryId($pname, $cat, $subIndex);
+        if ($subId <= 0) {
+            $subId = fallbackSubcategoryId($pname, $cat, $subIndex);
+        }
         if ($subId > 0) {
             $insSub->bind_param('ii', $pid, $subId);
             $insSub->execute();
