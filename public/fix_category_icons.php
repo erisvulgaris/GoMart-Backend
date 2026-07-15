@@ -67,24 +67,30 @@ function download_icon(string $url, string $destAbs): bool
     if (is_file($destAbs) && filesize($destAbs) > 400) {
         return true;
     }
-    $ch = curl_init($url);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_TIMEOUT => 25,
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; CityLoopIconSeed/1.0)',
-        CURLOPT_HTTPHEADER => [
-            'Referer: https://blinkit.com/',
-            'Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
-        ],
-    ]);
-    $data = curl_exec($ch);
-    $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    if ($code === 200 && is_string($data) && strlen($data) > 400) {
-        file_put_contents($destAbs, $data);
-        return true;
+    $candidates = [
+        $url,
+        'https://cityloopapp.com/api/v1_6/customer/image-proxy?url=' . rawurlencode($url),
+    ];
+    foreach ($candidates as $candidate) {
+        $ch = curl_init($candidate);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT => 35,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; CityLoopIconSeed/1.0)',
+            CURLOPT_HTTPHEADER => [
+                'Referer: https://blinkit.com/',
+                'Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+            ],
+        ]);
+        $data = curl_exec($ch);
+        $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($code === 200 && is_string($data) && strlen($data) > 400 && !str_starts_with(ltrim($data), '<!DOCTYPE')) {
+            file_put_contents($destAbs, $data);
+            return true;
+        }
     }
     return false;
 }

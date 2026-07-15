@@ -12,196 +12,224 @@
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Bath_&_Body_(1)_1708404847656",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Bath_&_Body_1697028864269",
-      "collection_id": 231389
+      "collection_id": 231389,
+      "local_path": "uploads/category/bath_body.png"
     },
     {
       "name": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Hair_(1)_1708404557394",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-Hair_1697025957891",
-      "collection_id": 102133
+      "collection_id": 102133,
+      "local_path": "uploads/category/hair.png"
     },
     {
       "name": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_L0_icons_1710420132949",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Skin_&_face_1697026005406",
-      "collection_id": 231354
+      "collection_id": 231354,
+      "local_path": "uploads/category/skin_face.png"
     },
     {
       "name": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Beauty_&_cosmetics_1_1714732458108",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Beauty_&_cosmetics_1714732401790",
-      "collection_id": 104848
+      "collection_id": 104848,
+      "local_path": "uploads/category/beauty_cosmetics.png"
     },
     {
       "name": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Feminine_hygiene_(1)_1708404632043",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-Feminine_hygiene_1697028398584",
-      "collection_id": 231304
+      "collection_id": 231304,
+      "local_path": "uploads/category/feminine_hygiene.png"
     },
     {
       "name": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_v8_320x320_1778246838381",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_v6_656x360_1778246769432",
-      "collection_id": 231296
+      "collection_id": 231296,
+      "local_path": "uploads/category/baby_care.png"
     },
     {
       "name": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Health_&_pharma_1701253223638",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-pharma-wellness_1697028535165",
-      "collection_id": 98591
+      "collection_id": 98591,
+      "local_path": "uploads/category/health_pharma.png"
     },
     {
       "name": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Sexual_wellness_(1)_1708404220004",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Sexual_wellness_1697028609748",
-      "collection_id": 88853
+      "collection_id": 88853,
+      "local_path": "uploads/category/sexual_wellness.png"
     },
     {
       "name": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_v8_320x320_1776063113934",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_164_x_90_1712340217894",
-      "collection_id": 10255
+      "collection_id": 10255,
+      "local_path": "uploads/category/vegetables_fruits.png"
     },
     {
       "name": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_atta,_rice_&_dal_1701251225824",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-atta-rice-Dal_1697023040802",
-      "collection_id": 231463
+      "collection_id": 231463,
+      "local_path": "uploads/category/atta_rice_dal.png"
     },
     {
       "name": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Oil,ghee&masala_1706701916836",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-masala-oil_1697023200962",
-      "collection_id": 104858
+      "collection_id": 104858,
+      "local_path": "uploads/category/oil_ghee_masala.png"
     },
     {
       "name": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Dairy_&_bread_&_eggs_1716274960281",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-dairy_1697023823176",
-      "collection_id": 96263
+      "collection_id": 96263,
+      "local_path": "uploads/category/dairy_bread_eggs.png"
     },
     {
       "name": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Bakery_&_Biscuits_1708337109248",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-bakery-biscuits_1697023936808",
-      "collection_id": 102156
+      "collection_id": 102156,
+      "local_path": "uploads/category/bakery_biscuits.png"
     },
     {
       "name": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Dry_fruits_&_Cereals_Fabicon_1727547639034",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Dry_Fruits-Cereals_1726772953930",
-      "collection_id": 231500
+      "collection_id": 231500,
+      "local_path": "uploads/category/dry_fruits_cereals.png"
     },
     {
       "name": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Chicken,_Meat_&_Fish_1708337247657",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-chicken-meat-fish_1697025317456",
-      "collection_id": 102144
+      "collection_id": 102144,
+      "local_path": "uploads/category/chicken_meat_fish.png"
     },
     {
       "name": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Kitchen_Utensils_&_1701253042884",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-chicken-Kitchen_Utensils_&_1697802921774",
-      "collection_id": 102110
+      "collection_id": 102110,
+      "local_path": "uploads/category/kitchenware_appliances.png"
     },
     {
       "name": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Chips_&_namkeen_1701251290984",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-snacks-munchies_1697025558743",
-      "collection_id": 231418
+      "collection_id": 231418,
+      "local_path": "uploads/category/chips_namkeen.png"
     },
     {
       "name": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Sweets_&_chocolates_1701251350378",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Sweets_&_chocolates_1697025737918",
-      "collection_id": 231407
+      "collection_id": 231407,
+      "local_path": "uploads/category/sweets_chocolates.png"
     },
     {
       "name": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_big-cold-drinks_1697025441638",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-cold-drinks_1697025441638",
-      "collection_id": 92887
+      "collection_id": 92887,
+      "local_path": "uploads/category/drinks_juices.png"
     },
     {
       "name": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_L0_v8_1_1746557251648",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_L0_v1_1_1746557304939",
-      "collection_id": 85325
+      "collection_id": 85325,
+      "local_path": "uploads/category/tea_coffee_milk_drinks.png"
     },
     {
       "name": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_320x320_1746901196143",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-Instant_Food_656x360_1766126246512",
-      "collection_id": 231366
+      "collection_id": 231366,
+      "local_path": "uploads/category/instant_food.png"
     },
     {
       "name": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_sauces_&_spreads_(1)_1708404292298",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-sauces-sperads_1697025766382",
-      "collection_id": 231342
+      "collection_id": 231342,
+      "local_path": "uploads/category/sauces_spreads.png"
     },
     {
       "name": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_320X320_1750440256089",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_656x360_(1)_1750440282240",
-      "collection_id": 231316
+      "collection_id": 231316,
+      "local_path": "uploads/category/paan_corner.png"
     },
     {
       "name": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_v8_320x320_1763118475638",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_v6_656x360_1763118502068",
-      "collection_id": 230714
+      "collection_id": 230714,
+      "local_path": "uploads/category/ice_creams_more.png"
     },
     {
       "name": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Home_&_Lifestyle_(5)_1710413986612",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-Home_&_Lifestyle_1697028644408",
-      "collection_id": 87061
+      "collection_id": 87061,
+      "local_path": "uploads/category/home_lifestyle.png"
     },
     {
       "name": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Cleaning_Essentials_1768196347446",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-cleaning-essentials_1697028724324",
-      "collection_id": 231106
+      "collection_id": 231106,
+      "local_path": "uploads/category/cleaners_repellents.png"
     },
     {
       "name": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/asset_Electronics_(1)_1708404702104",
       "image_url": "http://cdn.grofers.com/app/images/collections/asset_big-Electronics_1697028749961",
-      "collection_id": 87086
+      "collection_id": 87086,
+      "local_path": "uploads/category/electronics.png"
     },
     {
       "name": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/asset_Stationery_&_Games_(1)_1708407891607",
       "image_url": "https://cdn.grofers.com/app/images/collections/asset_big-Stationery_&_Games_1697028810156",
-      "collection_id": 231150
+      "collection_id": 231150,
+      "local_path": "uploads/category/stationery_games.png"
     }
   ],
   "subcategories": [
@@ -210,217 +238,248 @@
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710493128352-7",
-      "grouping_id": 679509
+      "grouping_id": 679509,
+      "local_path": "uploads/subcategory/bath_body__bathing_soaps.png"
     },
     {
       "name": "Shower Gels & Scrubs",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710499616480-3",
-      "grouping_id": 723321
+      "grouping_id": 723321,
+      "local_path": "uploads/subcategory/bath_body__shower_gels_scrubs.png"
     },
     {
       "name": "Oral Care",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_oral_care_1707914215406",
-      "grouping_id": 11650
+      "grouping_id": 11650,
+      "local_path": "uploads/subcategory/bath_body__oral_care.png"
     },
     {
       "name": "Handwash",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_handwash_1707914178137",
-      "grouping_id": 11658
+      "grouping_id": 11658,
+      "local_path": "uploads/subcategory/bath_body__handwash.png"
     },
     {
       "name": "Fragrance & Talc",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710404999011-3",
-      "grouping_id": 174026
+      "grouping_id": 174026,
+      "local_path": "uploads/subcategory/bath_body__fragrance_talc.png"
     },
     {
       "name": "Bath Accessories",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_160_1675667663995_1763712241487",
-      "grouping_id": 12739
+      "grouping_id": 12739,
+      "local_path": "uploads/subcategory/bath_body__bath_accessories.png"
     },
     {
       "name": "Shampoo",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Shampoo_&_Conditioner_1706532563603",
-      "grouping_id": 12011
+      "grouping_id": 12011,
+      "local_path": "uploads/subcategory/bath_body__shampoo.png"
     },
     {
       "name": "Conditioner",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_conditioner_1707914253320",
-      "grouping_id": 12012
+      "grouping_id": 12012,
+      "local_path": "uploads/subcategory/bath_body__conditioner.png"
     },
     {
       "name": "Face Cleaning",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_496038_L2_v8_1740681971447",
-      "grouping_id": 209068
+      "grouping_id": 209068,
+      "local_path": "uploads/subcategory/bath_body__face_cleaning.png"
     },
     {
       "name": "Body Lotions & Oils",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_407475_L2_v8_1740682112776",
-      "grouping_id": 209073
+      "grouping_id": 209073,
+      "local_path": "uploads/subcategory/bath_body__body_lotions_oils.png"
     },
     {
       "name": "Body Treatment & Roll On",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/2e774b04-3a05-4f99-8abc-568ee9e35528.",
-      "grouping_id": 887335
+      "grouping_id": 887335,
+      "local_path": "uploads/subcategory/bath_body__body_treatment_roll_on.png"
     },
     {
       "name": "Bath & Beauty Gifts",
       "parent": "Bath & Body",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bath_&_Beauty_Gifts_1706532660436",
-      "grouping_id": 18689
+      "grouping_id": 18689,
+      "local_path": "uploads/subcategory/bath_body__bath_beauty_gifts.png"
     },
     {
       "name": "Shampoo",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Shampoo_&_Conditioner_1706532726985",
-      "grouping_id": 12014
+      "grouping_id": 12014,
+      "local_path": "uploads/subcategory/hair__shampoo.png"
     },
     {
       "name": "Conditioner",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_conditioner_1708060097464",
-      "grouping_id": 12015
+      "grouping_id": 12015,
+      "local_path": "uploads/subcategory/hair__conditioner.png"
     },
     {
       "name": "Hair Colour",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710502178790-3",
-      "grouping_id": 135472
+      "grouping_id": 135472,
+      "local_path": "uploads/subcategory/hair__hair_colour.png"
     },
     {
       "name": "Hair Colour",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_hair_color_1708071116476",
-      "grouping_id": 12016
+      "grouping_id": 12016,
+      "local_path": "uploads/subcategory/hair__hair_colour.png"
     },
     {
       "name": "Hair Oil & Cream",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hair_&_Oil_Serum_1706532803352",
-      "grouping_id": 11659
+      "grouping_id": 11659,
+      "local_path": "uploads/subcategory/hair__hair_oil_cream.png"
     },
     {
       "name": "Hair Serums",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/131054cd-4494-4640-8b7c-38a03063239c.",
-      "grouping_id": 135473
+      "grouping_id": 135473,
+      "local_path": "uploads/subcategory/hair__hair_serums.png"
     },
     {
       "name": "Hair Serum",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_hair_serum_1708071158113",
-      "grouping_id": 11660
+      "grouping_id": 11660,
+      "local_path": "uploads/subcategory/hair__hair_serum.png"
     },
     {
       "name": "Hair Styling",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_hair_gel_1707914435943",
-      "grouping_id": 11661
+      "grouping_id": 11661,
+      "local_path": "uploads/subcategory/hair__hair_styling.png"
     },
     {
       "name": "Appliances",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_appliances_1707914493195",
-      "grouping_id": 12018
+      "grouping_id": 12018,
+      "local_path": "uploads/subcategory/hair__appliances.png"
     },
     {
       "name": "Hair Accessories",
       "parent": "Hair",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_hair_accessories_1707914530602",
-      "grouping_id": 11662
+      "grouping_id": 11662,
+      "local_path": "uploads/subcategory/hair__hair_accessories.png"
     },
     {
       "name": "Sunscreen",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_499587_L2_v8_1740424355367",
-      "grouping_id": 12020
+      "grouping_id": 12020,
+      "local_path": "uploads/subcategory/skin_face__sunscreen.png"
     },
     {
       "name": "Face Cleaning",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_496038_L2_v8_1740424582713",
-      "grouping_id": 204868
+      "grouping_id": 204868,
+      "local_path": "uploads/subcategory/skin_face__face_cleaning.png"
     },
     {
       "name": "Face Oil, Serum & Essence",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_506017_L2_v8_1740508196298",
-      "grouping_id": 206263
+      "grouping_id": 206263,
+      "local_path": "uploads/subcategory/skin_face__face_oil_serum_essence.png"
     },
     {
       "name": "Face Moisturisers",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_555994_L2_v8_1740425484503",
-      "grouping_id": 204873
+      "grouping_id": 204873,
+      "local_path": "uploads/subcategory/skin_face__face_moisturisers.png"
     },
     {
       "name": "Body Lotions & Oils",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_407475_L2_v8_1740425578786",
-      "grouping_id": 204875
+      "grouping_id": 204875,
+      "local_path": "uploads/subcategory/skin_face__body_lotions_oils.png"
     },
     {
       "name": "Lip & Eye Care",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_555322_L2_v8_1740426645712",
-      "grouping_id": 204900
+      "grouping_id": 204900,
+      "local_path": "uploads/subcategory/skin_face__lip_eye_care.png"
     },
     {
       "name": "Face Masks & Packs",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/ce6a55ba-5c7c-4982-9420-4fee17dd1f31.",
-      "grouping_id": 887330
+      "grouping_id": 887330,
+      "local_path": "uploads/subcategory/skin_face__face_masks_packs.png"
     },
     {
       "name": "Toners & Mists",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/b088b163-224d-4827-8727-18456b26d407.",
-      "grouping_id": 887331
+      "grouping_id": 887331,
+      "local_path": "uploads/subcategory/skin_face__toners_mists.png"
     },
     {
       "name": "Acne & Blackhead Fixers",
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/0b108cc1-f064-479b-a1b2-6c2a0dad0739.",
-      "grouping_id": 887332
+      "grouping_id": 887332,
+      "local_path": "uploads/subcategory/skin_face__acne_blackhead_fixers.png"
     },
     {
       "name": "Men's Grooming",
@@ -435,203 +494,232 @@
       "parent": "Skin & Face",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_25525_L2_v8_1740426028660",
-      "grouping_id": 204891
+      "grouping_id": 204891,
+      "local_path": "uploads/subcategory/skin_face__women_s_grooming.png"
     },
     {
       "name": "Lipstick & Gloss",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_lipstick_&_gloss_1707914805269",
-      "grouping_id": 11672
+      "grouping_id": 11672,
+      "local_path": "uploads/subcategory/beauty_cosmetics__lipstick_gloss.png"
     },
     {
       "name": "Cleansers & Toners",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_cleanser_&_toner_1708423605617",
-      "grouping_id": 11671
+      "grouping_id": 11671,
+      "local_path": "uploads/subcategory/beauty_cosmetics__cleansers_toners.png"
     },
     {
       "name": "Foundation & Compact",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_foundation_&_compact_1707914857991",
-      "grouping_id": 11675
+      "grouping_id": 11675,
+      "local_path": "uploads/subcategory/beauty_cosmetics__foundation_compact.png"
     },
     {
       "name": "Blush & Highlighter",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_blush_&_highlighter_1708071738503",
-      "grouping_id": 22980
+      "grouping_id": 22980,
+      "local_path": "uploads/subcategory/beauty_cosmetics__blush_highlighter.png"
     },
     {
       "name": "Primer & Concealer",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_primer_&_concelar_1707914889722",
-      "grouping_id": 11676
+      "grouping_id": 11676,
+      "local_path": "uploads/subcategory/beauty_cosmetics__primer_concealer.png"
     },
     {
       "name": "Kajal & Eyeliners",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_kajal_&_eyeliner_1708071797048",
-      "grouping_id": 11673
+      "grouping_id": 11673,
+      "local_path": "uploads/subcategory/beauty_cosmetics__kajal_eyeliners.png"
     },
     {
       "name": "Bindi, Bangles & Others",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bindi,_Bangles_&_Others_1708423558054",
-      "grouping_id": 11911
+      "grouping_id": 11911,
+      "local_path": "uploads/subcategory/beauty_cosmetics__bindi_bangles_others.png"
     },
     {
       "name": "Nail Paints & Accessories",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_nail_paint_&_accessories_1707914921383",
-      "grouping_id": 11674
+      "grouping_id": 11674,
+      "local_path": "uploads/subcategory/beauty_cosmetics__nail_paints_accessories.png"
     },
     {
       "name": "Beauty Accessories",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_beauty_accessories_1707914955974",
-      "grouping_id": 13642
+      "grouping_id": 13642,
+      "local_path": "uploads/subcategory/beauty_cosmetics__beauty_accessories.png"
     },
     {
       "name": "Bath & Beauty Gifts",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710433003795-3",
-      "grouping_id": 628082
+      "grouping_id": 628082,
+      "local_path": "uploads/subcategory/beauty_cosmetics__bath_beauty_gifts.png"
     },
     {
       "name": "Beauty E-Card",
       "parent": "Beauty & Cosmetics",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/be4ac530-779f-4973-8d7a-8380abdd5d68.",
-      "grouping_id": 128500
+      "grouping_id": 128500,
+      "local_path": "uploads/subcategory/beauty_cosmetics__beauty_e_card.png"
     },
     {
       "name": "Sanitary Pads",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Sanitary_pads_1708076348434",
-      "grouping_id": 12237
+      "grouping_id": 12237,
+      "local_path": "uploads/subcategory/feminine_hygiene__sanitary_pads.png"
     },
     {
       "name": "Tampons & Menstrual Cups",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Tampons_&_menstrual_cups_1708076405568",
-      "grouping_id": 11677
+      "grouping_id": 11677,
+      "local_path": "uploads/subcategory/feminine_hygiene__tampons_menstrual_cups.png"
     },
     {
       "name": "Period Panty",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Period_panty_1708076739533",
-      "grouping_id": 12238
+      "grouping_id": 12238,
+      "local_path": "uploads/subcategory/feminine_hygiene__period_panty.png"
     },
     {
       "name": "Period Pain Relief",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Period_pain_relief_1708064281717",
-      "grouping_id": 11680
+      "grouping_id": 11680,
+      "local_path": "uploads/subcategory/feminine_hygiene__period_pain_relief.png"
     },
     {
       "name": "Intimate Wash & Wipes",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Intimate_wash_&_wipes_1707915009809",
-      "grouping_id": 11678
+      "grouping_id": 11678,
+      "local_path": "uploads/subcategory/feminine_hygiene__intimate_wash_wipes.png"
     },
     {
       "name": "Hair Removal",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hair_removal_1708076785575",
-      "grouping_id": 12239
+      "grouping_id": 12239,
+      "local_path": "uploads/subcategory/feminine_hygiene__hair_removal.png"
     },
     {
       "name": "Mom Care",
       "parent": "Feminine Hygiene",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Mom_care_1708076854814",
-      "grouping_id": 11679
+      "grouping_id": 11679,
+      "local_path": "uploads/subcategory/feminine_hygiene__mom_care.png"
     },
     {
       "name": "Diaper & Wipes",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1714375275408-3",
-      "grouping_id": 46757
+      "grouping_id": 46757,
+      "local_path": "uploads/subcategory/baby_care__diaper_wipes.png"
     },
     {
       "name": "Baby Food",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Baby_Food_1746901983691",
-      "grouping_id": 20667
+      "grouping_id": 20667,
+      "local_path": "uploads/subcategory/baby_care__baby_food.png"
     },
     {
       "name": "Baby Shampoo & Soaps",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bathing_Needs_1706591731955",
-      "grouping_id": 11683
+      "grouping_id": 11683,
+      "local_path": "uploads/subcategory/baby_care__baby_shampoo_soaps.png"
     },
     {
       "name": "Skin & Hair Care",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Skin_&_Hair_Care_1706591790379",
-      "grouping_id": 11682
+      "grouping_id": 11682,
+      "local_path": "uploads/subcategory/baby_care__skin_hair_care.png"
     },
     {
       "name": "Feeding Essentials",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_feeding_1706591884355",
-      "grouping_id": 11686
+      "grouping_id": 11686,
+      "local_path": "uploads/subcategory/baby_care__feeding_essentials.png"
     },
     {
       "name": "Clothes & Accessories",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1707980337522-11",
-      "grouping_id": 46758
+      "grouping_id": 46758,
+      "local_path": "uploads/subcategory/baby_care__clothes_accessories.png"
     },
     {
       "name": "Health &  Hygiene",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hygiene_1706591948586",
-      "grouping_id": 11687
+      "grouping_id": 11687,
+      "local_path": "uploads/subcategory/baby_care__health_hygiene.png"
     },
     {
       "name": "Baby Oral Care",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Oral_&_Nasal_Care_1706591987847",
-      "grouping_id": 11688
+      "grouping_id": 11688,
+      "local_path": "uploads/subcategory/baby_care__baby_oral_care.png"
     },
     {
       "name": "Baby Toys & Gifts",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Baby_Toys_&_Gifts_1708423655162",
-      "grouping_id": 11689
+      "grouping_id": 11689,
+      "local_path": "uploads/subcategory/baby_care__baby_toys_gifts.png"
     },
     {
       "name": "Baby Gear",
       "parent": "Baby Care",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/504de542-2433-426b-8c5b-ae71fc830534.",
-      "grouping_id": 628097
+      "grouping_id": 628097,
+      "local_path": "uploads/subcategory/baby_care__baby_gear.png"
     },
     {
       "name": "Mom Care Needs",
@@ -646,434 +734,496 @@
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_grouping_asset_Pain_Relief_1696945247429_1755520770793",
-      "grouping_id": 532514
+      "grouping_id": 532514,
+      "local_path": "uploads/subcategory/health_pharma__fever_pain_relief.png"
     },
     {
       "name": "Cough, Cold & Flu",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Coldcough_&_flu_(Including_anti_allergy_&_antibiotics)_1756495200021",
-      "grouping_id": 556584
+      "grouping_id": 556584,
+      "local_path": "uploads/subcategory/health_pharma__cough_cold_flu.png"
     },
     {
       "name": "Masks & Sanitizers",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Masks_&_Sanitizers_1706592490537",
-      "grouping_id": 11698
+      "grouping_id": 11698,
+      "local_path": "uploads/subcategory/health_pharma__masks_sanitizers.png"
     },
     {
       "name": "Stomach & Digestive Care",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_298_1643447495948_1755520448195",
-      "grouping_id": 531928
+      "grouping_id": 531928,
+      "local_path": "uploads/subcategory/health_pharma__stomach_digestive_care.png"
     },
     {
       "name": "Protein Supplements",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Pre_&_post_Workout_1706592377066",
-      "grouping_id": 11695
+      "grouping_id": 11695,
+      "local_path": "uploads/subcategory/health_pharma__protein_supplements.png"
     },
     {
       "name": "Vitamins & Supplements",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Vitamins_and_Supplements_1756495253043",
-      "grouping_id": 11694
+      "grouping_id": 11694,
+      "local_path": "uploads/subcategory/health_pharma__vitamins_supplements.png"
     },
     {
       "name": "Derma Medicines",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Derma_Medicines_1756495314554",
-      "grouping_id": 534592
+      "grouping_id": 534592,
+      "local_path": "uploads/subcategory/health_pharma__derma_medicines.png"
     },
     {
       "name": "Bandaid & Wound Care",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Wound_Care_1756495442554",
-      "grouping_id": 534549
+      "grouping_id": 534549,
+      "local_path": "uploads/subcategory/health_pharma__bandaid_wound_care.png"
     },
     {
       "name": "Eye & Ear Care",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Eye_&_Ear_Care_1756495501427",
-      "grouping_id": 534595
+      "grouping_id": 534595,
+      "local_path": "uploads/subcategory/health_pharma__eye_ear_care.png"
     },
     {
       "name": "Adult Diapers",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Adult_Diapers_1706592454563",
-      "grouping_id": 11697
+      "grouping_id": 11697,
+      "local_path": "uploads/subcategory/health_pharma__adult_diapers.png"
     },
     {
       "name": "Health & Ortho Supports",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/9854af59-ffea-4134-9fb5-c4af6131827d.",
-      "grouping_id": 766707
+      "grouping_id": 766707,
+      "local_path": "uploads/subcategory/health_pharma__health_ortho_supports.png"
     },
     {
       "name": "Gynaecology Medicines",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Gynaecology_Medicines_1756495555471",
-      "grouping_id": 534594
+      "grouping_id": 534594,
+      "local_path": "uploads/subcategory/health_pharma__gynaecology_medicines.png"
     },
     {
       "name": "Oral Care",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Oral_Care_1756495666927",
-      "grouping_id": 556595
+      "grouping_id": 556595,
+      "local_path": "uploads/subcategory/health_pharma__oral_care.png"
     },
     {
       "name": "Diabetes Medicines",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Diabetes_Medicines_1756495678125",
-      "grouping_id": 534591
+      "grouping_id": 534591,
+      "local_path": "uploads/subcategory/health_pharma__diabetes_medicines.png"
     },
     {
       "name": "Heart Medicines",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Heart_Medicines_1756495691935",
-      "grouping_id": 534587
+      "grouping_id": 534587,
+      "local_path": "uploads/subcategory/health_pharma__heart_medicines.png"
     },
     {
       "name": "Neuro Medicines",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Neuro_Medicines_1756495705132",
-      "grouping_id": 534593
+      "grouping_id": 534593,
+      "local_path": "uploads/subcategory/health_pharma__neuro_medicines.png"
     },
     {
       "name": "Hangover Cure",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1710432257090-3",
-      "grouping_id": 627432
+      "grouping_id": 627432,
+      "local_path": "uploads/subcategory/health_pharma__hangover_cure.png"
     },
     {
       "name": "Health & Wellness E-Cards",
       "parent": "Health & Pharma",
       "group": "Beauty & Personal Care",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/202eb3e5-b51c-4f0b-a092-5e6c50f07280.",
-      "grouping_id": 128505
+      "grouping_id": 128505,
+      "local_path": "uploads/subcategory/health_pharma__health_wellness_e_cards.png"
     },
     {
       "name": "Massagers",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Massager_1708076932780",
-      "grouping_id": 12241
+      "grouping_id": 12241,
+      "local_path": "uploads/subcategory/sexual_wellness__massagers.png"
     },
     {
       "name": "Condoms",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Sexual_Wellness_1706592583096",
-      "grouping_id": 12240
+      "grouping_id": 12240,
+      "local_path": "uploads/subcategory/sexual_wellness__condoms.png"
     },
     {
       "name": "Lubricants",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Lubricants_1707915329299",
-      "grouping_id": 11699
+      "grouping_id": 11699,
+      "local_path": "uploads/subcategory/sexual_wellness__lubricants.png"
     },
     {
       "name": "Enhancers",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Enhancers_1707915363137",
-      "grouping_id": 11748
+      "grouping_id": 11748,
+      "local_path": "uploads/subcategory/sexual_wellness__enhancers.png"
     },
     {
       "name": "Adult Games",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/rc-upload-1714724762737-3",
-      "grouping_id": 63166
+      "grouping_id": 63166,
+      "local_path": "uploads/subcategory/sexual_wellness__adult_games.png"
     },
     {
       "name": "Test Kits",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/64e26dc5-de48-4048-95da-2808c03cfe37.",
-      "grouping_id": 486692
+      "grouping_id": 486692,
+      "local_path": "uploads/subcategory/sexual_wellness__test_kits.png"
     },
     {
       "name": "Medicines",
       "parent": "Sexual Wellness",
       "group": "Beauty & Personal Care",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_639499_1756806224442",
-      "grouping_id": 557599
+      "grouping_id": 557599,
+      "local_path": "uploads/subcategory/sexual_wellness__medicines.png"
     },
     {
       "name": "All",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_All-1_(1)_1724518393986",
-      "grouping_id": 90651
+      "grouping_id": 90651,
+      "local_path": "uploads/subcategory/vegetables_fruits__all.png"
     },
     {
       "name": "Fresh Vegetables",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_fresh_vegetables_1776063647446",
-      "grouping_id": 11370
+      "grouping_id": 11370,
+      "local_path": "uploads/subcategory/vegetables_fruits__fresh_vegetables.png"
     },
     {
       "name": "Fresh Fruits",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Fresh_fruits_1776063304828",
-      "grouping_id": 11371
+      "grouping_id": 11371,
+      "local_path": "uploads/subcategory/vegetables_fruits__fresh_fruits.png"
     },
     {
       "name": "Exotics",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Exotics_1706507646317",
-      "grouping_id": 11372
+      "grouping_id": 11372,
+      "local_path": "uploads/subcategory/vegetables_fruits__exotics.png"
     },
     {
       "name": "Coriander & Others",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_corriender-2_1712341331756",
-      "grouping_id": 11373
+      "grouping_id": 11373,
+      "local_path": "uploads/subcategory/vegetables_fruits__coriander_others.png"
     },
     {
       "name": "Freshly Cut & Sprouts",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Freshly_Cut_&_Sprouts_1706507705231",
-      "grouping_id": 11374
+      "grouping_id": 11374,
+      "local_path": "uploads/subcategory/vegetables_fruits__freshly_cut_sprouts.png"
     },
     {
       "name": "Trusted Organics",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_650457_1757655653009",
-      "grouping_id": 11375
+      "grouping_id": 11375,
+      "local_path": "uploads/subcategory/vegetables_fruits__trusted_organics.png"
     },
     {
       "name": "Flowers & Leaves",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_flowers_(4)_1707129361949",
-      "grouping_id": 18664
+      "grouping_id": 18664,
+      "local_path": "uploads/subcategory/vegetables_fruits__flowers_leaves.png"
     },
     {
       "name": "Seasonal",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Seasonal_1776063762017",
-      "grouping_id": 16398
+      "grouping_id": 16398,
+      "local_path": "uploads/subcategory/vegetables_fruits__seasonal.png"
     },
     {
       "name": "Frozen Veg",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Frozen_Veg_1706507738809",
-      "grouping_id": 11376
+      "grouping_id": 11376,
+      "local_path": "uploads/subcategory/vegetables_fruits__frozen_veg.png"
     },
     {
       "name": "Hydroponic",
       "parent": "Vegetables & Fruits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hydroponic_1706507798062",
-      "grouping_id": 11377
+      "grouping_id": 11377,
+      "local_path": "uploads/subcategory/vegetables_fruits__hydroponic.png"
     },
     {
       "name": "Atta",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Atta_1706506675815",
-      "grouping_id": 11387
+      "grouping_id": 11387,
+      "local_path": "uploads/subcategory/atta_rice_dal__atta.png"
     },
     {
       "name": "Rice",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Rice_1706506518802",
-      "grouping_id": 11380
+      "grouping_id": 11380,
+      "local_path": "uploads/subcategory/atta_rice_dal__rice.png"
     },
     {
       "name": "Dal",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Toor,_Urad_&_Chana_1706506585796",
-      "grouping_id": 11381
+      "grouping_id": 11381,
+      "local_path": "uploads/subcategory/atta_rice_dal__dal.png"
     },
     {
       "name": "Besan, Sooji & Maida",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Besan,_Sooji_&_Maida_1706506631136",
-      "grouping_id": 11386
+      "grouping_id": 11386,
+      "local_path": "uploads/subcategory/atta_rice_dal__besan_sooji_maida.png"
     },
     {
       "name": "Rajma, Chhole & Others",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Rajma,_Chhole_&_Others_1706506711584",
-      "grouping_id": 11383
+      "grouping_id": 11383,
+      "local_path": "uploads/subcategory/atta_rice_dal__rajma_chhole_others.png"
     },
     {
       "name": "Millet & Other Flours",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Millets_V8_1775730840352",
-      "grouping_id": 874041
+      "grouping_id": 874041,
+      "local_path": "uploads/subcategory/atta_rice_dal__millet_other_flours.png"
     },
     {
       "name": "Organic",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Organic_1707815142663",
-      "grouping_id": 11519
+      "grouping_id": 11519,
+      "local_path": "uploads/subcategory/atta_rice_dal__organic.png"
     },
     {
       "name": "Poha, Daliya & Other Grains",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Poha,_Daliya_&_Other_Grains_1708422164010",
-      "grouping_id": 18665
+      "grouping_id": 18665,
+      "local_path": "uploads/subcategory/atta_rice_dal__poha_daliya_other_grains.png"
     },
     {
       "name": "Summer Specials",
       "parent": "Atta, Rice & Dal",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_82218_(1)_1777964833109",
-      "grouping_id": 885917
+      "grouping_id": 885917,
+      "local_path": "uploads/subcategory/atta_rice_dal__summer_specials.png"
     },
     {
       "name": "Oil",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Oil_1706509259836",
-      "grouping_id": 18687
+      "grouping_id": 18687,
+      "local_path": "uploads/subcategory/oil_ghee_masala__oil.png"
     },
     {
       "name": "Desi Ghee",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Desi_ghee_1708422214493",
-      "grouping_id": 11585
+      "grouping_id": 11585,
+      "local_path": "uploads/subcategory/oil_ghee_masala__desi_ghee.png"
     },
     {
       "name": "Cow Ghee",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_11196_v8_(1)_1721383814750",
-      "grouping_id": 92942
+      "grouping_id": 92942,
+      "local_path": "uploads/subcategory/oil_ghee_masala__cow_ghee.png"
     },
     {
       "name": "Powdered Spices",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Powdered_Spices_1706509567512",
-      "grouping_id": 16433
+      "grouping_id": 16433,
+      "local_path": "uploads/subcategory/oil_ghee_masala__powdered_spices.png"
     },
     {
       "name": "Non Veg Spices",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/eaa71d04-4d8c-4ff0-aa79-7a5bde1b0ee5.",
-      "grouping_id": 880385
+      "grouping_id": 880385,
+      "local_path": "uploads/subcategory/oil_ghee_masala__non_veg_spices.png"
     },
     {
       "name": "Salt, Sugar & Jaggery",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Salt,_Sugar_&_Jaggery_1706509601134",
-      "grouping_id": 11582
+      "grouping_id": 11582,
+      "local_path": "uploads/subcategory/oil_ghee_masala__salt_sugar_jaggery.png"
     },
     {
       "name": "Whole Spices",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Whole_Spices_1706509650429",
-      "grouping_id": 17743
+      "grouping_id": 17743,
+      "local_path": "uploads/subcategory/oil_ghee_masala__whole_spices.png"
     },
     {
       "name": "Gravy Mixes & Pastes",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/a5d236c4-d687-4dc8-bcf5-99b36cb8053c.",
-      "grouping_id": 895753
+      "grouping_id": 895753,
+      "local_path": "uploads/subcategory/oil_ghee_masala__gravy_mixes_pastes.png"
     },
     {
       "name": "Herbs & Seasoning",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_herbs_&_seasoning_1707815390937",
-      "grouping_id": 16419
+      "grouping_id": 16419,
+      "local_path": "uploads/subcategory/oil_ghee_masala__herbs_seasoning.png"
     },
     {
       "name": "Organic",
       "parent": "Oil, Ghee & Masala",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Organic_1707815423050",
-      "grouping_id": 11590
+      "grouping_id": 11590,
+      "local_path": "uploads/subcategory/oil_ghee_masala__organic.png"
     },
     {
       "name": "Milk",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Milk_1706513334099",
-      "grouping_id": 11591
+      "grouping_id": 11591,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__milk.png"
     },
     {
       "name": "Bread & Pav",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bread_&_Pav_1706513373124",
-      "grouping_id": 11592
+      "grouping_id": 11592,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__bread_pav.png"
     },
     {
       "name": "Eggs",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Eggs_1706513645206",
-      "grouping_id": 11595
+      "grouping_id": 11595,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__eggs.png"
     },
     {
       "name": "Curd & Yogurt",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Curd_&_Yogurt_1706515002878",
-      "grouping_id": 11593
+      "grouping_id": 11593,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__curd_yogurt.png"
     },
     {
       "name": "Cheese & Butter",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Butter_&_More_1706515037432",
-      "grouping_id": 17124
+      "grouping_id": 17124,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__cheese_butter.png"
     },
     {
       "name": "Batter",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_V8_Batter_1727368405792",
-      "grouping_id": 109735
+      "grouping_id": 109735,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__batter.png"
     },
     {
       "name": "Paneer & Tofu",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Paneer_&_Tofu_1706515073661",
-      "grouping_id": 11596
+      "grouping_id": 11596,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__paneer_tofu.png"
     },
     {
       "name": "Soy Milk & More",
@@ -1088,182 +1238,208 @@
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Milk_Drinks_1706515111639",
-      "grouping_id": 11594
+      "grouping_id": 11594,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__lassi_milkshakes.png"
     },
     {
       "name": "Cream & Whitener",
       "parent": "Dairy, Bread & Eggs",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cream_&_Whitener_1706515147190",
-      "grouping_id": 11598
+      "grouping_id": 11598,
+      "local_path": "uploads/subcategory/dairy_bread_eggs__cream_whitener.png"
     },
     {
       "name": "Cookies",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cookies_1706515199421",
-      "grouping_id": 11527
+      "grouping_id": 11527,
+      "local_path": "uploads/subcategory/bakery_biscuits__cookies.png"
     },
     {
       "name": "Cream Biscuits",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cream_Biscuits_1706515235682",
-      "grouping_id": 11528
+      "grouping_id": 11528,
+      "local_path": "uploads/subcategory/bakery_biscuits__cream_biscuits.png"
     },
     {
       "name": "Healthy & Digestive",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Healthy_&_Digestive_1706518114345",
-      "grouping_id": 11530
+      "grouping_id": 11530,
+      "local_path": "uploads/subcategory/bakery_biscuits__healthy_digestive.png"
     },
     {
       "name": "Sweet & Salty",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Sweet_&_Salty_1706518190958",
-      "grouping_id": 11531
+      "grouping_id": 11531,
+      "local_path": "uploads/subcategory/bakery_biscuits__sweet_salty.png"
     },
     {
       "name": "Glucose & Marie",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Glucose_&_Marie_1706518227101",
-      "grouping_id": 12726
+      "grouping_id": 12726,
+      "local_path": "uploads/subcategory/bakery_biscuits__glucose_marie.png"
     },
     {
       "name": "Rusks & Wafers",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Rusk_&_Wafers_1708422305077",
-      "grouping_id": 12732
+      "grouping_id": 12732,
+      "local_path": "uploads/subcategory/bakery_biscuits__rusks_wafers.png"
     },
     {
       "name": "Cakes & Rolls",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_cakes_&_rolls_1707815493683",
-      "grouping_id": 11529
+      "grouping_id": 11529,
+      "local_path": "uploads/subcategory/bakery_biscuits__cakes_rolls.png"
     },
     {
       "name": "Baking Ingredients",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Baking_Ingredients_1706518413049",
-      "grouping_id": 11532
+      "grouping_id": 11532,
+      "local_path": "uploads/subcategory/bakery_biscuits__baking_ingredients.png"
     },
     {
       "name": "Gourmet Bakery",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Gourmet_Bakery_1706518446138",
-      "grouping_id": 11534
+      "grouping_id": 11534,
+      "local_path": "uploads/subcategory/bakery_biscuits__gourmet_bakery.png"
     },
     {
       "name": "Biscuit Gift Pack",
       "parent": "Bakery & Biscuits",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_biscuit_gift_pack_1708064633642",
-      "grouping_id": 18679
+      "grouping_id": 18679,
+      "local_path": "uploads/subcategory/bakery_biscuits__biscuit_gift_pack.png"
     },
     {
       "name": "Dry Fruits",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Dry_Fruits_1706518590021",
-      "grouping_id": 11599
+      "grouping_id": 11599,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__dry_fruits.png"
     },
     {
       "name": "Dry Fruits Snacks",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_519113a_(1)_1714474053733",
-      "grouping_id": 11600
+      "grouping_id": 11600,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__dry_fruits_snacks.png"
     },
     {
       "name": "Corn Flakes & Kids Cereals",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Flakes_&_Kids_Cereals_1706518846682",
-      "grouping_id": 11601
+      "grouping_id": 11601,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__corn_flakes_kids_cereals.png"
     },
     {
       "name": "Muesli & Granola",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Muesli_&_Granola_1706518780474",
-      "grouping_id": 11602
+      "grouping_id": 11602,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__muesli_granola.png"
     },
     {
       "name": "Oats & Daliya",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Oats_1706518883105",
-      "grouping_id": 11603
+      "grouping_id": 11603,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__oats_daliya.png"
     },
     {
       "name": "Dates",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/79854539-34b4-4948-8eb0-30110d612cae.",
-      "grouping_id": 892781
+      "grouping_id": 892781,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__dates.png"
     },
     {
       "name": "Seeds",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/117c23f8-a642-4570-b79f-78fea8695b36.",
-      "grouping_id": 892782
+      "grouping_id": 892782,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__seeds.png"
     },
     {
       "name": "Vermicelli & Poha",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Vermicelli_1706519553320",
-      "grouping_id": 11606
+      "grouping_id": 11606,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__vermicelli_poha.png"
     },
     {
       "name": "Organic & Premium",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Organic_1707815597839",
-      "grouping_id": 11605
+      "grouping_id": 11605,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__organic_premium.png"
     },
     {
       "name": "Dry Fruit Gift Packs",
       "parent": "Dry Fruits & Cereals",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Dry_Fruits_Gift_Packs_1706519640605",
-      "grouping_id": 12734
+      "grouping_id": 12734,
+      "local_path": "uploads/subcategory/dry_fruits_cereals__dry_fruit_gift_packs.png"
     },
     {
       "name": "Chicken",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_chicken_1708064744533",
-      "grouping_id": 11537
+      "grouping_id": 11537,
+      "local_path": "uploads/subcategory/chicken_meat_fish__chicken.png"
     },
     {
       "name": "Fresh Meat",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Fresh_meat_1708064702488",
-      "grouping_id": 24161
+      "grouping_id": 24161,
+      "local_path": "uploads/subcategory/chicken_meat_fish__fresh_meat.png"
     },
     {
       "name": "Fish & Seafood",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Fish_&_Seafood_1706519780624",
-      "grouping_id": 11540
+      "grouping_id": 11540,
+      "local_path": "uploads/subcategory/chicken_meat_fish__fish_seafood.png"
     },
     {
       "name": "Mutton",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_mutton_1708064776691",
-      "grouping_id": 11543
+      "grouping_id": 11543,
+      "local_path": "uploads/subcategory/chicken_meat_fish__mutton.png"
     },
     {
       "name": "Frozen Non-Veg Snacks",
@@ -1278,238 +1454,272 @@
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/eaa71d04-4d8c-4ff0-aa79-7a5bde1b0ee5.",
-      "grouping_id": 880650
+      "grouping_id": 880650,
+      "local_path": "uploads/subcategory/chicken_meat_fish__non_veg_spices.png"
     },
     {
       "name": "Sausage, Salami & Ham",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_sauage_&_salami_1708079957289",
-      "grouping_id": 11538
+      "grouping_id": 11538,
+      "local_path": "uploads/subcategory/chicken_meat_fish__sausage_salami_ham.png"
     },
     {
       "name": "Exotic Meat",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Chicken_1706519741465",
-      "grouping_id": 11541
+      "grouping_id": 11541,
+      "local_path": "uploads/subcategory/chicken_meat_fish__exotic_meat.png"
     },
     {
       "name": "Plant Based Meat",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_plant_based_meat_1708065065894",
-      "grouping_id": 11542
+      "grouping_id": 11542,
+      "local_path": "uploads/subcategory/chicken_meat_fish__plant_based_meat.png"
     },
     {
       "name": "Eggs",
       "parent": "Chicken, Meat & Fish",
       "group": "Grocery & Kitchen",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Eggs_1706519848551",
-      "grouping_id": 11539
+      "grouping_id": 11539,
+      "local_path": "uploads/subcategory/chicken_meat_fish__eggs.png"
     },
     {
       "name": "Bottles & Flasks",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/764c1ab4-b73e-4cb7-96a9-d2741b4a79bf.",
-      "grouping_id": 620088
+      "grouping_id": 620088,
+      "local_path": "uploads/subcategory/kitchenware_appliances__bottles_flasks.png"
     },
     {
       "name": "Kitchen Accessories",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_d6658bed-5561-475a-a719-6e735bc4ff00_1759842967437",
-      "grouping_id": 659661
+      "grouping_id": 659661,
+      "local_path": "uploads/subcategory/kitchenware_appliances__kitchen_accessories.png"
     },
     {
       "name": "Mugs & Glasses",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/92a0aa57-d86c-405f-8352-5d0730871433.",
-      "grouping_id": 620090
+      "grouping_id": 620090,
+      "local_path": "uploads/subcategory/kitchenware_appliances__mugs_glasses.png"
     },
     {
       "name": "Cookware & Sets",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/1d77e552-5408-41ce-b190-31085f9d669e.",
-      "grouping_id": 620091
+      "grouping_id": 620091,
+      "local_path": "uploads/subcategory/kitchenware_appliances__cookware_sets.png"
     },
     {
       "name": "Storage & Containers",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/c1d2f057-f298-4292-b8b9-2157fed79d97.",
-      "grouping_id": 620092
+      "grouping_id": 620092,
+      "local_path": "uploads/subcategory/kitchenware_appliances__storage_containers.png"
     },
     {
       "name": "Barware",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/30c71090-00e8-4e69-a50f-904eeeb1f3d5.",
-      "grouping_id": 620093
+      "grouping_id": 620093,
+      "local_path": "uploads/subcategory/kitchenware_appliances__barware.png"
     },
     {
       "name": "Lunch Boxes",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/91f87304-ad0f-4236-b0fd-bd2a1aaa37d5.",
-      "grouping_id": 620094
+      "grouping_id": 620094,
+      "local_path": "uploads/subcategory/kitchenware_appliances__lunch_boxes.png"
     },
     {
       "name": "Cutting & Chopping",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/53047838-ace3-4d98-801c-c5ab1c520ba6.",
-      "grouping_id": 620095
+      "grouping_id": 620095,
+      "local_path": "uploads/subcategory/kitchenware_appliances__cutting_chopping.png"
     },
     {
       "name": "Dining & Serveware",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_grouping_asset_Dining_&_Serveware_1697802591806_1757062792623",
-      "grouping_id": 578042
+      "grouping_id": 578042,
+      "local_path": "uploads/subcategory/kitchenware_appliances__dining_serveware.png"
     },
     {
       "name": "Kitchen Appliances",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_kitchen_appliances_1708065792419",
-      "grouping_id": 13653
+      "grouping_id": 13653,
+      "local_path": "uploads/subcategory/kitchenware_appliances__kitchen_appliances.png"
     },
     {
       "name": "Tissues & Disposables",
       "parent": "Kitchenware & Appliances",
       "group": "Grocery & Kitchen",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Tissue_&_Disposables_1706520024314",
-      "grouping_id": 13652
+      "grouping_id": 13652,
+      "local_path": "uploads/subcategory/kitchenware_appliances__tissues_disposables.png"
     },
     {
       "name": "Chips & Wafers",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Chips_&_Crisps_1706524918292",
-      "grouping_id": 11402
+      "grouping_id": 11402,
+      "local_path": "uploads/subcategory/chips_namkeen__chips_wafers.png"
     },
     {
       "name": "Bhujia & Mixtures",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bhujia_&_Mixtures_1706529613190",
-      "grouping_id": 11405
+      "grouping_id": 11405,
+      "local_path": "uploads/subcategory/chips_namkeen__bhujia_mixtures.png"
     },
     {
       "name": "Namkeen Snacks",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Namkeen_Snacks_1706529687984",
-      "grouping_id": 11404
+      "grouping_id": 11404,
+      "local_path": "uploads/subcategory/chips_namkeen__namkeen_snacks.png"
     },
     {
       "name": "Nachos",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Nachos_1706529835423",
-      "grouping_id": 11407
+      "grouping_id": 11407,
+      "local_path": "uploads/subcategory/chips_namkeen__nachos.png"
     },
     {
       "name": "Healthy Snacks",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Healthy_Snacks_1706530089267",
-      "grouping_id": 11403
+      "grouping_id": 11403,
+      "local_path": "uploads/subcategory/chips_namkeen__healthy_snacks.png"
     },
     {
       "name": "Popcorn",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Popcorn_v8_1768375845374",
-      "grouping_id": 11406
+      "grouping_id": 11406,
+      "local_path": "uploads/subcategory/chips_namkeen__popcorn.png"
     },
     {
       "name": "Papad & Fryums",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Papad_&_Fryums_1706530038151",
-      "grouping_id": 11408
+      "grouping_id": 11408,
+      "local_path": "uploads/subcategory/chips_namkeen__papad_fryums.png"
     },
     {
       "name": "Premium",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_premium_(5)_1708080347233",
-      "grouping_id": 11410
+      "grouping_id": 11410,
+      "local_path": "uploads/subcategory/chips_namkeen__premium.png"
     },
     {
       "name": "Gift Packs",
       "parent": "Chips & Namkeen",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Munchies_Gift_Packs_1706530133094",
-      "grouping_id": 11409
+      "grouping_id": 11409,
+      "local_path": "uploads/subcategory/chips_namkeen__gift_packs.png"
     },
     {
       "name": "Chocolates",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Choclates_1706531011666",
-      "grouping_id": 11414
+      "grouping_id": 11414,
+      "local_path": "uploads/subcategory/sweets_chocolates__chocolates.png"
     },
     {
       "name": "Chocolate Packs",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Choclate_packs_1706531079606",
-      "grouping_id": 11415
+      "grouping_id": 11415,
+      "local_path": "uploads/subcategory/sweets_chocolates__chocolate_packs.png"
     },
     {
       "name": "Chocolate Gift Pack",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_chocolate_gift_pack_1708080467869",
-      "grouping_id": 18681
+      "grouping_id": 18681,
+      "local_path": "uploads/subcategory/sweets_chocolates__chocolate_gift_pack.png"
     },
     {
       "name": "Indian Sweets",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Indian_Sweets_1706531113846",
-      "grouping_id": 11418
+      "grouping_id": 11418,
+      "local_path": "uploads/subcategory/sweets_chocolates__indian_sweets.png"
     },
     {
       "name": "Candies & Gum",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Candies_&_Gum_1706531047497",
-      "grouping_id": 11417
+      "grouping_id": 11417,
+      "local_path": "uploads/subcategory/sweets_chocolates__candies_gum.png"
     },
     {
       "name": "Premium",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_premium_1708422956168",
-      "grouping_id": 13640
+      "grouping_id": 13640,
+      "local_path": "uploads/subcategory/sweets_chocolates__premium.png"
     },
     {
       "name": "Energy Bars",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_energy_bar_1708060191689",
-      "grouping_id": 18685
+      "grouping_id": 18685,
+      "local_path": "uploads/subcategory/sweets_chocolates__energy_bars.png"
     },
     {
       "name": "Syrups",
       "parent": "Sweets & Chocolates",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Syrups_1706531143944",
-      "grouping_id": 11419
+      "grouping_id": 11419,
+      "local_path": "uploads/subcategory/sweets_chocolates__syrups.png"
     },
     {
       "name": "Soft Drinks",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Soft_Drinks_1706520169350",
-      "grouping_id": 11607
+      "grouping_id": 11607,
+      "local_path": "uploads/subcategory/drinks_juices__soft_drinks.png"
     },
     {
       "name": "Fruit Juices",
@@ -1524,273 +1734,312 @@
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/5ba0137b-06b3-419a-8955-3b390b44054b.",
-      "grouping_id": 885907
+      "grouping_id": 885907,
+      "local_path": "uploads/subcategory/drinks_juices__zero_sugar_drinks.png"
     },
     {
       "name": "Energy Drinks",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Energy_Drink_1706520229555",
-      "grouping_id": 14471
+      "grouping_id": 14471,
+      "local_path": "uploads/subcategory/drinks_juices__energy_drinks.png"
     },
     {
       "name": "Hydration Drinks",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hydration_Drinks_v8_1748454645968",
-      "grouping_id": 304488
+      "grouping_id": 304488,
+      "local_path": "uploads/subcategory/drinks_juices__hydration_drinks.png"
     },
     {
       "name": "Soda & Mixers",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Soda_&_Mixers_1706520265625",
-      "grouping_id": 11613
+      "grouping_id": 11613,
+      "local_path": "uploads/subcategory/drinks_juices__soda_mixers.png"
     },
     {
       "name": "Water & Ice Cubes",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Water_&_Ice_Cubes_1706520309736",
-      "grouping_id": 11615
+      "grouping_id": 11615,
+      "local_path": "uploads/subcategory/drinks_juices__water_ice_cubes.png"
     },
     {
       "name": "Mango Drinks",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Mango_Drinks_1706520357329",
-      "grouping_id": 18673
+      "grouping_id": 18673,
+      "local_path": "uploads/subcategory/drinks_juices__mango_drinks.png"
     },
     {
       "name": "Soy Milk & More",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Vegan_Drinks_1706520571724",
-      "grouping_id": 17133
+      "grouping_id": 17133,
+      "local_path": "uploads/subcategory/drinks_juices__soy_milk_more.png"
     },
     {
       "name": "Cold Coffee & Ice Tea",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_594918_L2_v8_1742579873774",
-      "grouping_id": 18675
+      "grouping_id": 18675,
+      "local_path": "uploads/subcategory/drinks_juices__cold_coffee_ice_tea.png"
     },
     {
       "name": "Coconut Water",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Coconut_Water_1706522555419",
-      "grouping_id": 11616
+      "grouping_id": 11616,
+      "local_path": "uploads/subcategory/drinks_juices__coconut_water.png"
     },
     {
       "name": "Concentrates & Syrups",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Concentrates_&_Syrup_1706522593440",
-      "grouping_id": 11609
+      "grouping_id": 11609,
+      "local_path": "uploads/subcategory/drinks_juices__concentrates_syrups.png"
     },
     {
       "name": "Premium",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_premium_(6)_1708423885389",
-      "grouping_id": 11750
+      "grouping_id": 11750,
+      "local_path": "uploads/subcategory/drinks_juices__premium.png"
     },
     {
       "name": "Beverages Gift Packs",
       "parent": "Drinks & Juices",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_beverage_gift_pack_1708080129634",
-      "grouping_id": 18695
+      "grouping_id": 18695,
+      "local_path": "uploads/subcategory/drinks_juices__beverages_gift_packs.png"
     },
     {
       "name": "Tea",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Tea_1706523747445",
-      "grouping_id": 11617
+      "grouping_id": 11617,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__tea.png"
     },
     {
       "name": "Coffee",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_v8_1746556795954",
-      "grouping_id": 11618
+      "grouping_id": 11618,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__coffee.png"
     },
     {
       "name": "Hot Chocolate",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Hot_Chocolate_1706523809955",
-      "grouping_id": 18677
+      "grouping_id": 18677,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__hot_chocolate.png"
     },
     {
       "name": "Green Tea",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Green_&_Flavoured_Tea_1706523841790",
-      "grouping_id": 11619
+      "grouping_id": 11619,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__green_tea.png"
     },
     {
       "name": "Milk Drinks",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Health_Drinks_1706524769032",
-      "grouping_id": 11622
+      "grouping_id": 11622,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__milk_drinks.png"
     },
     {
       "name": "Cold Coffee & Ice Tea",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_594918_L2_v8_1742580081492",
-      "grouping_id": 11620
+      "grouping_id": 11620,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__cold_coffee_ice_tea.png"
     },
     {
       "name": "Bags & Premixes",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_bags_&_premixes_1707912684132",
-      "grouping_id": 11621
+      "grouping_id": 11621,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__bags_premixes.png"
     },
     {
       "name": "Premium",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_premium_1707912721584",
-      "grouping_id": 11623
+      "grouping_id": 11623,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__premium.png"
     },
     {
       "name": "Herbal Infusion",
       "parent": "Tea, Coffee & Milk Drinks",
       "group": "Snacks & Drinks",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/e237b78d-fbc0-4988-a4fe-226c7e589db1.",
-      "grouping_id": 899305
+      "grouping_id": 899305,
+      "local_path": "uploads/subcategory/tea_coffee_milk_drinks__herbal_infusion.png"
     },
     {
       "name": "Noodles",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Noodles_80x80_1746901610727",
-      "grouping_id": 11624
+      "grouping_id": 11624,
+      "local_path": "uploads/subcategory/instant_food__noodles.png"
     },
     {
       "name": "Frozen Veg Snacks",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_10781_V8_(1)_1771218403208",
-      "grouping_id": 11629
+      "grouping_id": 11629,
+      "local_path": "uploads/subcategory/instant_food__frozen_veg_snacks.png"
     },
     {
       "name": "Pasta",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Pasta_1706530398688",
-      "grouping_id": 11626
+      "grouping_id": 11626,
+      "local_path": "uploads/subcategory/instant_food__pasta.png"
     },
     {
       "name": "Frozen Non-Veg Snacks",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Frozen_Non-Veg_Snacks_1706530485222",
-      "grouping_id": 11625
+      "grouping_id": 11625,
+      "local_path": "uploads/subcategory/instant_food__frozen_non_veg_snacks.png"
     },
     {
       "name": "Soup",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Soup_1706530637195",
-      "grouping_id": 11628
+      "grouping_id": 11628,
+      "local_path": "uploads/subcategory/instant_food__soup.png"
     },
     {
       "name": "Ready to Eat",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Ready_to_Cook_&_Eat_1706530522997",
-      "grouping_id": 11627
+      "grouping_id": 11627,
+      "local_path": "uploads/subcategory/instant_food__ready_to_eat.png"
     },
     {
       "name": "Idli & Dosa Batter",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Batter_1706530572016",
-      "grouping_id": 11630
+      "grouping_id": 11630,
+      "local_path": "uploads/subcategory/instant_food__idli_dosa_batter.png"
     },
     {
       "name": "Dessert & Cake Mixes",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Dessert_&_Cake_Mixes_1706530684342",
-      "grouping_id": 11631
+      "grouping_id": 11631,
+      "local_path": "uploads/subcategory/instant_food__dessert_cake_mixes.png"
     },
     {
       "name": "Organic & Premium",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_organic_&_premium_1708080417569",
-      "grouping_id": 11632
+      "grouping_id": 11632,
+      "local_path": "uploads/subcategory/instant_food__organic_premium.png"
     },
     {
       "name": "Energy Bars",
       "parent": "Instant Food",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_energy_bar_1707913124320",
-      "grouping_id": 18693
+      "grouping_id": 18693,
+      "local_path": "uploads/subcategory/instant_food__energy_bars.png"
     },
     {
       "name": "Tomato Ketchup",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Tomato_&_Chilli_Ketchup_1706531299060",
-      "grouping_id": 11643
+      "grouping_id": 11643,
+      "local_path": "uploads/subcategory/sauces_spreads__tomato_ketchup.png"
     },
     {
       "name": "Jam & Spreads",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Jam_&_spreads_1706531361085",
-      "grouping_id": 11636
+      "grouping_id": 11636,
+      "local_path": "uploads/subcategory/sauces_spreads__jam_spreads.png"
     },
     {
       "name": "Mayonnaise",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Mayonnaise_1706531395907",
-      "grouping_id": 11641
+      "grouping_id": 11641,
+      "local_path": "uploads/subcategory/sauces_spreads__mayonnaise.png"
     },
     {
       "name": "Chutney & Pickle",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Indain_chutney_&_pickle_1706531558695",
-      "grouping_id": 11638
+      "grouping_id": 11638,
+      "local_path": "uploads/subcategory/sauces_spreads__chutney_pickle.png"
     },
     {
       "name": "Peanut Butter",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Peanut_Butter_1734720234230",
-      "grouping_id": 11639
+      "grouping_id": 11639,
+      "local_path": "uploads/subcategory/sauces_spreads__peanut_butter.png"
     },
     {
       "name": "Asian Sauces",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Asian_sauces_1706531329524",
-      "grouping_id": 11634
+      "grouping_id": 11634,
+      "local_path": "uploads/subcategory/sauces_spreads__asian_sauces.png"
     },
     {
       "name": "Chyawanprash & Honey",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Chyawanprash_&_honey_1707913612220",
-      "grouping_id": 11640
+      "grouping_id": 11640,
+      "local_path": "uploads/subcategory/sauces_spreads__chyawanprash_honey.png"
     },
     {
       "name": "Syrups",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_grouping_asset_Syrups_1706531143944_1725737131704",
-      "grouping_id": 105531
+      "grouping_id": 105531,
+      "local_path": "uploads/subcategory/sauces_spreads__syrups.png"
     },
     {
       "name": "Dips & Salad Dressings",
@@ -1805,42 +2054,48 @@
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cooking_Sauces_&_Vinegar_1706531620130",
-      "grouping_id": 11633
+      "grouping_id": 11633,
+      "local_path": "uploads/subcategory/sauces_spreads__cooking_sauces.png"
     },
     {
       "name": "Premium",
       "parent": "Sauces & Spreads",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_premium_1707913662535",
-      "grouping_id": 11635
+      "grouping_id": 11635,
+      "local_path": "uploads/subcategory/sauces_spreads__premium.png"
     },
     {
       "name": "Cigarettes",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_cigrattes_1708070979045",
-      "grouping_id": 15119
+      "grouping_id": 15119,
+      "local_path": "uploads/subcategory/paan_corner__cigarettes.png"
     },
     {
       "name": "Lighters",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/36dda29f-7a99-4689-b800-2d22add3e08d.",
-      "grouping_id": 383144
+      "grouping_id": 383144,
+      "local_path": "uploads/subcategory/paan_corner__lighters.png"
     },
     {
       "name": "Cigar",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cigar_V8_(1)_1716297519959",
-      "grouping_id": 62439
+      "grouping_id": 62439,
+      "local_path": "uploads/subcategory/paan_corner__cigar.png"
     },
     {
       "name": "Rolling Needs",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Rolling_paper_1706531859382",
-      "grouping_id": 11644
+      "grouping_id": 11644,
+      "local_path": "uploads/subcategory/paan_corner__rolling_needs.png"
     },
     {
       "name": "Hookah Needs",
@@ -1871,84 +2126,96 @@
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/9837ad12-b8ac-405e-9deb-c31b41b4f337.",
-      "grouping_id": 438175
+      "grouping_id": 438175,
+      "local_path": "uploads/subcategory/paan_corner__ashtrays.png"
     },
     {
       "name": "Mouth Fresheners & Gums",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Mouth_Fresheners_1706531995154",
-      "grouping_id": 11649
+      "grouping_id": 11649,
+      "local_path": "uploads/subcategory/paan_corner__mouth_fresheners_gums.png"
     },
     {
       "name": "Non-Tobacco Blends",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/fb128d52-1609-4502-86e0-db18876e78ce.",
-      "grouping_id": 389984
+      "grouping_id": 389984,
+      "local_path": "uploads/subcategory/paan_corner__non_tobacco_blends.png"
     },
     {
       "name": "Smoking Cessation",
       "parent": "Paan Corner",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_smoking_cessation_1707913718764",
-      "grouping_id": 15725
+      "grouping_id": 15725,
+      "local_path": "uploads/subcategory/paan_corner__smoking_cessation.png"
     },
     {
       "name": "Tubs",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Tubs_fab_1714731665106",
-      "grouping_id": 12770
+      "grouping_id": 12770,
+      "local_path": "uploads/subcategory/ice_creams_more__tubs.png"
     },
     {
       "name": "Sticks",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_sticks_1708071044648",
-      "grouping_id": 12768
+      "grouping_id": 12768,
+      "local_path": "uploads/subcategory/ice_creams_more__sticks.png"
     },
     {
       "name": "Cones",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cones_1707913995676",
-      "grouping_id": 15719
+      "grouping_id": 15719,
+      "local_path": "uploads/subcategory/ice_creams_more__cones.png"
     },
     {
       "name": "Cassata & Sandwich",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cassata_&_Sandwitch_1708423077774",
-      "grouping_id": 12769
+      "grouping_id": 12769,
+      "local_path": "uploads/subcategory/ice_creams_more__cassata_sandwich.png"
     },
     {
       "name": "Single Serve Cups",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Single_serve_cups_1707914035555",
-      "grouping_id": 12778
+      "grouping_id": 12778,
+      "local_path": "uploads/subcategory/ice_creams_more__single_serve_cups.png"
     },
     {
       "name": "Cakes & Others",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/b869c30f-9780-4a40-9045-ba94417aa15a.",
-      "grouping_id": 806290
+      "grouping_id": 806290,
+      "local_path": "uploads/subcategory/ice_creams_more__cakes_others.png"
     },
     {
       "name": "Guilt-Free",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Gulit_free_v8_(1)_1738001093041",
-      "grouping_id": 12779
+      "grouping_id": 12779,
+      "local_path": "uploads/subcategory/ice_creams_more__guilt_free.png"
     },
     {
       "name": "Gourmet",
       "parent": "Ice Creams & More",
       "group": "Snacks & Drinks",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Gourmet_fab_1714731785621",
-      "grouping_id": 12777
+      "grouping_id": 12777,
+      "local_path": "uploads/subcategory/ice_creams_more__gourmet.png"
     },
     {
       "name": "Syrups",
@@ -1971,35 +2238,40 @@
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Plants_&_Bouquets_1747680260888",
-      "grouping_id": 11740
+      "grouping_id": 11740,
+      "local_path": "uploads/subcategory/home_lifestyle__plants_bouquets.png"
     },
     {
       "name": "Bedsheets & Towels",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_bedsheet_&_towels_1708077074308",
-      "grouping_id": 11705
+      "grouping_id": 11705,
+      "local_path": "uploads/subcategory/home_lifestyle__bedsheets_towels.png"
     },
     {
       "name": "Gardening",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_IMG_8936_1752670306982",
-      "grouping_id": 416530
+      "grouping_id": 416530,
+      "local_path": "uploads/subcategory/home_lifestyle__gardening.png"
     },
     {
       "name": "Decorative Lights",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Decorative_lights_Fab_1716544387620",
-      "grouping_id": 11710
+      "grouping_id": 11710,
+      "local_path": "uploads/subcategory/home_lifestyle__decorative_lights.png"
     },
     {
       "name": "Home Needs",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Electrical_Accessories_1706595850923",
-      "grouping_id": 11702
+      "grouping_id": 11702,
+      "local_path": "uploads/subcategory/home_lifestyle__home_needs.png"
     },
     {
       "name": "Tissues & Disposables",
@@ -2014,28 +2286,32 @@
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/257ad454-b148-44df-bea1-a03a27d5224e.",
-      "grouping_id": 131574
+      "grouping_id": 131574,
+      "local_path": "uploads/subcategory/home_lifestyle__jewellery.png"
     },
     {
       "name": "Innerwear",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_innerware_1708078512018",
-      "grouping_id": 11703
+      "grouping_id": 11703,
+      "local_path": "uploads/subcategory/home_lifestyle__innerwear.png"
     },
     {
       "name": "Lifestyle Accessories",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_lifestyle_&_accessories_1707915521722",
-      "grouping_id": 11707
+      "grouping_id": 11707,
+      "local_path": "uploads/subcategory/home_lifestyle__lifestyle_accessories.png"
     },
     {
       "name": "Party & Festive Needs",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_1674_1694425010896_(1)_1759841303325",
-      "grouping_id": 659636
+      "grouping_id": 659636,
+      "local_path": "uploads/subcategory/home_lifestyle__party_festive_needs.png"
     },
     {
       "name": "Socks & Handkerchiefs",
@@ -2050,273 +2326,312 @@
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_fresheners_1707915477682",
-      "grouping_id": 11709
+      "grouping_id": 11709,
+      "local_path": "uploads/subcategory/home_lifestyle__fresheners.png"
     },
     {
       "name": "Pooja Needs",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Pooja_Needs_1706592897189",
-      "grouping_id": 21983
+      "grouping_id": 21983,
+      "local_path": "uploads/subcategory/home_lifestyle__pooja_needs.png"
     },
     {
       "name": "Bathroom Essentials",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bathroom_Essentials_1706592671678",
-      "grouping_id": 22864
+      "grouping_id": 22864,
+      "local_path": "uploads/subcategory/home_lifestyle__bathroom_essentials.png"
     },
     {
       "name": "Bags",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Bags_1706592703733",
-      "grouping_id": 22865
+      "grouping_id": 22865,
+      "local_path": "uploads/subcategory/home_lifestyle__bags.png"
     },
     {
       "name": "E-Gift Cards",
       "parent": "Home & Lifestyle",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1725452595421-3",
-      "grouping_id": 127889
+      "grouping_id": 127889,
+      "local_path": "uploads/subcategory/home_lifestyle__e_gift_cards.png"
     },
     {
       "name": "Repellents & Disinfectants",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Repellents_1706606515873",
-      "grouping_id": 11720
+      "grouping_id": 11720,
+      "local_path": "uploads/subcategory/cleaners_repellents__repellents_disinfectants.png"
     },
     {
       "name": "Detergent Powder & Bars",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Detergent_Powder_&_Bars_1706605492694",
-      "grouping_id": 11711
+      "grouping_id": 11711,
+      "local_path": "uploads/subcategory/cleaners_repellents__detergent_powder_bars.png"
     },
     {
       "name": "Liquid Detergents",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1718363303715-3",
-      "grouping_id": 82715
+      "grouping_id": 82715,
+      "local_path": "uploads/subcategory/cleaners_repellents__liquid_detergents.png"
     },
     {
       "name": "Laundry Additives",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Laundry_Additives_1706605557833",
-      "grouping_id": 11715
+      "grouping_id": 11715,
+      "local_path": "uploads/subcategory/cleaners_repellents__laundry_additives.png"
     },
     {
       "name": "Dishwashing Gels & Bars",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Dishwashing_Gels_&_Powder_1706606247665",
-      "grouping_id": 12759
+      "grouping_id": 12759,
+      "local_path": "uploads/subcategory/cleaners_repellents__dishwashing_gels_bars.png"
     },
     {
       "name": "Dishwashing Accessories",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Dishwashing_Accessories_1706606294656",
-      "grouping_id": 12760
+      "grouping_id": 12760,
+      "local_path": "uploads/subcategory/cleaners_repellents__dishwashing_accessories.png"
     },
     {
       "name": "Toilet Cleaners",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Toilet_cleaners_&_More_1706606342006",
-      "grouping_id": 11713
+      "grouping_id": 11713,
+      "local_path": "uploads/subcategory/cleaners_repellents__toilet_cleaners.png"
     },
     {
       "name": "Floor Cleaners",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Floor_cleaners_&_More_1706606384797",
-      "grouping_id": 11714
+      "grouping_id": 11714,
+      "local_path": "uploads/subcategory/cleaners_repellents__floor_cleaners.png"
     },
     {
       "name": "Cleaning Tools",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Cleaning_Tools_1706606418588",
-      "grouping_id": 11716
+      "grouping_id": 11716,
+      "local_path": "uploads/subcategory/cleaners_repellents__cleaning_tools.png"
     },
     {
       "name": "Garbage Bags",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_garbage_bags_1708078592630",
-      "grouping_id": 11718
+      "grouping_id": 11718,
+      "local_path": "uploads/subcategory/cleaners_repellents__garbage_bags.png"
     },
     {
       "name": "Glass, Metal Cleaners & Others",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Glass,_Metal_Cleaners_&_Others_1707915683822",
-      "grouping_id": 11721
+      "grouping_id": 11721,
+      "local_path": "uploads/subcategory/cleaners_repellents__glass_metal_cleaners_others.png"
     },
     {
       "name": "Shoe Care",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_396906_1712339927256",
-      "grouping_id": 36577
+      "grouping_id": 36577,
+      "local_path": "uploads/subcategory/cleaners_repellents__shoe_care.png"
     },
     {
       "name": "Machine & Car Care",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Machine_&_Car_Care_1706606591460",
-      "grouping_id": 11722
+      "grouping_id": 11722,
+      "local_path": "uploads/subcategory/cleaners_repellents__machine_car_care.png"
     },
     {
       "name": "Household Appliance Cleaners",
       "parent": "Cleaners & Repellents",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/254e7744-758d-4a7e-8959-d158a355cea7.",
-      "grouping_id": 628094
+      "grouping_id": 628094,
+      "local_path": "uploads/subcategory/cleaners_repellents__household_appliance_cleaners.png"
     },
     {
       "name": "Trimmers & Hair Appliances",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Trimmers_&_Hair_Appliances_1708423706838",
-      "grouping_id": 11728
+      "grouping_id": 11728,
+      "local_path": "uploads/subcategory/electronics__trimmers_hair_appliances.png"
     },
     {
       "name": "Earphones & Headsets",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_earphone_&_headset_1708078937142",
-      "grouping_id": 17702
+      "grouping_id": 17702,
+      "local_path": "uploads/subcategory/electronics__earphones_headsets.png"
     },
     {
       "name": "Speakers",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_speaker_1707915749295",
-      "grouping_id": 12249
+      "grouping_id": 12249,
+      "local_path": "uploads/subcategory/electronics__speakers.png"
     },
     {
       "name": "Mobile & Computer",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_mobile_&_computer_1707915787393",
-      "grouping_id": 11723
+      "grouping_id": 11723,
+      "local_path": "uploads/subcategory/electronics__mobile_computer.png"
     },
     {
       "name": "Decorative Lights",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_decorative_light_1708086225874",
-      "grouping_id": 11724
+      "grouping_id": 11724,
+      "local_path": "uploads/subcategory/electronics__decorative_lights.png"
     },
     {
       "name": "Chargers & Cables",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_V8_1722965341776",
-      "grouping_id": 98396
+      "grouping_id": 98396,
+      "local_path": "uploads/subcategory/electronics__chargers_cables.png"
     },
     {
       "name": "Smart Watches",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_smart_watches_1708086121135",
-      "grouping_id": 12250
+      "grouping_id": 12250,
+      "local_path": "uploads/subcategory/electronics__smart_watches.png"
     },
     {
       "name": "Kitchen Appliances",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/90cb0134-b478-4d33-ab56-3e00a695ce5b.",
-      "grouping_id": 628148
+      "grouping_id": 628148,
+      "local_path": "uploads/subcategory/electronics__kitchen_appliances.png"
     },
     {
       "name": "Laptop & Mobile Phones",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_596077_(1)_1748061728387",
-      "grouping_id": 349680
+      "grouping_id": 349680,
+      "local_path": "uploads/subcategory/electronics__laptop_mobile_phones.png"
     },
     {
       "name": "Batteries",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Electrical_Accessories_1706605624479",
-      "grouping_id": 12248
+      "grouping_id": 12248,
+      "local_path": "uploads/subcategory/electronics__batteries.png"
     },
     {
       "name": "Extension Cables & Accessories",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_extenshion_cables_1707915861119",
-      "grouping_id": 11726
+      "grouping_id": 11726,
+      "local_path": "uploads/subcategory/electronics__extension_cables_accessories.png"
     },
     {
       "name": "Home Appliances",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_home_appliances_1707915911870",
-      "grouping_id": 11727
+      "grouping_id": 11727,
+      "local_path": "uploads/subcategory/electronics__home_appliances.png"
     },
     {
       "name": "Music Instruments & Accessories",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Music_v8_1729793430102",
-      "grouping_id": 118329
+      "grouping_id": 118329,
+      "local_path": "uploads/subcategory/electronics__music_instruments_accessories.png"
     },
     {
       "name": "Electronics E-Card",
       "parent": "Electronics",
       "group": "Household Essentials",
       "icon_url": "http://cdn.grofers.com/app/images/category/cms_images/ff298719-0c03-4821-86f7-e5a8f1eba7eb.",
-      "grouping_id": 128506
+      "grouping_id": 128506,
+      "local_path": "uploads/subcategory/electronics__electronics_e_card.png"
     },
     {
       "name": "Notebooks & Diaries",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/1b24b883-9d29-431d-b9bd-2e78eb2f9e64.",
-      "grouping_id": 627397
+      "grouping_id": 627397,
+      "local_path": "uploads/subcategory/stationery_games__notebooks_diaries.png"
     },
     {
       "name": "Pens & Pencils",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/a6ce9c10-7b95-45ca-a180-7a643953c554.",
-      "grouping_id": 627401
+      "grouping_id": 627401,
+      "local_path": "uploads/subcategory/stationery_games__pens_pencils.png"
     },
     {
       "name": "Toys & Games",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_478905_V8_1718887546008",
-      "grouping_id": 12256
+      "grouping_id": 12256,
+      "local_path": "uploads/subcategory/stationery_games__toys_games.png"
     },
     {
       "name": "Glue & Tape",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_glue_&_tape_1707916019933",
-      "grouping_id": 11730
+      "grouping_id": 11730,
+      "local_path": "uploads/subcategory/stationery_games__glue_tape.png"
     },
     {
       "name": "Books & Magazines",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Books_&_Mag_(1)_1708326526426",
-      "grouping_id": 12254
+      "grouping_id": 12254,
+      "local_path": "uploads/subcategory/stationery_games__books_magazines.png"
     },
     {
       "name": "Bags & School Needs",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_School_Supplies_(3)_1708326907087",
-      "grouping_id": 12255
+      "grouping_id": 12255,
+      "local_path": "uploads/subcategory/stationery_games__bags_school_needs.png"
     },
     {
       "name": "Children's Books",
@@ -2331,37 +2646,42 @@
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/category/cms_images/25a86a4f-5bbb-48e4-8815-e4c6e16c9c6d.",
-      "grouping_id": 583269
+      "grouping_id": 583269,
+      "local_path": "uploads/subcategory/stationery_games__arts_crafts.png"
     },
     {
       "name": "Files & Office Needs",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_files_1707916258101",
-      "grouping_id": 12257
+      "grouping_id": 12257,
+      "local_path": "uploads/subcategory/stationery_games__files_office_needs.png"
     },
     {
       "name": "Gift Wraps & Bags",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_587999_(1)_1758691270843",
-      "grouping_id": 627415
+      "grouping_id": 627415,
+      "local_path": "uploads/subcategory/stationery_games__gift_wraps_bags.png"
     },
     {
       "name": "Sports & Gym",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_sports_&_gym_1708086405110",
-      "grouping_id": 11731
+      "grouping_id": 11731,
+      "local_path": "uploads/subcategory/stationery_games__sports_gym.png"
     },
     {
       "name": "Shoe Polish & Brush",
       "parent": "Stationery & Games",
       "group": "Household Essentials",
       "icon_url": "https://cdn.grofers.com/app/images/collections/groupings/grouping_asset_Shoe_Care_1706606094566",
-      "grouping_id": 11729
+      "grouping_id": 11729,
+      "local_path": "uploads/subcategory/stationery_games__shoe_polish_brush.png"
     }
   ],
-  "downloaded_categories": 0,
-  "downloaded_subcategories": 14
+  "downloaded_categories": 28,
+  "downloaded_subcategories": 306
 }
