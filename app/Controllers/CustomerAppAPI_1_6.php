@@ -1815,6 +1815,72 @@ class CustomerAppAPI_1_6 extends BaseController
                 return false;
             }
         }
+        // Dairy aisle: nut/chocolate spreads are NOT dairy (keyword "butter" trap)
+        if (preg_match('/dairy|bread|egg/i', $c)) {
+            if (preg_match('/peanut butter|almond butter|cashew butter|hazelnut butter|nut butter|nutella|chocolate spread|fruit spread|sandwich spread|jam\b|jelly\b/i', $p)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Sub-aisle keyword match when product_subcategories pivot is empty or stale.
+     */
+    private function productMatchesSubcategoryName(string $productName, string $subcategoryName, int $categoryId): bool
+    {
+        $p = mb_strtolower($productName);
+        $s = mb_strtolower($subcategoryName);
+        if ($s === '' || $s === 'all') {
+            return true;
+        }
+
+        if ($categoryId === 1) {
+            if (str_contains($s, 'fresh vegetable')) {
+                return (bool) preg_match('/\b(onion|potato|tomato|aloo|pyaz|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|beans|peas|mushroom|sweet corn|vegetable|brinjal|pumpkin|beetroot|radish|lauki|tori|karela)\b/i', $p);
+            }
+            if (str_contains($s, 'fresh fruit')) {
+                return (bool) preg_match('/\b(banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|pineapple|melon|pear|fruit|kela|seb|kinnow|muskmelon|sapota|chikoo)\b/i', $p)
+                    && !preg_match('/tomato|potato|onion|vegetable|bhindi|palak/i', $p);
+            }
+            if (str_contains($s, 'exotic')) {
+                return (bool) preg_match('/\b(avocado|broccoli|zucchini|dragon fruit|blueberry|raspberry|cherry tomato|bell pepper|asparagus|leek|exotic|kiwi)\b/i', $p);
+            }
+            if (str_contains($s, 'coriander') || str_contains($s, 'others')) {
+                return (bool) preg_match('/\b(coriander|dhania|mint|pudina|curry leaves|spring onion|green chilli|adrak|ginger|lehsun|garlic|methi|fenugreek)\b/i', $p);
+            }
+            if (str_contains($s, 'seasonal')) {
+                return (bool) preg_match('/\b(litchi|strawberry|sitaphal|custard apple|jamun|seasonal|cherry)\b/i', $p);
+            }
+            if (str_contains($s, 'frozen')) {
+                return (bool) preg_match('/frozen\s*veg|frozen vegetable/i', $p);
+            }
+        }
+
+        if ($categoryId === 2) {
+            if (preg_match('/peanut butter|almond butter|cashew butter|nut butter|nutella|chocolate spread/i', $p)) {
+                return false;
+            }
+            if (str_contains($s, 'milk')) {
+                return (bool) preg_match('/\b(milk|doodh|toned|full cream|double toned|skimmed)\b/i', $p) && !preg_match('/chocolate|shake/i', $p);
+            }
+            if (str_contains($s, 'bread') || str_contains($s, 'pav')) {
+                return (bool) preg_match('/\b(bread|pav|bun)\b/i', $p);
+            }
+            if (str_contains($s, 'egg')) {
+                return (bool) preg_match('/\b(egg|eggs)\b/i', $p);
+            }
+            if (str_contains($s, 'curd') || str_contains($s, 'yogurt')) {
+                return (bool) preg_match('/\b(curd|dahi|yogurt|yoghurt)\b/i', $p);
+            }
+            if (str_contains($s, 'cheese') || str_contains($s, 'butter')) {
+                return (bool) preg_match('/\b(cheese|(?<!(peanut|almond|cashew|nut|coco|hazelnut)\s)butter|ghee)\b/i', $p);
+            }
+            if (str_contains($s, 'paneer') || str_contains($s, 'tofu')) {
+                return (bool) preg_match('/\b(paneer|tofu)\b/i', $p);
+            }
+        }
+
         return true;
     }
 
@@ -2349,7 +2415,12 @@ class CustomerAppAPI_1_6 extends BaseController
         $subcategoryIdRequested = (int) ($dataInput['subcategory_id'] ?? 0);
         $subcategoryFilterActive    = $subcategoryIdRequested !== 0;
         $subcategoryProductIds      = [];
+        $subcategoryNameForFilter   = '';
         if ($subcategoryFilterActive) {
+            $subcategoryModel = new SubcategoryModel();
+            $subRow = $subcategoryModel->select('name')->where('id', $subcategoryIdRequested)->first();
+            $subcategoryNameForFilter = (string) ($subRow['name'] ?? '');
+
             $rawSubcategoryProductIds = array_column(
                 $productSubcategoryModel->select('product_id')->where('subcategory_id', $subcategoryIdRequested)->findAll(),
                 'product_id'
@@ -2359,6 +2430,21 @@ class CustomerAppAPI_1_6 extends BaseController
             $subcategoryProductIds = array_values(
                 array_intersect($primaryCategoryProductIds, $rawSubcategoryProductIds)
             );
+
+            // Keyword fallback when pivot is empty (common after recategorize wiped subcategories)
+            if (empty($subcategoryProductIds) && !empty($primaryCategoryProductIds) && $subcategoryNameForFilter !== '') {
+                $catIdInt = (int) $dataInput['category_id'];
+                $nameRows = $productModel->select('id, product_name')
+                    ->whereIn('id', $primaryCategoryProductIds)
+                    ->where('is_delete', 0)
+                    ->findAll();
+                foreach ($nameRows as $nr) {
+                    if ($this->productMatchesSubcategoryName((string) ($nr['product_name'] ?? ''), $subcategoryNameForFilter, $catIdInt)) {
+                        $subcategoryProductIds[] = (int) $nr['id'];
+                    }
+                }
+                $subcategoryProductIds = array_values(array_unique($subcategoryProductIds));
+            }
         }
 
         $brandIds = !empty($brands)
@@ -2377,7 +2463,8 @@ class CustomerAppAPI_1_6 extends BaseController
             $productIdsWithVariants,
             $primaryCategoryProductIds,
             $productIdsByCategory,
-            $subcategoryProductIds
+            $subcategoryProductIds,
+            $subcategoryFilterActive
         ) {
             $q = $productModel->where('is_delete', 0)
                 ->where('status', 1)
@@ -2389,7 +2476,11 @@ class CustomerAppAPI_1_6 extends BaseController
 
             $resolvedIds = $primaryCategoryProductIds;
 
-            if (!empty($subcategoryProductIds)) {
+            if ($subcategoryFilterActive) {
+                $resolvedIds = !empty($subcategoryProductIds)
+                    ? array_values(array_intersect($resolvedIds, $subcategoryProductIds))
+                    : [];
+            } elseif (!empty($subcategoryProductIds)) {
                 $resolvedIds = array_values(array_intersect($resolvedIds, $subcategoryProductIds));
             }
 
