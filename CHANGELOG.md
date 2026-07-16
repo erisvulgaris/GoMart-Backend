@@ -6,4 +6,6 @@
 - Removed emoji and box-icon fallbacks from the category tile UI.
 - Refined the purple home campaign hero, gold wallet treatment, and two-line product title previews.
 - Scoped legacy subcategory image matching to the correct Blinkit parent aisle and corrected ambiguous legacy labels.
+- Fixed first-load guest IDs and the “All” aisle product request so category pages show catalog items again.
+- Hid the global home header on trailing-slash category routes and enlarged category/subcategory tiles.
 - Verified the web unit suite (73 tests) and Next.js production build.

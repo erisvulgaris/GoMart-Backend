@@ -163,7 +163,7 @@ function classifySubcategoryId(string $name, int $categoryId, array $subIndex): 
         if (preg_match('/\b(lassi|buttermilk|chaas)\b/i', $n)) {
             return $pick('Lassi & More') ?: $pick('Curd & Yogurt') ?: $pick('All');
         }
-        if (preg_match('/\b(cheese|(?<!(peanut|almond|cashew|nut|coco|hazelnut)\s)butter|ghee)\b/i', $n)) {
+        if (preg_match('/\b(cheese|butter|ghee)\b/i', $n)) {
             return $pick('Cheese & Butter') ?: $pick('All');
         }
         return $pick('All');
