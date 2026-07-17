@@ -2,8 +2,6 @@
 vendor
 writable
 public/uploads/products
-public/uploads/category
-public/uploads/subcategory
 node_modules
 *.log
 *.zip
