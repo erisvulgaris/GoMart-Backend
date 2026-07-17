@@ -11,9 +11,6 @@ $routes->get('/firebase-messaging-sw.js', 'ServiceWorkerController::firebaseMess
 $routes->get('/init', 'AppInit::index');
 $routes->post('/init/process', 'AppInit::process');
 
-$routes->get('/dump_all_products_with_details', 'Home::dump_all_products_with_details');
-$routes->get('/SqlImport/index/(:any)', 'SqlImport::index/$1');
-
 $routes->get('/testSession', 'Test::testSession');
 
 
