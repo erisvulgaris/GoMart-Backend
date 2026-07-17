@@ -41,7 +41,7 @@ RUN composer install --no-dev --optimize-autoloader
 RUN dos2unix /var/www/html/entrypoint.sh && chmod +x /var/www/html/entrypoint.sh
 
 # Set permissions for writable and uploads directories
-RUN mkdir -p /var/www/html/public/uploads && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads
+RUN mkdir -p /var/www/html/public/uploads /var/www/html/writable && chown -R www-data:www-data /var/www/html/writable /var/www/html/public/uploads
 
 
 EXPOSE 80

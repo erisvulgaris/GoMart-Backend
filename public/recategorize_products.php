@@ -73,7 +73,7 @@ function classify(string $name): array
         // 9 Meat / eggs / fish
         [9, 0, '/chicken|mutton|fish|prawn|seafood|keema|sausage|salami|egg white liquid|raw chicken|boneless/'],
         // 1 Produce (Vegetables & Fruits) — include common Blinkit-style "Fresh …" titles
-        [1, 0, '/\\b(fresh\\s+)?(onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruits?|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon|broccoli|zucchini|avocado)s?\\b/i'],
+        [1, 0, '/\\b(fresh\\s+)?(onion|potato|tomato|aloo|pyaz|tamatar|ginger|garlic|adrak|lehsun|spinach|palak|bhindi|cabbage|cauliflower|carrot|cucumber|capsicum|lemon|banana|apple|mango|orange|grapes|papaya|watermelon|guava|pomegranate|coriander|mint|chilli|vegetable|fruits?|kela|seb|fresh green|beans|peas|mushroom|sweet corn|coconut|pineapple|kiwi|melon|broccoli|zucchini|avocado|strawberry|blueberry|raspberry|blackberry|pear|plum|peach|cherry|litchi|dragon fruit|custard apple|sitaphal|jamun|methi|fenugreek|curry leaves|lauki|tori|karela|brinjal|eggplant|radish|beetroot|sweet potato|yam|gourd|sprout)s?\\b/i'],
     ];
 
     foreach ($rules as [$cat, $sub, $pat]) {
