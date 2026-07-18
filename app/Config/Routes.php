@@ -12,6 +12,7 @@ $routes->get('/init', 'AppInit::index');
 $routes->post('/init/process', 'AppInit::process');
 
 $routes->get('/testSession', 'Test::testSession');
+$routes->get('/databasePatch', 'DatabasePatch::index');
 
 
 ///////////////////// seller Panel routes //////////////////////
