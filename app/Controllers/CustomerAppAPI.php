@@ -70,15 +70,19 @@ class CustomerAppAPI extends BaseController
     private function generateToken($data, $type = "email")
     {
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
+        $issuedAt = time();
+        $expirationTime = $issuedAt + (30 * 24 * 60 * 60); // 30 days expiration
         if ($type == 'email') {
             $payload = json_encode([
                 'email' => $data,
-                'iat' => time() // Issued at time
+                'iat' => $issuedAt, // Issued at time
+                'exp' => $expirationTime // Expiration time
             ]);
         } else {
             $payload = json_encode([
                 'mobile' => $data,
-                'iat' => time() // Issued at time
+                'iat' => $issuedAt, // Issued at time
+                'exp' => $expirationTime // Expiration time
             ]);
         }
 
@@ -112,6 +116,11 @@ class CustomerAppAPI extends BaseController
 
         // Decode payload
         $payload = json_decode(base64_decode($base64UrlPayload), true);
+
+        // Validate expiration
+        if (isset($payload['exp']) && time() > $payload['exp']) {
+            return false; // Token expired
+        }
 
         return $payload; // Return decoded payload if valid
     }

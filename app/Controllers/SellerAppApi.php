@@ -160,9 +160,12 @@ class SellerAppApi extends BaseController
     private function generateToken($deliveryMobile)
     {
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
+        $issuedAt = time();
+        $expirationTime = $issuedAt + (30 * 24 * 60 * 60); // 30 days expiration
         $payload = json_encode([
             'email' => $deliveryMobile,
-            'iat' => time() // Issued at time
+            'iat' => $issuedAt, // Issued at time
+            'exp' => $expirationTime // Expiration time
         ]);
 
         // Base64 encode header and payload
@@ -195,6 +198,11 @@ class SellerAppApi extends BaseController
 
         // Decode payload
         $payload = json_decode(base64_decode($base64UrlPayload), true);
+
+        // Validate expiration
+        if (isset($payload['exp']) && time() > $payload['exp']) {
+            return false; // Token expired
+        }
 
         return $payload; // Return decoded payload if valid
     }
