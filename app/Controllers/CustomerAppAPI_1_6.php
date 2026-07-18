@@ -4675,6 +4675,8 @@ class CustomerAppAPI_1_6 extends BaseController
             "ref_code" => $user['ref_code'],
             "created_at" => $user['created_at'],
             "login_type" => $user['login_type'],
+            "wallet" => $user['wallet'],
+            "balance" => $user['wallet'],
         ];
         return $this->response->setJSON(['status' => 'success', 'data' => $output]);
     }
@@ -7116,7 +7118,7 @@ class CustomerAppAPI_1_6 extends BaseController
             $timeslot = null;
         }
 
-        $paymentMethode = isset($selectedPaymentMethod) ? 1 : 0;
+        $paymentMethode = isset($selectedPaymentMethod) ? (int)$selectedPaymentMethod : 1;
 
         // Check minimum order amount
         $remainingAmount = $this->settings['minimum_order_amount'] - ($subTotal + $taxTotal);
