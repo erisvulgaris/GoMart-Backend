@@ -71,15 +71,22 @@ class CartSummery
         return [$subTotal, $taxTotal, $discountedPricesaving];
     }
 
-    function calculateDeliveryChargeForAddress($userId, $subTotal)
+    function calculateDeliveryChargeForAddress($userId, $subTotal, $addressId = null)
     {
         $geoUtils = new GeoUtils();
 
         $addressModel = new AddressModel();
-        $address = $addressModel->where('user_id', $userId)
-            ->where('status', 1)
-            ->where('is_delete', 0)
-            ->first();
+        if ($addressId && (int)$addressId > 0) {
+            $address = $addressModel->where('user_id', $userId)
+                ->where('id', $addressId)
+                ->where('is_delete', 0)
+                ->first();
+        } else {
+            $address = $addressModel->where('user_id', $userId)
+                ->where('status', 1)
+                ->where('is_delete', 0)
+                ->first();
+        }
 
         $cartsModel = new CartsModel();
         $productModel = new ProductModel();

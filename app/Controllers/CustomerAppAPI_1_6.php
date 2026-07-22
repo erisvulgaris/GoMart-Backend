@@ -6480,7 +6480,8 @@ class CustomerAppAPI_1_6 extends BaseController
             $additional_charge_name = $this->settings['additional_charge_name'];
             $additional_charge = $this->settings['additional_charge'];
         }
-        $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal);
+        $addressId = isset($dataInput['address_id']) ? (int)$dataInput['address_id'] : null;
+        $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal, $addressId);
 
         // Delivery charge tax preview (calculated on the fly, same logic as saveDeliveryChargeTaxes)
         $deliveryChargeTaxBreakdown = [];
@@ -7072,7 +7073,7 @@ class CustomerAppAPI_1_6 extends BaseController
                 }
             }
         }
-        $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal);
+        $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal, $address['id']);
         $deliveryCharge = $deliveryDetails['deliveryCharge'];
 
         // Calculate coupon
@@ -7535,10 +7536,17 @@ class CustomerAppAPI_1_6 extends BaseController
                 'message' => 'User not found'
             ]);
         }
-        $address = $addressModel->where('user_id', $user['id'])
-            ->where('is_delete', 0)
-            ->where('status', 1)
-            ->first();
+        // Get address
+        if (isset($dataInput['address_id']) && (int)$dataInput['address_id'] > 0) {
+            $address = $addressModel->where('id', $dataInput['address_id'])
+                ->where('user_id', $user['id'])
+                ->first();
+        } else {
+            $address = $addressModel->where('user_id', $user['id'])
+                ->where('is_delete', 0)
+                ->where('status', 1)
+                ->first();
+        }
 
         if (!$address) {
             return $this->response->setJSON([
@@ -7597,7 +7605,7 @@ class CustomerAppAPI_1_6 extends BaseController
             }
         }
 
-        $deliveryDetails = $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal);
+        $deliveryDetails = $cartSummery->calculateDeliveryChargeForAddress($user['id'], $subTotal, $address['id']);
         $deliveryCharge = $deliveryDetails['deliveryCharge'];
 
         $coupon_amount = 0;
